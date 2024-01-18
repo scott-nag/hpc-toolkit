@@ -88,6 +88,10 @@ echo '2' | update-alternatives --config python3
 gsutil cp "gs://${config_bucket}/webserver/config" /tmp/config
 gsutil rm "gs://${config_bucket}/webserver/config"
 
+# Copy the credential.json file to a different location
+gsutil cp "gs://${config_bucket}/webserver/credential.json" /tmp/credential.json
+gsutil rm "gs://${config_bucket}/webserver/credential.json"
+
 # Load configurations
 #
 DJANGO_USERNAME=$(/usr/local/bin/yq e '.django_username' /tmp/config)
@@ -213,6 +217,7 @@ sudo su - gcluster -c /bin/bash <<EOF
   printf "\nSet up static contents..."
   python manage.py collectstatic
   python manage.py seed_workbench_presets
+  python manage.py seed_gcp_credential
   popd
 
   printf "\nUpdating nginx config...\n"

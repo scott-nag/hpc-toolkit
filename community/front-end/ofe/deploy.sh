@@ -482,11 +482,16 @@ create_service_account() {
 			echo "Exiting."
 			exit 1
 		fi
+
+		# Copy credential file to VMs bucket directory
+		cp "${credfile}" "${SCRIPT_DIR}/infrastructure_files/gcs_bucket/webserver"
+
 		echo "    Credential written to:"
 		echo "      ${credfile}"
 		echo ""
-		echo "    You will need to register the contents of this file as a credential to the"
-		echo "    FrontEnd once it is running."
+		echo "    It will be used as the 'default' credential in the front-end but feel"
+		echo "    free to keep a note of its contents for your purposes."
+		echo ""
 	fi
 }
 
@@ -820,8 +825,8 @@ ADMIN
     deployed by the FrontEnd within this project.
 
     If requested, a service account will be created and the new credential is
-    written to a file, which needs to be registered to the FrontEnd once
-    running.
+    added to the Front End. This credential is also stored locally within the
+	'credential.json' file if you wish to make a note of it.
 
     Alternatively, service accounts and credentials can be created manually
     via the GCP Console or gcloud CLI.  Multiple credentials can then be
