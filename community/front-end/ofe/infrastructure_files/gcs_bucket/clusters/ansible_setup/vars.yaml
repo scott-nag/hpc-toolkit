@@ -14,3 +14,4 @@
 
 ---
 spack_dir: "{{ ansible_local.ghpcfe.config.spack_dir }}"
+enable_spack: "{{ ansible_local.ghpcfe.config.enable_spack }}"

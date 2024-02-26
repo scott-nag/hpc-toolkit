@@ -16,6 +16,9 @@
 # shellcheck disable=SC1083
 BUCKET={{ server_bucket }}
 CLUSTER_ID={{ cluster.id }}
+SPACK_DIR={{ spack_dir }}
+ENABLE_SPACK={{ cluster.enable_spack }}
+ENABLE_NGC={{ cluster.enable_ngc_containers }}
 
 echo "This is the startup script for the controller on cluster ${CLUSTER_ID}"
 
@@ -42,9 +45,11 @@ cat >/etc/ansible/facts.d/ghpcfe.fact <<EOF
 [config]
 cluster_id=${CLUSTER_ID}
 cluster_bucket=${BUCKET}
-spack_dir={{ spack_dir }}
+spack_dir=${SPACK_DIR}
 fec2_subscription={{ fec2_subscription }}
 fec2_topic={{ fec2_topic }}
+enable_spack=${ENABLE_SPACK}
+enable_ngc=${ENABLE_NGC}
 EOF
 
 exec ansible-playbook ./controller.yaml
