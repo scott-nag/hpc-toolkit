@@ -49,7 +49,7 @@ spack_dir=${SPACK_DIR}
 fec2_subscription={{ fec2_subscription }}
 fec2_topic={{ fec2_topic }}
 enable_spack=${ENABLE_SPACK}
-enable_ngc=${ENABLE_NGC}
+enable_ngc_containers=${ENABLE_NGC}
 EOF
 
 exec ansible-playbook ./controller.yaml

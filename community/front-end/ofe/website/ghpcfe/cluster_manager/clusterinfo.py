@@ -429,6 +429,11 @@ deployment_groups:
         - https://www.googleapis.com/auth/logging.write
         - https://www.googleapis.com/auth/devstorage.read_write
         - https://www.googleapis.com/auth/pubsub
+      #Changes to login_startup_scripts_timeout (default: 300s) are not respected,
+      #this is a known issue that will be fixed in a later release
+      #login_startup_scripts_timeout: 0
+      compute_startup_scripts_timeout: 900
+      controller_startup_scripts_timeout: 900
       controller_startup_script: |
         #!/bin/bash
         echo "******************************************** CALLING CONTROLLER STARTUP"

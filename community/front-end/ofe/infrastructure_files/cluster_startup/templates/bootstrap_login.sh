@@ -47,7 +47,7 @@ cluster_id=${CLUSTER_ID}
 cluster_bucket=${BUCKET}
 spack_dir=${SPACK_DIR}
 enable_spack=${ENABLE_SPACK}
-enable_ngc=${ENABLE_NGC}
+enable_ngc_containers=${ENABLE_NGC}
 EOF
 
 exec ansible-playbook ./login.yaml
