@@ -73,8 +73,8 @@
     mode: '0755'
     force: yes
 
-- name: Reconfigure and restart Slurm to apply changes
-  ansible.builtin.shell: "{{ item }}"
-  with_items:
-    - scontrol reconfigure
-    - systemctl restart slurmd
+#- name: Reconfigure and restart Slurm to apply changes
+#  ansible.builtin.shell: "{{ item }}"
+#  with_items:
+#    - scontrol reconfigure
+#    - systemctl restart slurmd
