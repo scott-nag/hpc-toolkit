@@ -1,0 +1,75 @@
+
+Initializing the backend...
+Initializing modules...
+- hpc_network in modules/embedded/modules/network/pre-existing-vpc
+- hpc_service_account in modules/embedded/community/modules/project/service-account
+Downloading registry.terraform.io/terraform-google-modules/service-accounts/google 4.2.2 for hpc_service_account.service_account...
+- hpc_service_account.service_account in .terraform/modules/hpc_service_account.service_account
+- mount_num_0 in modules/embedded/modules/file-system/pre-existing-network-storage
+- mount_num_1 in modules/embedded/modules/file-system/pre-existing-network-storage
+- partition_0 in modules/embedded/community/modules/compute/schedmd-slurm-gcp-v5-partition
+Downloading git::https://github.com/GoogleCloudPlatform/slurm-gcp.git?ref=5.10.2 for partition_0.slurm_partition...
+- partition_0.slurm_partition in .terraform/modules/partition_0.slurm_partition/terraform/slurm_cluster/modules/slurm_partition
+- partition_0.slurm_partition.reconfigure_critical in .terraform/modules/partition_0.slurm_partition/terraform/slurm_cluster/modules/slurm_destroy_nodes
+- partition_0.slurm_partition.reconfigure_node_groups in .terraform/modules/partition_0.slurm_partition/terraform/slurm_cluster/modules/slurm_destroy_nodes
+- partition_0.slurm_partition.reconfigure_placement_groups in .terraform/modules/partition_0.slurm_partition/terraform/slurm_cluster/modules/slurm_destroy_resource_policies
+- partition_0.slurm_partition.slurm_compute_template in .terraform/modules/partition_0.slurm_partition/terraform/slurm_cluster/modules/slurm_instance_template
+Downloading git::https://github.com/terraform-google-modules/terraform-google-vm.git?ref=84fbd1f for partition_0.slurm_partition.slurm_compute_template.instance_template...
+- partition_0.slurm_partition.slurm_compute_template.instance_template in .terraform/modules/partition_0.slurm_partition.slurm_compute_template.instance_template/modules/instance_template
+- partition_0-group in modules/embedded/community/modules/compute/schedmd-slurm-gcp-v5-node-group
+- slurm_controller in modules/embedded/community/modules/scheduler/schedmd-slurm-gcp-v5-controller
+Downloading git::https://github.com/GoogleCloudPlatform/slurm-gcp.git?ref=5.10.2 for slurm_controller.slurm_controller_instance...
+- slurm_controller.slurm_controller_instance in .terraform/modules/slurm_controller.slurm_controller_instance/terraform/slurm_cluster/modules/slurm_controller_instance
+- slurm_controller.slurm_controller_instance.cleanup_compute_nodes in .terraform/modules/slurm_controller.slurm_controller_instance/terraform/slurm_cluster/modules/slurm_destroy_nodes
+- slurm_controller.slurm_controller_instance.cleanup_resource_policies in .terraform/modules/slurm_controller.slurm_controller_instance/terraform/slurm_cluster/modules/slurm_destroy_resource_policies
+- slurm_controller.slurm_controller_instance.cleanup_subscriptions in .terraform/modules/slurm_controller.slurm_controller_instance/terraform/slurm_cluster/modules/slurm_destroy_subscriptions
+- slurm_controller.slurm_controller_instance.devel_notify in .terraform/modules/slurm_controller.slurm_controller_instance/terraform/slurm_cluster/modules/slurm_notify_cluster
+- slurm_controller.slurm_controller_instance.reconfigure_critical in .terraform/modules/slurm_controller.slurm_controller_instance/terraform/slurm_cluster/modules/slurm_destroy_nodes
+- slurm_controller.slurm_controller_instance.reconfigure_notify in .terraform/modules/slurm_controller.slurm_controller_instance/terraform/slurm_cluster/modules/slurm_notify_cluster
+- slurm_controller.slurm_controller_instance.reconfigure_partitions in .terraform/modules/slurm_controller.slurm_controller_instance/terraform/slurm_cluster/modules/slurm_destroy_nodes
+- slurm_controller.slurm_controller_instance.slurm_controller_instance in .terraform/modules/slurm_controller.slurm_controller_instance/terraform/slurm_cluster/modules/_slurm_instance
+- slurm_controller.slurm_controller_instance.slurm_metadata_devel in .terraform/modules/slurm_controller.slurm_controller_instance/terraform/slurm_cluster/modules/_slurm_metadata_devel
+Downloading git::https://github.com/GoogleCloudPlatform/slurm-gcp.git?ref=5.10.2 for slurm_controller.slurm_controller_template...
+- slurm_controller.slurm_controller_template in .terraform/modules/slurm_controller.slurm_controller_template/terraform/slurm_cluster/modules/slurm_instance_template
+Downloading git::https://github.com/terraform-google-modules/terraform-google-vm.git?ref=84fbd1f for slurm_controller.slurm_controller_template.instance_template...
+- slurm_controller.slurm_controller_template.instance_template in .terraform/modules/slurm_controller.slurm_controller_template.instance_template/modules/instance_template
+- slurm_login in modules/embedded/community/modules/scheduler/schedmd-slurm-gcp-v5-login
+Downloading git::https://github.com/GoogleCloudPlatform/slurm-gcp.git?ref=5.10.2 for slurm_login.slurm_login_instance...
+- slurm_login.slurm_login_instance in .terraform/modules/slurm_login.slurm_login_instance/terraform/slurm_cluster/modules/slurm_login_instance
+- slurm_login.slurm_login_instance.slurm_login_instance in .terraform/modules/slurm_login.slurm_login_instance/terraform/slurm_cluster/modules/_slurm_instance
+Downloading git::https://github.com/GoogleCloudPlatform/slurm-gcp.git?ref=5.10.2 for slurm_login.slurm_login_template...
+- slurm_login.slurm_login_template in .terraform/modules/slurm_login.slurm_login_template/terraform/slurm_cluster/modules/slurm_instance_template
+Downloading git::https://github.com/terraform-google-modules/terraform-google-vm.git?ref=84fbd1f for slurm_login.slurm_login_template.instance_template...
+- slurm_login.slurm_login_template.instance_template in .terraform/modules/slurm_login.slurm_login_template.instance_template/modules/instance_template
+
+Initializing provider plugins...
+- Finding hashicorp/google-beta versions matching "~> 4.84.0"...
+- Finding hashicorp/google versions matching ">= 3.43.0, >= 3.53.0, >= 3.83.0, >= 4.67.0, ~> 4.84.0, < 5.0.0, < 6.0.0"...
+- Finding hashicorp/null versions matching "~> 3.0"...
+- Finding hashicorp/local versions matching "~> 2.0"...
+- Finding hashicorp/random versions matching "~> 3.0"...
+- Installing hashicorp/random v3.6.0...
+- Installed hashicorp/random v3.6.0 (signed by HashiCorp)
+- Installing hashicorp/google-beta v4.84.0...
+- Installed hashicorp/google-beta v4.84.0 (signed by HashiCorp)
+- Installing hashicorp/google v4.84.0...
+- Installed hashicorp/google v4.84.0 (signed by HashiCorp)
+- Installing hashicorp/null v3.2.2...
+- Installed hashicorp/null v3.2.2 (signed by HashiCorp)
+- Installing hashicorp/local v2.4.1...
+- Installed hashicorp/local v2.4.1 (signed by HashiCorp)
+
+Terraform has created a lock file .terraform.lock.hcl to record the provider
+selections it made above. Include this file in your version control repository
+so that Terraform can guarantee to make the same selections by default when
+you run "terraform init" in the future.
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.

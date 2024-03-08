@@ -1,0 +1,38 @@
+validator "test_module_not_used" failed:
+Error: module "partition_0" uses module "hpc_network", but matching setting and outputs were not found. This may be because the value is set explicitly or set by a prior used module
+75:     - hpc_network
+          ^
+Error: module "partition_0-group" uses module "hpc_network", but matching setting and outputs were not found. This may be because the value is set explicitly or set by a prior used module
+86:     - hpc_network
+          ^
+Error: module "partition_0-group" uses module "mount_num_0", but matching setting and outputs were not found. This may be because the value is set explicitly or set by a prior used module
+87:     - mount_num_0
+          ^
+Error: module "partition_0-group" uses module "mount_num_1", but matching setting and outputs were not found. This may be because the value is set explicitly or set by a prior used module
+88:     - mount_num_1
+          ^
+Error: module "slurm_login" uses module "mount_num_0", but matching setting and outputs were not found. This may be because the value is set explicitly or set by a prior used module
+166:     - mount_num_0
+           ^
+Error: module "slurm_login" uses module "mount_num_1", but matching setting and outputs were not found. This may be because the value is set explicitly or set by a prior used module
+167:     - mount_num_1
+           ^
+
+
+validator "test_project_exists" failed:
+Error: project ID eimantask-personal-project does not exist or your credentials do not have permission to access it
+
+
+One or more blueprint validators has failed. See messages above for suggested
+actions. General troubleshooting guidance and instructions for configuring
+validators are shown below.
+
+- https://goo.gle/hpc-toolkit-troubleshooting
+- https://goo.gle/hpc-toolkit-validation
+
+Validators can be silenced or treated as warnings or errors:
+
+- https://goo.gle/hpc-toolkit-validation-levels
+
+Validation failures were treated as a warning, continuing to create blueprint.
+

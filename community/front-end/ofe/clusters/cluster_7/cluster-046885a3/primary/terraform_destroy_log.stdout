@@ -1,0 +1,2214 @@
+module.slurm_login.module.slurm_login_instance.random_string.suffix: Refreshing state... [id=x5aqsoyt]
+module.slurm_controller.module.slurm_controller_instance.random_string.topic_suffix: Refreshing state... [id=WTu28BuY]
+module.slurm_controller.module.slurm_controller_instance.random_uuid.cluster_id: Refreshing state... [id=9d4addc8-26e4-8899-5a8e-2a766aa05b68]
+module.slurm_login.module.slurm_login_template.data.local_file.startup: Reading...
+module.slurm_controller.module.slurm_controller_template.data.local_file.startup: Reading...
+module.slurm_controller.module.slurm_controller_instance.module.cleanup_subscriptions[0].data.local_file.destroy_subscriptions: Reading...
+module.slurm_controller.module.slurm_controller_instance.data.local_file.cgroup_conf_tpl: Reading...
+module.slurm_controller.module.slurm_controller_instance.data.local_file.slurm_conf_tpl: Reading...
+module.slurm_login.module.slurm_login_template.data.local_file.startup: Read complete after 1s [id=88f00230a444d6dcbdafde1b1fe118effdccc8b7]
+module.slurm_controller.module.slurm_controller_instance.data.local_file.slurm_conf_tpl: Read complete after 1s [id=c96fdbdd36600006a3bc33db33fd9a2f356ac215]
+module.slurm_controller.module.slurm_controller_instance.module.cleanup_subscriptions[0].data.local_file.destroy_subscriptions: Read complete after 1s [id=683606ea186658dd74ff9c27bfce60a3d555df8f]
+module.slurm_controller.module.slurm_controller_instance.data.local_file.slurmdbd_conf_tpl: Reading...
+module.slurm_controller.module.slurm_controller_template.data.local_file.startup: Read complete after 1s [id=88f00230a444d6dcbdafde1b1fe118effdccc8b7]
+module.partition_0.module.slurm_partition.module.reconfigure_placement_groups[0].data.local_file.destroy_resource_policies: Reading...
+module.slurm_controller.module.slurm_controller_instance.data.local_file.cgroup_conf_tpl: Read complete after 1s [id=fe856d7ed3738c1cc82a2e7bca11f65de71f1e3b]
+module.slurm_controller.module.slurm_controller_instance.module.reconfigure_critical[0].data.local_file.destroy_nodes: Reading...
+module.slurm_controller.module.slurm_controller_instance.module.cleanup_subscriptions[0].null_resource.destroy_subscriptions_on_destroy[0]: Refreshing state... [id=1497888407346476055]
+module.partition_0.module.slurm_partition.module.reconfigure_placement_groups[0].data.local_file.destroy_resource_policies: Read complete after 0s [id=17f4a9a5082fa2f97904ecf42ed58b42a8e8ddb1]
+module.slurm_controller.module.slurm_controller_instance.module.reconfigure_critical[0].data.local_file.destroy_nodes: Read complete after 0s [id=98a2faef60120e7350ccb2ba9e85cd22839e907d]
+module.slurm_controller.module.slurm_controller_instance.data.local_file.slurmdbd_conf_tpl: Read complete after 0s [id=45039ec29ef691f55da128333837adcb28bd19a0]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.controller_startup_scripts["ghpc_startup_sh"]: Refreshing state... [id=cluster046-slurm-controller-script-ghpc_startup_sh]
+module.slurm_login.module.slurm_login_instance.google_compute_project_metadata_item.login_startup_scripts["ghpc_startup_sh"]: Refreshing state... [id=cluster046-slurm-login_x5aqsoyt-script-ghpc_startup_sh]
+module.slurm_login.data.google_compute_image.slurm: Reading...
+module.slurm_controller.data.google_compute_image.slurm: Reading...
+module.partition_0.data.google_compute_zones.available: Reading...
+module.partition_0.module.slurm_partition.data.google_compute_subnetwork.partition_subnetwork: Reading...
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.slurm_conf: Refreshing state... [id=cluster046-slurm-tpl-slurm-conf]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.slurmdbd_conf: Refreshing state... [id=cluster046-slurm-tpl-slurmdbd-conf]
+module.hpc_network.data.google_compute_network.vpc: Reading...
+module.slurm_controller.module.slurm_controller_instance.google_pubsub_schema.this[0]: Refreshing state... [id=projects/eimantask-personal-project/schemas/cluster046-slurm-events]
+module.slurm_controller.data.google_compute_default_service_account.default: Reading...
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.cgroup_conf: Refreshing state... [id=cluster046-slurm-tpl-cgroup-conf]
+module.slurm_login.data.google_compute_default_service_account.default: Reading...
+module.hpc_network.data.google_compute_network.vpc: Read complete after 0s [id=projects/eimantask-personal-project/global/networks/legible-polliwog-network]
+module.hpc_service_account.module.service_account.google_service_account.service_accounts["sa"]: Refreshing state... [id=projects/eimantask-personal-project/serviceAccounts/cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.partition_0.module.slurm_partition.google_compute_project_metadata_item.partition_startup_scripts["ghpc_startup_sh"]: Refreshing state... [id=cluster046-slurm-partition-batch-script-ghpc_startup_sh]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.compute_startup_scripts["ghpc_startup_sh"]: Refreshing state... [id=cluster046-slurm-compute-script-ghpc_startup_sh]
+module.slurm_login.data.google_compute_image.slurm: Read complete after 0s [id=projects/schedmd-slurm-public/global/images/slurm-gcp-5-10-hpc-centos-7-1707957594]
+module.partition_0-group.data.google_compute_default_service_account.default: Reading...
+module.partition_0.data.google_compute_zones.available: Read complete after 0s [id=projects/eimantask-personal-project/regions/us-east1]
+module.slurm_controller.data.google_compute_image.slurm: Read complete after 0s [id=projects/schedmd-slurm-public/global/images/slurm-gcp-5-10-hpc-centos-7-1707957594]
+module.hpc_network.data.google_compute_subnetwork.primary_subnetwork: Reading...
+module.partition_0-group.data.google_compute_image.slurm: Reading...
+module.slurm_controller.module.slurm_controller_instance.google_pubsub_topic.this[0]: Refreshing state... [id=projects/eimantask-personal-project/topics/cluster046-slurm-events-WTu28BuY]
+module.hpc_network.data.google_compute_subnetwork.primary_subnetwork: Read complete after 0s [id=projects/eimantask-personal-project/regions/us-east1/subnetworks/legible-polliwog-subnet-2]
+module.slurm_login.module.slurm_login_instance.module.slurm_login_instance.data.local_file.startup: Reading...
+module.slurm_login.module.slurm_login_instance.module.slurm_login_instance.data.google_compute_zones.available: Reading...
+module.slurm_login.module.slurm_login_instance.module.slurm_login_instance.data.local_file.startup: Read complete after 0s [id=88f00230a444d6dcbdafde1b1fe118effdccc8b7]
+module.slurm_controller.module.slurm_controller_instance.module.slurm_controller_instance.data.local_file.startup: Reading...
+module.slurm_controller.module.slurm_controller_instance.module.slurm_controller_instance.data.local_file.startup: Read complete after 0s [id=88f00230a444d6dcbdafde1b1fe118effdccc8b7]
+module.partition_0.module.slurm_partition.module.reconfigure_critical[0].data.local_file.destroy_nodes: Reading...
+module.partition_0.module.slurm_partition.module.reconfigure_critical[0].data.local_file.destroy_nodes: Read complete after 0s [id=98a2faef60120e7350ccb2ba9e85cd22839e907d]
+module.slurm_controller.module.slurm_controller_instance.module.slurm_controller_instance.data.google_compute_zones.available: Reading...
+module.partition_0.module.slurm_partition.data.google_compute_subnetwork.partition_subnetwork: Read complete after 0s [id=projects/eimantask-personal-project/regions/us-east1/subnetworks/legible-polliwog-subnet-2]
+module.slurm_controller.module.slurm_controller_instance.module.slurm_controller_instance.google_pubsub_subscription.pull_subscriptions[0]: Refreshing state... [id=projects/eimantask-personal-project/subscriptions/cluster046-controller]
+module.slurm_login.module.slurm_login_instance.module.slurm_login_instance.google_pubsub_subscription.pull_subscriptions[0]: Refreshing state... [id=projects/eimantask-personal-project/subscriptions/cluster046-login-x5aqsoyt-001]
+module.partition_0-group.data.google_compute_image.slurm: Read complete after 0s [id=projects/schedmd-slurm-public/global/images/slurm-gcp-5-10-hpc-centos-7-1707957594]
+module.slurm_login.module.slurm_login_instance.module.slurm_login_instance.data.google_compute_zones.available: Read complete after 0s [id=projects/eimantask-personal-project/regions/us-east1]
+module.slurm_controller.data.google_compute_default_service_account.default: Read complete after 0s [id=projects/eimantask-personal-project/serviceAccounts/260846834422-compute@developer.gserviceaccount.com]
+module.slurm_controller.module.slurm_controller_instance.module.slurm_controller_instance.data.google_compute_zones.available: Read complete after 0s [id=projects/eimantask-personal-project/regions/us-east1]
+module.slurm_login.data.google_compute_default_service_account.default: Read complete after 0s [id=projects/eimantask-personal-project/serviceAccounts/260846834422-compute@developer.gserviceaccount.com]
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/monitoring.metricWriter"]: Refreshing state... [id=eimantask-personal-project/roles/monitoring.metricWriter/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/resourcemanager.projectIamAdmin"]: Refreshing state... [id=eimantask-personal-project/roles/resourcemanager.projectIamAdmin/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/compute.securityAdmin"]: Refreshing state... [id=eimantask-personal-project/roles/compute.securityAdmin/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/iam.serviceAccountAdmin"]: Refreshing state... [id=eimantask-personal-project/roles/iam.serviceAccountAdmin/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/pubsub.admin"]: Refreshing state... [id=eimantask-personal-project/roles/pubsub.admin/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/storage.objectAdmin"]: Refreshing state... [id=eimantask-personal-project/roles/storage.objectAdmin/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/compute.instanceAdmin.v1"]: Refreshing state... [id=eimantask-personal-project/roles/compute.instanceAdmin.v1/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/logging.logWriter"]: Refreshing state... [id=eimantask-personal-project/roles/logging.logWriter/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/compute.networkAdmin"]: Refreshing state... [id=eimantask-personal-project/roles/compute.networkAdmin/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/iam.serviceAccountUser"]: Refreshing state... [id=eimantask-personal-project/roles/iam.serviceAccountUser/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.partition_0-group.data.google_compute_default_service_account.default: Read complete after 1s [id=projects/eimantask-personal-project/serviceAccounts/260846834422-compute@developer.gserviceaccount.com]
+module.partition_0.module.slurm_partition.module.slurm_compute_template["ghpc"].data.local_file.startup: Reading...
+module.partition_0.module.slurm_partition.module.slurm_compute_template["ghpc"].data.local_file.startup: Read complete after 0s [id=88f00230a444d6dcbdafde1b1fe118effdccc8b7]
+module.partition_0.module.slurm_partition.module.slurm_compute_template["ghpc"].module.instance_template.google_compute_instance_template.tpl: Refreshing state... [id=projects/eimantask-personal-project/global/instanceTemplates/cluster046-compute-batch-ghpc-20240308095739680500000001]
+module.partition_0.module.slurm_partition.data.google_compute_instance_template.group_template["ghpc"]: Reading...
+module.partition_0.module.slurm_partition.data.google_compute_instance_template.group_template["ghpc"]: Read complete after 0s [id=projects/eimantask-personal-project/global/instanceTemplates/https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/global/instanceTemplates/cluster046-compute-batch-ghpc-20240308095739680500000001]
+module.partition_0.module.slurm_partition.null_resource.partition: Refreshing state... [id=5569231588619603831]
+module.partition_0.module.slurm_partition.module.reconfigure_critical[0].null_resource.destroy_nodes_on_create[0]: Refreshing state... [id=2053133343504039332]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.config: Refreshing state... [id=cluster046-slurm-config]
+module.partition_0.module.slurm_partition.module.reconfigure_placement_groups[0].null_resource.destroy_resource_policies_on_create[0]: Refreshing state... [id=2304768098085504411]
+module.partition_0.module.slurm_partition.module.reconfigure_node_groups["ghpc"].data.local_file.destroy_nodes: Reading...
+module.partition_0.module.slurm_partition.module.reconfigure_node_groups["ghpc"].data.local_file.destroy_nodes: Read complete after 0s [id=98a2faef60120e7350ccb2ba9e85cd22839e907d]
+module.partition_0.module.slurm_partition.module.reconfigure_node_groups["ghpc"].null_resource.destroy_nodes_on_create[0]: Refreshing state... [id=1579400926878710909]
+module.slurm_login.module.slurm_login_template.module.instance_template.google_compute_instance_template.tpl: Refreshing state... [id=projects/eimantask-personal-project/global/instanceTemplates/cluster046-login-default-20240308095823936900000002]
+module.slurm_controller.module.slurm_controller_template.module.instance_template.google_compute_instance_template.tpl: Refreshing state... [id=projects/eimantask-personal-project/global/instanceTemplates/cluster046-controller-default-20240308095823951300000003]
+module.slurm_login.module.slurm_login_instance.module.slurm_login_instance.data.google_compute_instance_template.base: Reading...
+module.slurm_controller.module.slurm_controller_instance.data.google_compute_instance_template.controller_template[0]: Reading...
+module.slurm_controller.module.slurm_controller_instance.module.slurm_controller_instance.data.google_compute_instance_template.base: Reading...
+module.slurm_controller.module.slurm_controller_instance.data.google_compute_instance_template.controller_template[0]: Read complete after 0s [id=projects/eimantask-personal-project/global/instanceTemplates/https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/global/instanceTemplates/cluster046-controller-default-20240308095823951300000003]
+module.slurm_login.module.slurm_login_instance.module.slurm_login_instance.data.google_compute_instance_template.base: Read complete after 1s [id=projects/eimantask-personal-project/global/instanceTemplates/https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/global/instanceTemplates/cluster046-login-default-20240308095823936900000002]
+module.slurm_controller.module.slurm_controller_instance.module.slurm_controller_instance.data.google_compute_instance_template.base: Read complete after 0s [id=projects/eimantask-personal-project/global/instanceTemplates/https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/global/instanceTemplates/cluster046-controller-default-20240308095823951300000003]
+module.slurm_login.module.slurm_login_instance.module.slurm_login_instance.google_pubsub_subscription_iam_member.pull_subscription_binding[0]: Refreshing state... [id=projects/eimantask-personal-project/subscriptions/cluster046-login-x5aqsoyt-001/roles/pubsub.subscriber/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.slurm_controller.module.slurm_controller_instance.module.slurm_controller_instance.google_pubsub_subscription_iam_member.pull_subscription_binding[0]: Refreshing state... [id=projects/eimantask-personal-project/subscriptions/cluster046-controller/roles/pubsub.subscriber/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.slurm_controller.module.slurm_controller_instance.google_pubsub_topic_iam_member.topic_publisher[0]: Refreshing state... [id=projects/eimantask-personal-project/topics/cluster046-slurm-events-WTu28BuY/roles/pubsub.publisher/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.slurm_controller.module.slurm_controller_instance.module.slurm_controller_instance.google_compute_instance_from_template.slurm_instance[0]: Refreshing state... [id=projects/eimantask-personal-project/zones/us-east1-b/instances/cluster046-controller]
+module.slurm_controller.module.slurm_controller_instance.module.reconfigure_notify[0].data.local_file.notify_cluster: Reading...
+module.slurm_controller.module.slurm_controller_instance.module.reconfigure_notify[0].data.local_file.notify_cluster: Read complete after 0s [id=40a154db9ef45da5e5a726be30f6acc937a0ef5d]
+module.slurm_controller.module.slurm_controller_instance.module.reconfigure_critical[0].null_resource.destroy_nodes_on_create[0]: Refreshing state... [id=4001283573291694997]
+module.slurm_controller.module.slurm_controller_instance.module.reconfigure_notify[0].null_resource.notify_cluster: Refreshing state... [id=4299471615973268702]
+module.slurm_controller.module.slurm_controller_instance.module.reconfigure_partitions[0].data.local_file.destroy_nodes: Reading...
+module.slurm_login.module.slurm_login_instance.module.slurm_login_instance.google_compute_instance_from_template.slurm_instance[0]: Refreshing state... [id=projects/eimantask-personal-project/zones/us-east1-b/instances/cluster046-login-x5aqsoyt-001]
+module.slurm_controller.module.slurm_controller_instance.module.reconfigure_partitions[0].data.local_file.destroy_nodes: Read complete after 0s [id=98a2faef60120e7350ccb2ba9e85cd22839e907d]
+module.slurm_controller.module.slurm_controller_instance.module.reconfigure_partitions[0].null_resource.destroy_nodes_on_create[0]: Refreshing state... [id=8646314523304668344]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/compute.instanceAdmin.v1"] will be destroyed
+  - resource "google_project_iam_member" "project-roles" {
+      - etag    = "BwYTIztMVcc=" -> null
+      - id      = "eimantask-personal-project/roles/compute.instanceAdmin.v1/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - member  = "serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - project = "eimantask-personal-project" -> null
+      - role    = "roles/compute.instanceAdmin.v1" -> null
+    }
+
+  # module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/compute.networkAdmin"] will be destroyed
+  - resource "google_project_iam_member" "project-roles" {
+      - etag    = "BwYTIztMVcc=" -> null
+      - id      = "eimantask-personal-project/roles/compute.networkAdmin/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - member  = "serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - project = "eimantask-personal-project" -> null
+      - role    = "roles/compute.networkAdmin" -> null
+    }
+
+  # module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/compute.securityAdmin"] will be destroyed
+  - resource "google_project_iam_member" "project-roles" {
+      - etag    = "BwYTIztMVcc=" -> null
+      - id      = "eimantask-personal-project/roles/compute.securityAdmin/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - member  = "serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - project = "eimantask-personal-project" -> null
+      - role    = "roles/compute.securityAdmin" -> null
+    }
+
+  # module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/iam.serviceAccountAdmin"] will be destroyed
+  - resource "google_project_iam_member" "project-roles" {
+      - etag    = "BwYTIztMVcc=" -> null
+      - id      = "eimantask-personal-project/roles/iam.serviceAccountAdmin/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - member  = "serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - project = "eimantask-personal-project" -> null
+      - role    = "roles/iam.serviceAccountAdmin" -> null
+    }
+
+  # module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/iam.serviceAccountUser"] will be destroyed
+  - resource "google_project_iam_member" "project-roles" {
+      - etag    = "BwYTIztMVcc=" -> null
+      - id      = "eimantask-personal-project/roles/iam.serviceAccountUser/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - member  = "serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - project = "eimantask-personal-project" -> null
+      - role    = "roles/iam.serviceAccountUser" -> null
+    }
+
+  # module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/logging.logWriter"] will be destroyed
+  - resource "google_project_iam_member" "project-roles" {
+      - etag    = "BwYTIztMVcc=" -> null
+      - id      = "eimantask-personal-project/roles/logging.logWriter/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - member  = "serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - project = "eimantask-personal-project" -> null
+      - role    = "roles/logging.logWriter" -> null
+    }
+
+  # module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/monitoring.metricWriter"] will be destroyed
+  - resource "google_project_iam_member" "project-roles" {
+      - etag    = "BwYTIztMVcc=" -> null
+      - id      = "eimantask-personal-project/roles/monitoring.metricWriter/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - member  = "serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - project = "eimantask-personal-project" -> null
+      - role    = "roles/monitoring.metricWriter" -> null
+    }
+
+  # module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/pubsub.admin"] will be destroyed
+  - resource "google_project_iam_member" "project-roles" {
+      - etag    = "BwYTIztMVcc=" -> null
+      - id      = "eimantask-personal-project/roles/pubsub.admin/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - member  = "serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - project = "eimantask-personal-project" -> null
+      - role    = "roles/pubsub.admin" -> null
+    }
+
+  # module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/resourcemanager.projectIamAdmin"] will be destroyed
+  - resource "google_project_iam_member" "project-roles" {
+      - etag    = "BwYTIztMVcc=" -> null
+      - id      = "eimantask-personal-project/roles/resourcemanager.projectIamAdmin/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - member  = "serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - project = "eimantask-personal-project" -> null
+      - role    = "roles/resourcemanager.projectIamAdmin" -> null
+    }
+
+  # module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/storage.objectAdmin"] will be destroyed
+  - resource "google_project_iam_member" "project-roles" {
+      - etag    = "BwYTIztMVcc=" -> null
+      - id      = "eimantask-personal-project/roles/storage.objectAdmin/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - member  = "serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - project = "eimantask-personal-project" -> null
+      - role    = "roles/storage.objectAdmin" -> null
+    }
+
+  # module.hpc_service_account.module.service_account.google_service_account.service_accounts["sa"] will be destroyed
+  - resource "google_service_account" "service_accounts" {
+      - account_id   = "cluster-046885a3-sa" -> null
+      - description  = "Service Account (cluster-046885a3)" -> null
+      - disabled     = false -> null
+      - display_name = "Service Account (cluster-046885a3)" -> null
+      - email        = "cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - id           = "projects/eimantask-personal-project/serviceAccounts/cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - member       = "serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - name         = "projects/eimantask-personal-project/serviceAccounts/cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - project      = "eimantask-personal-project" -> null
+      - unique_id    = "110017169136356899359" -> null
+    }
+
+  # module.partition_0.module.slurm_partition.google_compute_project_metadata_item.partition_startup_scripts["ghpc_startup_sh"] will be destroyed
+  - resource "google_compute_project_metadata_item" "partition_startup_scripts" {
+      - id      = "cluster046-slurm-partition-batch-script-ghpc_startup_sh" -> null
+      - key     = "cluster046-slurm-partition-batch-script-ghpc_startup_sh" -> null
+      - project = "eimantask-personal-project" -> null
+
+      - timeouts {
+          - create = "10m" -> null
+          - delete = "10m" -> null
+          - update = "10m" -> null
+        }
+    }
+
+  # module.partition_0.module.slurm_partition.null_resource.partition will be destroyed
+  - resource "null_resource" "partition" {
+      - id       = "5569231588619603831" -> null
+      - triggers = {
+          - "partition" = "1067bc4d38270a669ac94bb298614cd88a582f9c5190ae1f339965414c2fe26f"
+        } -> null
+    }
+
+  # module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.cgroup_conf will be destroyed
+  - resource "google_compute_project_metadata_item" "cgroup_conf" {
+      - id      = "cluster046-slurm-tpl-cgroup-conf" -> null
+      - key     = "cluster046-slurm-tpl-cgroup-conf" -> null
+      - project = "eimantask-personal-project" -> null
+      - value   = <<-EOT
+            # cgroup.conf
+            # https://slurm.schedmd.com/cgroup.conf.html
+            
+            CgroupAutomount=no
+            #CgroupMountpoint=/sys/fs/cgroup
+            ConstrainCores=yes
+            ConstrainRamSpace=yes
+            ConstrainSwapSpace=no
+            ConstrainDevices=yes
+        EOT -> null
+
+      - timeouts {
+          - create = "10m" -> null
+          - delete = "10m" -> null
+          - update = "10m" -> null
+        }
+    }
+
+  # module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.compute_startup_scripts["ghpc_startup_sh"] will be destroyed
+  - resource "google_compute_project_metadata_item" "compute_startup_scripts" {
+      - id      = "cluster046-slurm-compute-script-ghpc_startup_sh" -> null
+      - key     = "cluster046-slurm-compute-script-ghpc_startup_sh" -> null
+      - project = "eimantask-personal-project" -> null
+      - value   = <<-EOT
+            #!/bin/bash
+            gsutil cp gs://aicluster-storage-08c2/clusters/7/bootstrap_compute.sh - | bash
+        EOT -> null
+
+      - timeouts {
+          - create = "10m" -> null
+          - delete = "10m" -> null
+          - update = "10m" -> null
+        }
+    }
+
+  # module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.config will be destroyed
+  - resource "google_compute_project_metadata_item" "config" {
+      - id      = "cluster046-slurm-config" -> null
+      - key     = "cluster046-slurm-config" -> null
+      - project = "eimantask-personal-project" -> null
+      - value   = jsonencode(
+            {
+              - cloud_parameters                   = {
+                  - resume_rate     = 0
+                  - resume_timeout  = 500
+                  - suspend_rate    = 0
+                  - suspend_timeout = 300
+                }
+              - cloudsql                           = false
+              - cluster_id                         = "9d4addc8-26e4-8899-5a8e-2a766aa05b68"
+              - compute_startup_scripts_timeout    = 900
+              - controller_startup_scripts_timeout = 900
+              - disable_default_mounts             = false
+              - enable_bigquery_load               = false
+              - enable_reconfigure                 = true
+              - enable_slurm_gcp_plugins           = false
+              - epilog_scripts                     = []
+              - login_network_storage              = [
+                  - {
+                      - fs_type       = "nfs"
+                      - local_mount   = "/home"
+                      - mount_options = "defaults,nofail,nosuid"
+                      - remote_mount  = "/home"
+                      - server_ip     = "$controller"
+                    },
+                  - {
+                      - fs_type       = "nfs"
+                      - local_mount   = "/opt/cluster"
+                      - mount_options = "defaults,nofail,nosuid"
+                      - remote_mount  = "/opt/cluster"
+                      - server_ip     = "$controller"
+                    },
+                ]
+              - login_startup_scripts_timeout      = 300
+              - network_storage                    = [
+                  - {
+                      - fs_type       = "nfs"
+                      - local_mount   = "/home"
+                      - mount_options = "defaults,nofail,nosuid"
+                      - remote_mount  = "/home"
+                      - server_ip     = "$controller"
+                    },
+                  - {
+                      - fs_type       = "nfs"
+                      - local_mount   = "/opt/cluster"
+                      - mount_options = "defaults,nofail,nosuid"
+                      - remote_mount  = "/opt/cluster"
+                      - server_ip     = "$controller"
+                    },
+                ]
+              - partitions                         = {
+                  - batch = {
+                      - enable_job_exclusive              = false
+                      - enable_placement_groups           = false
+                      - network_storage                   = [
+                          - {
+                              - fs_type       = "nfs"
+                              - local_mount   = "/home"
+                              - mount_options = "defaults,nofail,nosuid"
+                              - remote_mount  = "/home"
+                              - server_ip     = "$controller"
+                            },
+                          - {
+                              - fs_type       = "nfs"
+                              - local_mount   = "/opt/cluster"
+                              - mount_options = "defaults,nofail,nosuid"
+                              - remote_mount  = "/opt/cluster"
+                              - server_ip     = "$controller"
+                            },
+                        ]
+                      - partition_conf                    = {}
+                      - partition_feature                 = null
+                      - partition_name                    = "batch"
+                      - partition_nodes                   = {
+                          - ghpc = {
+                              - access_config          = []
+                              - bandwidth_tier         = "platform_default"
+                              - enable_spot_vm         = false
+                              - group_name             = "ghpc"
+                              - instance_template      = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/global/instanceTemplates/cluster046-compute-batch-ghpc-20240308095739680500000001"
+                              - maintenance_interval   = ""
+                              - node_conf              = {}
+                              - node_count_dynamic_max = 4
+                              - node_count_static      = 0
+                              - reservation_name       = ""
+                              - spot_instance_config   = {
+                                  - termination_action = "STOP"
+                                }
+                            }
+                        }
+                      - partition_startup_scripts_timeout = 300
+                      - subnetwork                        = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/regions/us-east1/subnetworks/legible-polliwog-subnet-2"
+                      - zone_policy_allow                 = []
+                      - zone_policy_deny                  = [
+                          - "us-east1-c",
+                          - "us-east1-d",
+                        ]
+                      - zone_target_shape                 = "ANY_SINGLE_ZONE"
+                    }
+                }
+              - project                            = "eimantask-personal-project"
+              - prolog_scripts                     = []
+              - pubsub_topic_id                    = "cluster046-slurm-events-WTu28BuY"
+              - slurm_cluster_name                 = "cluster046"
+            }
+        ) -> null
+
+      - timeouts {
+          - create = "10m" -> null
+          - delete = "10m" -> null
+          - update = "10m" -> null
+        }
+    }
+
+  # module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.controller_startup_scripts["ghpc_startup_sh"] will be destroyed
+  - resource "google_compute_project_metadata_item" "controller_startup_scripts" {
+      - id      = "cluster046-slurm-controller-script-ghpc_startup_sh" -> null
+      - key     = "cluster046-slurm-controller-script-ghpc_startup_sh" -> null
+      - project = "eimantask-personal-project" -> null
+      - value   = <<-EOT
+            #!/bin/bash
+            echo "******************************************** CALLING CONTROLLER STARTUP"
+            gsutil cp gs://aicluster-storage-08c2/clusters/7/bootstrap_controller.sh - | bash
+        EOT -> null
+
+      - timeouts {
+          - create = "10m" -> null
+          - delete = "10m" -> null
+          - update = "10m" -> null
+        }
+    }
+
+  # module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.slurm_conf will be destroyed
+  - resource "google_compute_project_metadata_item" "slurm_conf" {
+      - id      = "cluster046-slurm-tpl-slurm-conf" -> null
+      - key     = "cluster046-slurm-tpl-slurm-conf" -> null
+      - project = "eimantask-personal-project" -> null
+      - value   = <<-EOT
+            # slurm.conf
+            # https://slurm.schedmd.com/slurm.conf.html
+            # https://slurm.schedmd.com/configurator.html
+            
+            ProctrackType=proctrack/cgroup
+            SlurmctldPidFile=/var/run/slurm/slurmctld.pid
+            SlurmdPidFile=/var/run/slurm/slurmd.pid
+            TaskPlugin=task/affinity,task/cgroup
+            MaxNodeCount=64000
+            
+            #
+            #
+            # SCHEDULING
+            SchedulerType=sched/backfill
+            SelectType=select/cons_tres
+            SelectTypeParameters=CR_Core_Memory
+            
+            #
+            #
+            # LOGGING AND ACCOUNTING
+            AccountingStoreFlags=job_comment
+            JobAcctGatherFrequency=30
+            JobAcctGatherType=jobacct_gather/cgroup
+            SlurmctldDebug=info
+            SlurmdDebug=info
+            DebugFlags=Power
+            
+            #
+            #
+            # TIMERS
+            MessageTimeout=60
+            
+            ################################################################################
+            #              vvvvv  WARNING: DO NOT MODIFY SECTION BELOW  vvvvv              #
+            ################################################################################
+            
+            SlurmctldHost={control_host}({control_addr})
+            
+            AuthType=auth/munge
+            AuthInfo=cred_expire=120
+            AuthAltTypes=auth/jwt
+            CredType=cred/munge
+            MpiDefault={mpi_default}
+            ReturnToService=2
+            SlurmctldPort={control_host_port}
+            SlurmdPort=6818
+            SlurmdSpoolDir=/var/spool/slurmd
+            SlurmUser=slurm
+            StateSaveLocation={state_save}
+            
+            #
+            #
+            # LOGGING AND ACCOUNTING
+            AccountingStorageType=accounting_storage/slurmdbd
+            AccountingStorageHost={control_host}
+            ClusterName={name}
+            SlurmctldLogFile={slurmlog}/slurmctld.log
+            SlurmdLogFile={slurmlog}/slurmd-%n.log
+            
+            #
+            #
+            # GENERATED CLOUD CONFIGURATIONS
+            include cloud.conf
+            
+            ################################################################################
+            #              ^^^^^  WARNING: DO NOT MODIFY SECTION ABOVE  ^^^^^              #
+            ################################################################################
+        EOT -> null
+
+      - timeouts {
+          - create = "10m" -> null
+          - delete = "10m" -> null
+          - update = "10m" -> null
+        }
+    }
+
+  # module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.slurmdbd_conf will be destroyed
+  - resource "google_compute_project_metadata_item" "slurmdbd_conf" {
+      - id      = "cluster046-slurm-tpl-slurmdbd-conf" -> null
+      - key     = "cluster046-slurm-tpl-slurmdbd-conf" -> null
+      - project = "eimantask-personal-project" -> null
+      - value   = <<-EOT
+            # slurmdbd.conf
+            # https://slurm.schedmd.com/slurmdbd.conf.html
+            
+            DebugLevel=info
+            PidFile=/var/run/slurm/slurmdbd.pid
+            
+            ################################################################################
+            #              vvvvv  WARNING: DO NOT MODIFY SECTION BELOW  vvvvv              #
+            ################################################################################
+            
+            AuthType=auth/munge
+            AuthAltTypes=auth/jwt
+            AuthAltParameters=jwt_key={state_save}/jwt_hs256.key
+            
+            DbdHost={control_host}
+            
+            LogFile={slurmlog}/slurmdbd.log
+            
+            SlurmUser=slurm
+            
+            StorageLoc={db_name}
+            
+            StorageType=accounting_storage/mysql
+            StorageHost={db_host}
+            StoragePort={db_port}
+            StorageUser={db_user}
+            StoragePass={db_pass}
+            
+            ################################################################################
+            #              ^^^^^  WARNING: DO NOT MODIFY SECTION ABOVE  ^^^^^              #
+            ################################################################################
+        EOT -> null
+
+      - timeouts {
+          - create = "10m" -> null
+          - delete = "10m" -> null
+          - update = "10m" -> null
+        }
+    }
+
+  # module.slurm_controller.module.slurm_controller_instance.google_pubsub_schema.this[0] will be destroyed
+  - resource "google_pubsub_schema" "this" {
+      - definition = <<-EOT
+            syntax = "proto3";
+            message Results {
+              string request = 1;
+              string timestamp = 2;
+            }
+        EOT -> null
+      - id         = "projects/eimantask-personal-project/schemas/cluster046-slurm-events" -> null
+      - name       = "cluster046-slurm-events" -> null
+      - project    = "eimantask-personal-project" -> null
+      - type       = "PROTOCOL_BUFFER" -> null
+    }
+
+  # module.slurm_controller.module.slurm_controller_instance.google_pubsub_topic.this[0] will be destroyed
+  - resource "google_pubsub_topic" "this" {
+      - id      = "projects/eimantask-personal-project/topics/cluster046-slurm-events-WTu28BuY" -> null
+      - labels  = {
+          - "slurm_cluster_name" = "cluster046"
+        } -> null
+      - name    = "cluster046-slurm-events-WTu28BuY" -> null
+      - project = "eimantask-personal-project" -> null
+
+      - schema_settings {
+          - encoding = "JSON" -> null
+          - schema   = "projects/eimantask-personal-project/schemas/cluster046-slurm-events" -> null
+        }
+    }
+
+  # module.slurm_controller.module.slurm_controller_instance.google_pubsub_topic_iam_member.topic_publisher[0] will be destroyed
+  - resource "google_pubsub_topic_iam_member" "topic_publisher" {
+      - etag    = "BwYTIzxFo/M=" -> null
+      - id      = "projects/eimantask-personal-project/topics/cluster046-slurm-events-WTu28BuY/roles/pubsub.publisher/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - member  = "serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - project = "eimantask-personal-project" -> null
+      - role    = "roles/pubsub.publisher" -> null
+      - topic   = "projects/eimantask-personal-project/topics/cluster046-slurm-events-WTu28BuY" -> null
+    }
+
+  # module.slurm_controller.module.slurm_controller_instance.random_string.topic_suffix will be destroyed
+  - resource "random_string" "topic_suffix" {
+      - id          = "WTu28BuY" -> null
+      - length      = 8 -> null
+      - lower       = true -> null
+      - min_lower   = 0 -> null
+      - min_numeric = 0 -> null
+      - min_special = 0 -> null
+      - min_upper   = 0 -> null
+      - number      = true -> null
+      - numeric     = true -> null
+      - result      = "WTu28BuY" -> null
+      - special     = false -> null
+      - upper       = true -> null
+    }
+
+  # module.slurm_controller.module.slurm_controller_instance.random_uuid.cluster_id will be destroyed
+  - resource "random_uuid" "cluster_id" {
+      - id     = "9d4addc8-26e4-8899-5a8e-2a766aa05b68" -> null
+      - result = "9d4addc8-26e4-8899-5a8e-2a766aa05b68" -> null
+    }
+
+  # module.slurm_login.module.slurm_login_instance.google_compute_project_metadata_item.login_startup_scripts["ghpc_startup_sh"] will be destroyed
+  - resource "google_compute_project_metadata_item" "login_startup_scripts" {
+      - id      = "cluster046-slurm-login_x5aqsoyt-script-ghpc_startup_sh" -> null
+      - key     = "cluster046-slurm-login_x5aqsoyt-script-ghpc_startup_sh" -> null
+      - project = "eimantask-personal-project" -> null
+      - value   = <<-EOT
+            #!/bin/bash
+            echo "******************************************** CALLING LOGIN STARTUP"
+            gsutil cp gs://aicluster-storage-08c2/clusters/7/bootstrap_login.sh - | bash
+        EOT -> null
+
+      - timeouts {
+          - create = "10m" -> null
+          - delete = "10m" -> null
+          - update = "10m" -> null
+        }
+    }
+
+  # module.slurm_login.module.slurm_login_instance.random_string.suffix will be destroyed
+  - resource "random_string" "suffix" {
+      - id          = "x5aqsoyt" -> null
+      - length      = 8 -> null
+      - lower       = true -> null
+      - min_lower   = 0 -> null
+      - min_numeric = 0 -> null
+      - min_special = 0 -> null
+      - min_upper   = 0 -> null
+      - number      = true -> null
+      - numeric     = true -> null
+      - result      = "x5aqsoyt" -> null
+      - special     = false -> null
+      - upper       = false -> null
+    }
+
+  # module.partition_0.module.slurm_partition.module.reconfigure_critical[0].null_resource.destroy_nodes_on_create[0] will be destroyed
+  - resource "null_resource" "destroy_nodes_on_create" {
+      - id       = "2053133343504039332" -> null
+      - triggers = {
+          - "enable_placement_groups"                   = "false"
+          - "partition_startup_scripts_ghpc_startup_sh" = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          - "project_id"                                = "eimantask-personal-project"
+          - "script_path"                               = "/opt/gcluster/hpc-toolkit/community/front-end/ofe/clusters/cluster_7/cluster-046885a3/primary/.terraform/modules/partition_0.slurm_partition/scripts/destroy_nodes.py"
+          - "scripts_dir"                               = "/opt/gcluster/hpc-toolkit/community/front-end/ofe/clusters/cluster_7/cluster-046885a3/primary/.terraform/modules/partition_0.slurm_partition/scripts"
+          - "slurm_cluster_name"                        = "cluster046"
+          - "subnetwork"                                = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/regions/us-east1/subnetworks/legible-polliwog-subnet-2"
+        } -> null
+    }
+
+  # module.partition_0.module.slurm_partition.module.reconfigure_node_groups["ghpc"].null_resource.destroy_nodes_on_create[0] will be destroyed
+  - resource "null_resource" "destroy_nodes_on_create" {
+      - id       = "1579400926878710909" -> null
+      - triggers = {
+          - "bandwidth_tier"       = "platform_default"
+          - "instance_template"    = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/global/instanceTemplates/cluster046-compute-batch-ghpc-20240308095739680500000001"
+          - "project_id"           = "eimantask-personal-project"
+          - "script_path"          = "/opt/gcluster/hpc-toolkit/community/front-end/ofe/clusters/cluster_7/cluster-046885a3/primary/.terraform/modules/partition_0.slurm_partition/scripts/destroy_nodes.py"
+          - "scripts_dir"          = "/opt/gcluster/hpc-toolkit/community/front-end/ofe/clusters/cluster_7/cluster-046885a3/primary/.terraform/modules/partition_0.slurm_partition/scripts"
+          - "slurm_cluster_name"   = "cluster046"
+          - "spot_instance_config" = null
+        } -> null
+    }
+
+  # module.partition_0.module.slurm_partition.module.reconfigure_placement_groups[0].null_resource.destroy_resource_policies_on_create[0] will be destroyed
+  - resource "null_resource" "destroy_resource_policies_on_create" {
+      - id       = "2304768098085504411" -> null
+      - triggers = {
+          - "enable_placement_groups" = "false"
+          - "partition_name"          = "batch"
+          - "project_id"              = "eimantask-personal-project"
+          - "script_path"             = "/opt/gcluster/hpc-toolkit/community/front-end/ofe/clusters/cluster_7/cluster-046885a3/primary/.terraform/modules/partition_0.slurm_partition/scripts/destroy_resource_policies.py"
+          - "scripts_dir"             = "/opt/gcluster/hpc-toolkit/community/front-end/ofe/clusters/cluster_7/cluster-046885a3/primary/.terraform/modules/partition_0.slurm_partition/scripts"
+          - "slurm_cluster_name"      = "cluster046"
+        } -> null
+    }
+
+  # module.slurm_controller.module.slurm_controller_instance.module.cleanup_subscriptions[0].null_resource.destroy_subscriptions_on_destroy[0] will be destroyed
+  - resource "null_resource" "destroy_subscriptions_on_destroy" {
+      - id       = "1497888407346476055" -> null
+      - triggers = {
+          - "script_path"        = "/opt/gcluster/hpc-toolkit/community/front-end/ofe/clusters/cluster_7/cluster-046885a3/primary/.terraform/modules/slurm_controller.slurm_controller_instance/scripts/destroy_subscriptions.py"
+          - "scripts_dir"        = "/opt/gcluster/hpc-toolkit/community/front-end/ofe/clusters/cluster_7/cluster-046885a3/primary/.terraform/modules/slurm_controller.slurm_controller_instance/scripts"
+          - "slurm_cluster_name" = "cluster046"
+        } -> null
+    }
+
+  # module.slurm_controller.module.slurm_controller_instance.module.reconfigure_critical[0].null_resource.destroy_nodes_on_create[0] will be destroyed
+  - resource "null_resource" "destroy_nodes_on_create" {
+      - id       = "4001283573291694997" -> null
+      - triggers = {
+          - "compute_d_ghpc_startup_sh" = "feee760ee45899cbabe774d189b9eee9dbb3b69726ffb2f6cf6859a8a382bbf7"
+          - "controller_id"             = "8643677555276603213"
+          - "project_id"                = "eimantask-personal-project"
+          - "script_path"               = "/opt/gcluster/hpc-toolkit/community/front-end/ofe/clusters/cluster_7/cluster-046885a3/primary/.terraform/modules/slurm_controller.slurm_controller_instance/scripts/destroy_nodes.py"
+          - "scripts_dir"               = "/opt/gcluster/hpc-toolkit/community/front-end/ofe/clusters/cluster_7/cluster-046885a3/primary/.terraform/modules/slurm_controller.slurm_controller_instance/scripts"
+          - "slurm_cluster_name"        = "cluster046"
+        } -> null
+    }
+
+  # module.slurm_controller.module.slurm_controller_instance.module.reconfigure_notify[0].null_resource.notify_cluster will be destroyed
+  - resource "null_resource" "notify_cluster" {
+      - id       = "4299471615973268702" -> null
+      - triggers = {
+          - "cgroup_conf"   = "b88ac215e7c31ee56a224b1a87b15704b388f291c9fab3f9cc217ea95345c60a"
+          - "compute_list"  = "cluster046-batch-ghpc-0,cluster046-batch-ghpc-1,cluster046-batch-ghpc-2,cluster046-batch-ghpc-3"
+          - "config"        = "1b8813c3c238c6d3ac55a006747d8763b32dc183d998619edf771b1c57a21df2"
+          - "project_id"    = "eimantask-personal-project"
+          - "script_path"   = "/opt/gcluster/hpc-toolkit/community/front-end/ofe/clusters/cluster_7/cluster-046885a3/primary/.terraform/modules/slurm_controller.slurm_controller_instance/scripts/notify_cluster.py"
+          - "scripts_dir"   = "/opt/gcluster/hpc-toolkit/community/front-end/ofe/clusters/cluster_7/cluster-046885a3/primary/.terraform/modules/slurm_controller.slurm_controller_instance/scripts"
+          - "slurm_conf"    = "af711004d945f8c74376300d9a9b4ae9188246893507f29973a9d503af195c22"
+          - "slurmdbd_conf" = "d6471fd70aa2372012a16043209f18aa052ad2aa18aa9271cd7889cb44695226"
+          - "topic"         = "cluster046-slurm-events-WTu28BuY"
+          - "type"          = "reconfig"
+        } -> null
+    }
+
+  # module.slurm_controller.module.slurm_controller_instance.module.reconfigure_partitions[0].null_resource.destroy_nodes_on_create[0] will be destroyed
+  - resource "null_resource" "destroy_nodes_on_create" {
+      - id       = "8646314523304668344" -> null
+      - triggers = {
+          - "compute_list"       = "cluster046-batch-ghpc-0,cluster046-batch-ghpc-1,cluster046-batch-ghpc-2,cluster046-batch-ghpc-3"
+          - "project_id"         = "eimantask-personal-project"
+          - "script_path"        = "/opt/gcluster/hpc-toolkit/community/front-end/ofe/clusters/cluster_7/cluster-046885a3/primary/.terraform/modules/slurm_controller.slurm_controller_instance/scripts/destroy_nodes.py"
+          - "scripts_dir"        = "/opt/gcluster/hpc-toolkit/community/front-end/ofe/clusters/cluster_7/cluster-046885a3/primary/.terraform/modules/slurm_controller.slurm_controller_instance/scripts"
+          - "slurm_cluster_name" = "cluster046"
+        } -> null
+    }
+
+  # module.slurm_controller.module.slurm_controller_instance.module.slurm_controller_instance.google_compute_instance_from_template.slurm_instance[0] will be destroyed
+  - resource "google_compute_instance_from_template" "slurm_instance" {
+      - allow_stopping_for_update = true -> null
+      - attached_disk             = [] -> null
+      - can_ip_forward            = false -> null
+      - cpu_platform              = "Intel Cascade Lake" -> null
+      - current_status            = "RUNNING" -> null
+      - deletion_protection       = false -> null
+      - enable_display            = false -> null
+      - guest_accelerator         = [] -> null
+      - id                        = "projects/eimantask-personal-project/zones/us-east1-b/instances/cluster046-controller" -> null
+      - instance_id               = "8643677555276603213" -> null
+      - label_fingerprint         = "vSmFf16SviY=" -> null
+      - labels                    = {
+          - "created_by"          = "aicluster-server"
+          - "ghpc_blueprint"      = "cluster-046885a3"
+          - "ghpc_deployment"     = "cluster-046885a3"
+          - "ghpc_module"         = "schedmd-slurm-gcp-v5-controller"
+          - "ghpc_role"           = "scheduler"
+          - "slurm_cluster_name"  = "cluster046"
+          - "slurm_instance_role" = "controller"
+        } -> null
+      - machine_type              = "n2-standard-2" -> null
+      - metadata                  = {
+          - "VmDnsSetting"        = "GlobalOnly"
+          - "enable-oslogin"      = "TRUE"
+          - "slurm_cluster_name"  = "cluster046"
+          - "slurm_instance_role" = "controller"
+          - "startup-script"      = <<-EOT
+                #!/bin/bash
+                # Copyright (C) SchedMD LLC.
+                #
+                # Licensed under the Apache License, Version 2.0 (the "License");
+                # you may not use this file except in compliance with the License.
+                # You may obtain a copy of the License at
+                #
+                #     http://www.apache.org/licenses/LICENSE-2.0
+                #
+                # Unless required by applicable law or agreed to in writing, software
+                # distributed under the License is distributed on an "AS IS" BASIS,
+                # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+                # See the License for the specific language governing permissions and
+                # limitations under the License.
+                
+                set -e
+                
+                SLURM_DIR=/slurm
+                FLAGFILE=$SLURM_DIR/slurm_configured_do_not_remove
+                SCRIPTS_DIR=$SLURM_DIR/scripts
+                
+                METADATA_SERVER="metadata.google.internal"
+                URL="http://$METADATA_SERVER/computeMetadata/v1"
+                HEADER="Metadata-Flavor:Google"
+                CURL="curl -sS --fail --header $HEADER"
+                
+                function fetch_scripts {
+                	# fetch project metadata
+                	if ! CLUSTER=$($CURL $URL/instance/attributes/slurm_cluster_name); then
+                		echo "ERROR: cluster name not found in instance metadata. Quitting!"
+                		return 1
+                	fi
+                	if ! META_DEVEL=$($CURL $URL/project/attributes/$CLUSTER-slurm-devel); then
+                		echo "WARNING: $CLUSTER-slurm-devel not found in project metadata, skipping script update"
+                		return
+                	fi
+                	echo devel data found in project metadata, looking to update scripts
+                	if STARTUP_SCRIPT=$(jq -re '."startup-script"' <<< "$META_DEVEL"); then
+                		echo "INFO: updating startup.sh from project metadata"
+                		printf '%s' "$STARTUP_SCRIPT" > $STARTUP_SCRIPT_FILE
+                	else
+                		echo "WARNING: startup-script not found in project metadata, skipping update"
+                	fi
+                	if SETUP_SCRIPT=$(jq -re '."setup-script"' <<< "$META_DEVEL"); then
+                		echo "INFO: updating setup.py from project metadata"
+                		printf '%s' "$SETUP_SCRIPT" > $SETUP_SCRIPT_FILE
+                	else
+                		echo "WARNING: setup-script not found in project metadata, skipping update"
+                	fi
+                	if UTIL_SCRIPT=$(jq -re '."util-script"' <<< "$META_DEVEL"); then
+                		echo "INFO: updating util.py from project metadata"
+                		printf '%s' "$UTIL_SCRIPT" > $UTIL_SCRIPT_FILE
+                	else
+                		echo "WARNING: util-script not found in project metadata, skipping update"
+                	fi
+                	if RESUME_SCRIPT=$(jq -re '."slurm-resume"' <<< "$META_DEVEL"); then
+                		echo "INFO: updating resume.py from project metadata"
+                		printf '%s' "$RESUME_SCRIPT" > $RESUME_SCRIPT_FILE
+                	else
+                		echo "WARNING: slurm-resume not found in project metadata, skipping update"
+                	fi
+                	if SUSPEND_SCRIPT=$(jq -re '."slurm-suspend"' <<< "$META_DEVEL"); then
+                		echo "INFO: updating suspend.py from project metadata"
+                		printf '%s' "$SUSPEND_SCRIPT" > $SUSPEND_SCRIPT_FILE
+                	else
+                		echo "WARNING: slurm-suspend not found in project metadata, skipping update"
+                	fi
+                	if SLURMSYNC_SCRIPT=$(jq -re '."slurmsync"' <<< "$META_DEVEL"); then
+                		echo "INFO: updating slurmsync.py from project metadata"
+                		printf '%s' "$SLURMSYNC_SCRIPT" > $SLURMSYNC_SCRIPT_FILE
+                	else
+                		echo "WARNING: slurmsync not found in project metadata, skipping update"
+                	fi
+                	if SLURMEVENTD_SCRIPT=$(jq -re '."slurmeventd"' <<< "$META_DEVEL"); then
+                		echo "INFO: updating slurmeventd.py from project metadata"
+                		printf '%s' "$SLURMEVENTD_SCRIPT" > $SLURMEVENTD_SCRIPT_FILE
+                	else
+                		echo "WARNING: slurmeventd not found in project metadata, skipping update"
+                	fi
+                }
+                
+                PING_METADATA="ping -q -w1 -c1 $METADATA_SERVER"
+                echo "INFO: $PING_METADATA"
+                for i in $(seq 10); do
+                    [ $i -gt 1 ] && sleep 5;
+                    $PING_METADATA > /dev/null && s=0 && break || s=$?;
+                    echo "ERROR: Failed to contact metadata server, will retry"
+                done
+                if [ $s -ne 0 ]; then
+                    echo "ERROR: Unable to contact metadata server, aborting"
+                    wall -n '*** Slurm setup failed in the startup script! see `journalctl -u google-startup-scripts` ***'
+                    exit 1
+                else
+                    echo "INFO: Successfully contacted metadata server"
+                fi
+                
+                GOOGLE_DNS=8.8.8.8
+                PING_GOOGLE="ping -q -w1 -c1 $GOOGLE_DNS"
+                echo "INFO: $PING_GOOGLE"
+                for i in $(seq 5); do
+                    [ $i -gt 1 ] && sleep 2;
+                    $PING_GOOGLE > /dev/null && s=0 && break || s=$?;
+                	echo "failed to ping Google DNS, will retry"
+                done
+                if [ $s -ne 0 ]; then
+                    echo "WARNING: No internet access detected"
+                else
+                    echo "INFO: Internet access detected"
+                fi
+                
+                mkdir -p $SCRIPTS_DIR
+                
+                STARTUP_SCRIPT_FILE=$SCRIPTS_DIR/startup.sh
+                SETUP_SCRIPT_FILE=$SCRIPTS_DIR/setup.py
+                UTIL_SCRIPT_FILE=$SCRIPTS_DIR/util.py
+                RESUME_SCRIPT_FILE=$SCRIPTS_DIR/resume.py
+                SUSPEND_SCRIPT_FILE=$SCRIPTS_DIR/suspend.py
+                SLURMSYNC_SCRIPT_FILE=$SCRIPTS_DIR/slurmsync.py
+                SLURMEVENTD_SCRIPT_FILE=$SCRIPTS_DIR/slurmeventd.py
+                fetch_scripts
+                
+                if [ -f $FLAGFILE ]; then
+                	echo "WARNING: Slurm was previously configured, quitting"
+                	exit 0
+                fi
+                touch $FLAGFILE
+                
+                function fetch_feature {
+                	if slurmd_feature="$($CURL $URL/instance/attributes/slurmd_feature)"; then
+                		echo "$slurmd_feature"
+                	else
+                		echo ""
+                	fi
+                }
+                SLURMD_FEATURE="$(fetch_feature)"
+                
+                echo "INFO: Running python cluster setup script"
+                chmod +x $SETUP_SCRIPT_FILE
+                python3 $SCRIPTS_DIR/util.py
+                if [[ -n "$SLURMD_FEATURE" ]]; then
+                	echo "INFO: Running dynamic node setup."
+                	exec $SETUP_SCRIPT_FILE --slurmd-feature="$SLURMD_FEATURE"
+                else
+                	exec $SETUP_SCRIPT_FILE
+                fi
+            EOT
+        } -> null
+      - metadata_fingerprint      = "ATsgMtoSBYo=" -> null
+      - name                      = "cluster046-controller" -> null
+      - project                   = "eimantask-personal-project" -> null
+      - resource_policies         = [] -> null
+      - scratch_disk              = [] -> null
+      - self_link                 = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/zones/us-east1-b/instances/cluster046-controller" -> null
+      - service_account           = [
+          - {
+              - email  = "cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com"
+              - scopes = [
+                  - "https://www.googleapis.com/auth/cloud-platform",
+                  - "https://www.googleapis.com/auth/devstorage.read_write",
+                  - "https://www.googleapis.com/auth/logging.write",
+                  - "https://www.googleapis.com/auth/monitoring.write",
+                  - "https://www.googleapis.com/auth/pubsub",
+                ]
+            },
+        ] -> null
+      - source_instance_template  = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/global/instanceTemplates/cluster046-controller-default-20240308095823951300000003" -> null
+      - tags                      = [
+          - "cluster046",
+        ] -> null
+      - tags_fingerprint          = "BKHDmCEgsMI=" -> null
+      - zone                      = "us-east1-b" -> null
+
+      - advanced_machine_features {
+          - enable_nested_virtualization = false -> null
+          - threads_per_core             = 1 -> null
+          - visible_core_count           = 0 -> null
+        }
+
+      - boot_disk {
+          - auto_delete = true -> null
+          - device_name = "persistent-disk-0" -> null
+          - mode        = "READ_WRITE" -> null
+          - source      = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/zones/us-east1-b/disks/cluster046-controller" -> null
+
+          - initialize_params {
+              - image                 = "https://www.googleapis.com/compute/v1/projects/schedmd-slurm-public/global/images/slurm-gcp-5-10-hpc-centos-7-1707957594" -> null
+              - labels                = {
+                  - "created_by"          = "aicluster-server"
+                  - "ghpc_blueprint"      = "cluster-046885a3"
+                  - "ghpc_deployment"     = "cluster-046885a3"
+                  - "ghpc_module"         = "schedmd-slurm-gcp-v5-controller"
+                  - "ghpc_role"           = "scheduler"
+                  - "slurm_cluster_name"  = "cluster046"
+                  - "slurm_instance_role" = "controller"
+                } -> null
+              - resource_manager_tags = {} -> null
+              - size                  = 50 -> null
+              - type                  = "pd-standard" -> null
+            }
+        }
+
+      - network_interface {
+          - access_config               = [] -> null
+          - alias_ip_range              = [] -> null
+          - internal_ipv6_prefix_length = 0 -> null
+          - name                        = "nic0" -> null
+          - network                     = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/global/networks/legible-polliwog-network" -> null
+          - network_ip                  = "192.168.45.4" -> null
+          - queue_count                 = 0 -> null
+          - stack_type                  = "IPV4_ONLY" -> null
+          - subnetwork                  = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/regions/us-east1/subnetworks/legible-polliwog-subnet-2" -> null
+          - subnetwork_project          = "eimantask-personal-project" -> null
+        }
+
+      - network_performance_config {
+          - total_egress_bandwidth_tier = "DEFAULT" -> null
+        }
+
+      - scheduling {
+          - automatic_restart   = true -> null
+          - min_node_cpus       = 0 -> null
+          - on_host_maintenance = "MIGRATE" -> null
+          - preemptible         = false -> null
+          - provisioning_model  = "STANDARD" -> null
+        }
+
+      - shielded_instance_config {
+          - enable_integrity_monitoring = true -> null
+          - enable_secure_boot          = false -> null
+          - enable_vtpm                 = true -> null
+        }
+    }
+
+  # module.slurm_controller.module.slurm_controller_instance.module.slurm_controller_instance.google_pubsub_subscription.pull_subscriptions[0] will be destroyed
+  - resource "google_pubsub_subscription" "pull_subscriptions" {
+      - ack_deadline_seconds         = 120 -> null
+      - enable_exactly_once_delivery = false -> null
+      - enable_message_ordering      = true -> null
+      - id                           = "projects/eimantask-personal-project/subscriptions/cluster046-controller" -> null
+      - labels                       = {
+          - "slurm_cluster_name" = "cluster046"
+        } -> null
+      - message_retention_duration   = "604800s" -> null
+      - name                         = "cluster046-controller" -> null
+      - project                      = "eimantask-personal-project" -> null
+      - retain_acked_messages        = false -> null
+      - topic                        = "projects/eimantask-personal-project/topics/cluster046-slurm-events-WTu28BuY" -> null
+
+      - expiration_policy {
+          - ttl = "2678400s" -> null
+        }
+
+      - retry_policy {
+          - maximum_backoff = "300s" -> null
+          - minimum_backoff = "30s" -> null
+        }
+    }
+
+  # module.slurm_controller.module.slurm_controller_instance.module.slurm_controller_instance.google_pubsub_subscription_iam_member.pull_subscription_binding[0] will be destroyed
+  - resource "google_pubsub_subscription_iam_member" "pull_subscription_binding" {
+      - etag         = "BwYTI0BIga4=" -> null
+      - id           = "projects/eimantask-personal-project/subscriptions/cluster046-controller/roles/pubsub.subscriber/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - member       = "serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - project      = "eimantask-personal-project" -> null
+      - role         = "roles/pubsub.subscriber" -> null
+      - subscription = "cluster046-controller" -> null
+    }
+
+  # module.slurm_controller.module.slurm_controller_template.module.instance_template.google_compute_instance_template.tpl will be destroyed
+  - resource "google_compute_instance_template" "tpl" {
+      - can_ip_forward          = false -> null
+      - id                      = "projects/eimantask-personal-project/global/instanceTemplates/cluster046-controller-default-20240308095823951300000003" -> null
+      - labels                  = {
+          - "created_by"          = "aicluster-server"
+          - "ghpc_blueprint"      = "cluster-046885a3"
+          - "ghpc_deployment"     = "cluster-046885a3"
+          - "ghpc_module"         = "schedmd-slurm-gcp-v5-controller"
+          - "ghpc_role"           = "scheduler"
+          - "slurm_cluster_name"  = "cluster046"
+          - "slurm_instance_role" = "controller"
+        } -> null
+      - machine_type            = "n2-standard-2" -> null
+      - metadata                = {
+          - "VmDnsSetting"        = "GlobalOnly"
+          - "enable-oslogin"      = "TRUE"
+          - "slurm_cluster_name"  = "cluster046"
+          - "slurm_instance_role" = "controller"
+        } -> null
+      - metadata_fingerprint    = "ATsgMtoSBYo=" -> null
+      - metadata_startup_script = <<-EOT
+            #!/bin/bash
+            # Copyright (C) SchedMD LLC.
+            #
+            # Licensed under the Apache License, Version 2.0 (the "License");
+            # you may not use this file except in compliance with the License.
+            # You may obtain a copy of the License at
+            #
+            #     http://www.apache.org/licenses/LICENSE-2.0
+            #
+            # Unless required by applicable law or agreed to in writing, software
+            # distributed under the License is distributed on an "AS IS" BASIS,
+            # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+            # See the License for the specific language governing permissions and
+            # limitations under the License.
+            
+            set -e
+            
+            SLURM_DIR=/slurm
+            FLAGFILE=$SLURM_DIR/slurm_configured_do_not_remove
+            SCRIPTS_DIR=$SLURM_DIR/scripts
+            
+            METADATA_SERVER="metadata.google.internal"
+            URL="http://$METADATA_SERVER/computeMetadata/v1"
+            HEADER="Metadata-Flavor:Google"
+            CURL="curl -sS --fail --header $HEADER"
+            
+            function fetch_scripts {
+            	# fetch project metadata
+            	if ! CLUSTER=$($CURL $URL/instance/attributes/slurm_cluster_name); then
+            		echo "ERROR: cluster name not found in instance metadata. Quitting!"
+            		return 1
+            	fi
+            	if ! META_DEVEL=$($CURL $URL/project/attributes/$CLUSTER-slurm-devel); then
+            		echo "WARNING: $CLUSTER-slurm-devel not found in project metadata, skipping script update"
+            		return
+            	fi
+            	echo devel data found in project metadata, looking to update scripts
+            	if STARTUP_SCRIPT=$(jq -re '."startup-script"' <<< "$META_DEVEL"); then
+            		echo "INFO: updating startup.sh from project metadata"
+            		printf '%s' "$STARTUP_SCRIPT" > $STARTUP_SCRIPT_FILE
+            	else
+            		echo "WARNING: startup-script not found in project metadata, skipping update"
+            	fi
+            	if SETUP_SCRIPT=$(jq -re '."setup-script"' <<< "$META_DEVEL"); then
+            		echo "INFO: updating setup.py from project metadata"
+            		printf '%s' "$SETUP_SCRIPT" > $SETUP_SCRIPT_FILE
+            	else
+            		echo "WARNING: setup-script not found in project metadata, skipping update"
+            	fi
+            	if UTIL_SCRIPT=$(jq -re '."util-script"' <<< "$META_DEVEL"); then
+            		echo "INFO: updating util.py from project metadata"
+            		printf '%s' "$UTIL_SCRIPT" > $UTIL_SCRIPT_FILE
+            	else
+            		echo "WARNING: util-script not found in project metadata, skipping update"
+            	fi
+            	if RESUME_SCRIPT=$(jq -re '."slurm-resume"' <<< "$META_DEVEL"); then
+            		echo "INFO: updating resume.py from project metadata"
+            		printf '%s' "$RESUME_SCRIPT" > $RESUME_SCRIPT_FILE
+            	else
+            		echo "WARNING: slurm-resume not found in project metadata, skipping update"
+            	fi
+            	if SUSPEND_SCRIPT=$(jq -re '."slurm-suspend"' <<< "$META_DEVEL"); then
+            		echo "INFO: updating suspend.py from project metadata"
+            		printf '%s' "$SUSPEND_SCRIPT" > $SUSPEND_SCRIPT_FILE
+            	else
+            		echo "WARNING: slurm-suspend not found in project metadata, skipping update"
+            	fi
+            	if SLURMSYNC_SCRIPT=$(jq -re '."slurmsync"' <<< "$META_DEVEL"); then
+            		echo "INFO: updating slurmsync.py from project metadata"
+            		printf '%s' "$SLURMSYNC_SCRIPT" > $SLURMSYNC_SCRIPT_FILE
+            	else
+            		echo "WARNING: slurmsync not found in project metadata, skipping update"
+            	fi
+            	if SLURMEVENTD_SCRIPT=$(jq -re '."slurmeventd"' <<< "$META_DEVEL"); then
+            		echo "INFO: updating slurmeventd.py from project metadata"
+            		printf '%s' "$SLURMEVENTD_SCRIPT" > $SLURMEVENTD_SCRIPT_FILE
+            	else
+            		echo "WARNING: slurmeventd not found in project metadata, skipping update"
+            	fi
+            }
+            
+            PING_METADATA="ping -q -w1 -c1 $METADATA_SERVER"
+            echo "INFO: $PING_METADATA"
+            for i in $(seq 10); do
+                [ $i -gt 1 ] && sleep 5;
+                $PING_METADATA > /dev/null && s=0 && break || s=$?;
+                echo "ERROR: Failed to contact metadata server, will retry"
+            done
+            if [ $s -ne 0 ]; then
+                echo "ERROR: Unable to contact metadata server, aborting"
+                wall -n '*** Slurm setup failed in the startup script! see `journalctl -u google-startup-scripts` ***'
+                exit 1
+            else
+                echo "INFO: Successfully contacted metadata server"
+            fi
+            
+            GOOGLE_DNS=8.8.8.8
+            PING_GOOGLE="ping -q -w1 -c1 $GOOGLE_DNS"
+            echo "INFO: $PING_GOOGLE"
+            for i in $(seq 5); do
+                [ $i -gt 1 ] && sleep 2;
+                $PING_GOOGLE > /dev/null && s=0 && break || s=$?;
+            	echo "failed to ping Google DNS, will retry"
+            done
+            if [ $s -ne 0 ]; then
+                echo "WARNING: No internet access detected"
+            else
+                echo "INFO: Internet access detected"
+            fi
+            
+            mkdir -p $SCRIPTS_DIR
+            
+            STARTUP_SCRIPT_FILE=$SCRIPTS_DIR/startup.sh
+            SETUP_SCRIPT_FILE=$SCRIPTS_DIR/setup.py
+            UTIL_SCRIPT_FILE=$SCRIPTS_DIR/util.py
+            RESUME_SCRIPT_FILE=$SCRIPTS_DIR/resume.py
+            SUSPEND_SCRIPT_FILE=$SCRIPTS_DIR/suspend.py
+            SLURMSYNC_SCRIPT_FILE=$SCRIPTS_DIR/slurmsync.py
+            SLURMEVENTD_SCRIPT_FILE=$SCRIPTS_DIR/slurmeventd.py
+            fetch_scripts
+            
+            if [ -f $FLAGFILE ]; then
+            	echo "WARNING: Slurm was previously configured, quitting"
+            	exit 0
+            fi
+            touch $FLAGFILE
+            
+            function fetch_feature {
+            	if slurmd_feature="$($CURL $URL/instance/attributes/slurmd_feature)"; then
+            		echo "$slurmd_feature"
+            	else
+            		echo ""
+            	fi
+            }
+            SLURMD_FEATURE="$(fetch_feature)"
+            
+            echo "INFO: Running python cluster setup script"
+            chmod +x $SETUP_SCRIPT_FILE
+            python3 $SCRIPTS_DIR/util.py
+            if [[ -n "$SLURMD_FEATURE" ]]; then
+            	echo "INFO: Running dynamic node setup."
+            	exec $SETUP_SCRIPT_FILE --slurmd-feature="$SLURMD_FEATURE"
+            else
+            	exec $SETUP_SCRIPT_FILE
+            fi
+        EOT -> null
+      - name                    = "cluster046-controller-default-20240308095823951300000003" -> null
+      - name_prefix             = "cluster046-controller-default-" -> null
+      - project                 = "eimantask-personal-project" -> null
+      - region                  = "us-east1" -> null
+      - self_link               = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/global/instanceTemplates/cluster046-controller-default-20240308095823951300000003" -> null
+      - self_link_unique        = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/global/instanceTemplates/cluster046-controller-default-20240308095823951300000003?uniqueId=540403083361345455" -> null
+      - tags                    = [
+          - "cluster046",
+        ] -> null
+
+      - advanced_machine_features {
+          - enable_nested_virtualization = false -> null
+          - threads_per_core             = 1 -> null
+          - visible_core_count           = 0 -> null
+        }
+
+      - confidential_instance_config {
+          - enable_confidential_compute = false -> null
+        }
+
+      - disk {
+          - auto_delete       = true -> null
+          - boot              = true -> null
+          - device_name       = "persistent-disk-0" -> null
+          - disk_size_gb      = 50 -> null
+          - disk_type         = "pd-standard" -> null
+          - interface         = "SCSI" -> null
+          - labels            = {
+              - "created_by"          = "aicluster-server"
+              - "ghpc_blueprint"      = "cluster-046885a3"
+              - "ghpc_deployment"     = "cluster-046885a3"
+              - "ghpc_module"         = "schedmd-slurm-gcp-v5-controller"
+              - "ghpc_role"           = "scheduler"
+              - "slurm_cluster_name"  = "cluster046"
+              - "slurm_instance_role" = "controller"
+            } -> null
+          - mode              = "READ_WRITE" -> null
+          - provisioned_iops  = 0 -> null
+          - resource_policies = [] -> null
+          - source_image      = "projects/schedmd-slurm-public/global/images/family/slurm-gcp-5-10-hpc-centos-7" -> null
+          - type              = "PERSISTENT" -> null
+        }
+
+      - network_interface {
+          - internal_ipv6_prefix_length = 0 -> null
+          - name                        = "nic0" -> null
+          - network                     = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/global/networks/legible-polliwog-network" -> null
+          - queue_count                 = 0 -> null
+          - subnetwork                  = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/regions/us-east1/subnetworks/legible-polliwog-subnet-2" -> null
+          - subnetwork_project          = "eimantask-personal-project" -> null
+        }
+
+      - network_performance_config {
+          - total_egress_bandwidth_tier = "DEFAULT" -> null
+        }
+
+      - scheduling {
+          - automatic_restart   = true -> null
+          - min_node_cpus       = 0 -> null
+          - on_host_maintenance = "MIGRATE" -> null
+          - preemptible         = false -> null
+          - provisioning_model  = "STANDARD" -> null
+        }
+
+      - service_account {
+          - email  = "cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+          - scopes = [
+              - "https://www.googleapis.com/auth/cloud-platform",
+              - "https://www.googleapis.com/auth/devstorage.read_write",
+              - "https://www.googleapis.com/auth/logging.write",
+              - "https://www.googleapis.com/auth/monitoring.write",
+              - "https://www.googleapis.com/auth/pubsub",
+            ] -> null
+        }
+    }
+
+  # module.slurm_login.module.slurm_login_instance.module.slurm_login_instance.google_compute_instance_from_template.slurm_instance[0] will be destroyed
+  - resource "google_compute_instance_from_template" "slurm_instance" {
+      - allow_stopping_for_update = true -> null
+      - attached_disk             = [] -> null
+      - can_ip_forward            = false -> null
+      - cpu_platform              = "Intel Cascade Lake" -> null
+      - current_status            = "RUNNING" -> null
+      - deletion_protection       = false -> null
+      - enable_display            = false -> null
+      - guest_accelerator         = [] -> null
+      - id                        = "projects/eimantask-personal-project/zones/us-east1-b/instances/cluster046-login-x5aqsoyt-001" -> null
+      - instance_id               = "5888272326256451392" -> null
+      - label_fingerprint         = "-mJ08ZqxhvI=" -> null
+      - labels                    = {
+          - "created_by"          = "aicluster-server"
+          - "ghpc_blueprint"      = "cluster-046885a3"
+          - "ghpc_deployment"     = "cluster-046885a3"
+          - "ghpc_module"         = "schedmd-slurm-gcp-v5-login"
+          - "ghpc_role"           = "scheduler"
+          - "slurm_cluster_name"  = "cluster046"
+          - "slurm_instance_role" = "login"
+        } -> null
+      - machine_type              = "n2-standard-2" -> null
+      - metadata                  = {
+          - "VmDnsSetting"        = "GlobalOnly"
+          - "enable-oslogin"      = "TRUE"
+          - "slurm_cluster_name"  = "cluster046"
+          - "slurm_instance_role" = "login"
+          - "slurm_login_suffix"  = "x5aqsoyt"
+          - "startup-script"      = <<-EOT
+                #!/bin/bash
+                # Copyright (C) SchedMD LLC.
+                #
+                # Licensed under the Apache License, Version 2.0 (the "License");
+                # you may not use this file except in compliance with the License.
+                # You may obtain a copy of the License at
+                #
+                #     http://www.apache.org/licenses/LICENSE-2.0
+                #
+                # Unless required by applicable law or agreed to in writing, software
+                # distributed under the License is distributed on an "AS IS" BASIS,
+                # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+                # See the License for the specific language governing permissions and
+                # limitations under the License.
+                
+                set -e
+                
+                SLURM_DIR=/slurm
+                FLAGFILE=$SLURM_DIR/slurm_configured_do_not_remove
+                SCRIPTS_DIR=$SLURM_DIR/scripts
+                
+                METADATA_SERVER="metadata.google.internal"
+                URL="http://$METADATA_SERVER/computeMetadata/v1"
+                HEADER="Metadata-Flavor:Google"
+                CURL="curl -sS --fail --header $HEADER"
+                
+                function fetch_scripts {
+                	# fetch project metadata
+                	if ! CLUSTER=$($CURL $URL/instance/attributes/slurm_cluster_name); then
+                		echo "ERROR: cluster name not found in instance metadata. Quitting!"
+                		return 1
+                	fi
+                	if ! META_DEVEL=$($CURL $URL/project/attributes/$CLUSTER-slurm-devel); then
+                		echo "WARNING: $CLUSTER-slurm-devel not found in project metadata, skipping script update"
+                		return
+                	fi
+                	echo devel data found in project metadata, looking to update scripts
+                	if STARTUP_SCRIPT=$(jq -re '."startup-script"' <<< "$META_DEVEL"); then
+                		echo "INFO: updating startup.sh from project metadata"
+                		printf '%s' "$STARTUP_SCRIPT" > $STARTUP_SCRIPT_FILE
+                	else
+                		echo "WARNING: startup-script not found in project metadata, skipping update"
+                	fi
+                	if SETUP_SCRIPT=$(jq -re '."setup-script"' <<< "$META_DEVEL"); then
+                		echo "INFO: updating setup.py from project metadata"
+                		printf '%s' "$SETUP_SCRIPT" > $SETUP_SCRIPT_FILE
+                	else
+                		echo "WARNING: setup-script not found in project metadata, skipping update"
+                	fi
+                	if UTIL_SCRIPT=$(jq -re '."util-script"' <<< "$META_DEVEL"); then
+                		echo "INFO: updating util.py from project metadata"
+                		printf '%s' "$UTIL_SCRIPT" > $UTIL_SCRIPT_FILE
+                	else
+                		echo "WARNING: util-script not found in project metadata, skipping update"
+                	fi
+                	if RESUME_SCRIPT=$(jq -re '."slurm-resume"' <<< "$META_DEVEL"); then
+                		echo "INFO: updating resume.py from project metadata"
+                		printf '%s' "$RESUME_SCRIPT" > $RESUME_SCRIPT_FILE
+                	else
+                		echo "WARNING: slurm-resume not found in project metadata, skipping update"
+                	fi
+                	if SUSPEND_SCRIPT=$(jq -re '."slurm-suspend"' <<< "$META_DEVEL"); then
+                		echo "INFO: updating suspend.py from project metadata"
+                		printf '%s' "$SUSPEND_SCRIPT" > $SUSPEND_SCRIPT_FILE
+                	else
+                		echo "WARNING: slurm-suspend not found in project metadata, skipping update"
+                	fi
+                	if SLURMSYNC_SCRIPT=$(jq -re '."slurmsync"' <<< "$META_DEVEL"); then
+                		echo "INFO: updating slurmsync.py from project metadata"
+                		printf '%s' "$SLURMSYNC_SCRIPT" > $SLURMSYNC_SCRIPT_FILE
+                	else
+                		echo "WARNING: slurmsync not found in project metadata, skipping update"
+                	fi
+                	if SLURMEVENTD_SCRIPT=$(jq -re '."slurmeventd"' <<< "$META_DEVEL"); then
+                		echo "INFO: updating slurmeventd.py from project metadata"
+                		printf '%s' "$SLURMEVENTD_SCRIPT" > $SLURMEVENTD_SCRIPT_FILE
+                	else
+                		echo "WARNING: slurmeventd not found in project metadata, skipping update"
+                	fi
+                }
+                
+                PING_METADATA="ping -q -w1 -c1 $METADATA_SERVER"
+                echo "INFO: $PING_METADATA"
+                for i in $(seq 10); do
+                    [ $i -gt 1 ] && sleep 5;
+                    $PING_METADATA > /dev/null && s=0 && break || s=$?;
+                    echo "ERROR: Failed to contact metadata server, will retry"
+                done
+                if [ $s -ne 0 ]; then
+                    echo "ERROR: Unable to contact metadata server, aborting"
+                    wall -n '*** Slurm setup failed in the startup script! see `journalctl -u google-startup-scripts` ***'
+                    exit 1
+                else
+                    echo "INFO: Successfully contacted metadata server"
+                fi
+                
+                GOOGLE_DNS=8.8.8.8
+                PING_GOOGLE="ping -q -w1 -c1 $GOOGLE_DNS"
+                echo "INFO: $PING_GOOGLE"
+                for i in $(seq 5); do
+                    [ $i -gt 1 ] && sleep 2;
+                    $PING_GOOGLE > /dev/null && s=0 && break || s=$?;
+                	echo "failed to ping Google DNS, will retry"
+                done
+                if [ $s -ne 0 ]; then
+                    echo "WARNING: No internet access detected"
+                else
+                    echo "INFO: Internet access detected"
+                fi
+                
+                mkdir -p $SCRIPTS_DIR
+                
+                STARTUP_SCRIPT_FILE=$SCRIPTS_DIR/startup.sh
+                SETUP_SCRIPT_FILE=$SCRIPTS_DIR/setup.py
+                UTIL_SCRIPT_FILE=$SCRIPTS_DIR/util.py
+                RESUME_SCRIPT_FILE=$SCRIPTS_DIR/resume.py
+                SUSPEND_SCRIPT_FILE=$SCRIPTS_DIR/suspend.py
+                SLURMSYNC_SCRIPT_FILE=$SCRIPTS_DIR/slurmsync.py
+                SLURMEVENTD_SCRIPT_FILE=$SCRIPTS_DIR/slurmeventd.py
+                fetch_scripts
+                
+                if [ -f $FLAGFILE ]; then
+                	echo "WARNING: Slurm was previously configured, quitting"
+                	exit 0
+                fi
+                touch $FLAGFILE
+                
+                function fetch_feature {
+                	if slurmd_feature="$($CURL $URL/instance/attributes/slurmd_feature)"; then
+                		echo "$slurmd_feature"
+                	else
+                		echo ""
+                	fi
+                }
+                SLURMD_FEATURE="$(fetch_feature)"
+                
+                echo "INFO: Running python cluster setup script"
+                chmod +x $SETUP_SCRIPT_FILE
+                python3 $SCRIPTS_DIR/util.py
+                if [[ -n "$SLURMD_FEATURE" ]]; then
+                	echo "INFO: Running dynamic node setup."
+                	exec $SETUP_SCRIPT_FILE --slurmd-feature="$SLURMD_FEATURE"
+                else
+                	exec $SETUP_SCRIPT_FILE
+                fi
+            EOT
+        } -> null
+      - metadata_fingerprint      = "ajWtbRTTXJg=" -> null
+      - name                      = "cluster046-login-x5aqsoyt-001" -> null
+      - project                   = "eimantask-personal-project" -> null
+      - resource_policies         = [] -> null
+      - scratch_disk              = [] -> null
+      - self_link                 = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/zones/us-east1-b/instances/cluster046-login-x5aqsoyt-001" -> null
+      - service_account           = [
+          - {
+              - email  = "cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com"
+              - scopes = [
+                  - "https://www.googleapis.com/auth/cloud-platform",
+                  - "https://www.googleapis.com/auth/devstorage.read_write",
+                  - "https://www.googleapis.com/auth/logging.write",
+                  - "https://www.googleapis.com/auth/monitoring.write",
+                ]
+            },
+        ] -> null
+      - source_instance_template  = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/global/instanceTemplates/cluster046-login-default-20240308095823936900000002" -> null
+      - tags                      = [
+          - "cluster046",
+        ] -> null
+      - tags_fingerprint          = "BKHDmCEgsMI=" -> null
+      - zone                      = "us-east1-b" -> null
+
+      - advanced_machine_features {
+          - enable_nested_virtualization = false -> null
+          - threads_per_core             = 1 -> null
+          - visible_core_count           = 0 -> null
+        }
+
+      - boot_disk {
+          - auto_delete = true -> null
+          - device_name = "persistent-disk-0" -> null
+          - mode        = "READ_WRITE" -> null
+          - source      = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/zones/us-east1-b/disks/cluster046-login-x5aqsoyt-001" -> null
+
+          - initialize_params {
+              - image                 = "https://www.googleapis.com/compute/v1/projects/schedmd-slurm-public/global/images/slurm-gcp-5-10-hpc-centos-7-1707957594" -> null
+              - labels                = {
+                  - "created_by"          = "aicluster-server"
+                  - "ghpc_blueprint"      = "cluster-046885a3"
+                  - "ghpc_deployment"     = "cluster-046885a3"
+                  - "ghpc_module"         = "schedmd-slurm-gcp-v5-login"
+                  - "ghpc_role"           = "scheduler"
+                  - "slurm_cluster_name"  = "cluster046"
+                  - "slurm_instance_role" = "login"
+                } -> null
+              - resource_manager_tags = {} -> null
+              - size                  = 50 -> null
+              - type                  = "pd-standard" -> null
+            }
+        }
+
+      - network_interface {
+          - access_config               = [] -> null
+          - alias_ip_range              = [] -> null
+          - internal_ipv6_prefix_length = 0 -> null
+          - name                        = "nic0" -> null
+          - network                     = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/global/networks/legible-polliwog-network" -> null
+          - network_ip                  = "192.168.45.5" -> null
+          - queue_count                 = 0 -> null
+          - stack_type                  = "IPV4_ONLY" -> null
+          - subnetwork                  = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/regions/us-east1/subnetworks/legible-polliwog-subnet-2" -> null
+          - subnetwork_project          = "eimantask-personal-project" -> null
+        }
+
+      - network_performance_config {
+          - total_egress_bandwidth_tier = "DEFAULT" -> null
+        }
+
+      - scheduling {
+          - automatic_restart   = true -> null
+          - min_node_cpus       = 0 -> null
+          - on_host_maintenance = "MIGRATE" -> null
+          - preemptible         = false -> null
+          - provisioning_model  = "STANDARD" -> null
+        }
+
+      - shielded_instance_config {
+          - enable_integrity_monitoring = true -> null
+          - enable_secure_boot          = false -> null
+          - enable_vtpm                 = true -> null
+        }
+    }
+
+  # module.slurm_login.module.slurm_login_instance.module.slurm_login_instance.google_pubsub_subscription.pull_subscriptions[0] will be destroyed
+  - resource "google_pubsub_subscription" "pull_subscriptions" {
+      - ack_deadline_seconds         = 120 -> null
+      - enable_exactly_once_delivery = false -> null
+      - enable_message_ordering      = true -> null
+      - id                           = "projects/eimantask-personal-project/subscriptions/cluster046-login-x5aqsoyt-001" -> null
+      - labels                       = {
+          - "slurm_cluster_name" = "cluster046"
+        } -> null
+      - message_retention_duration   = "604800s" -> null
+      - name                         = "cluster046-login-x5aqsoyt-001" -> null
+      - project                      = "eimantask-personal-project" -> null
+      - retain_acked_messages        = false -> null
+      - topic                        = "projects/eimantask-personal-project/topics/cluster046-slurm-events-WTu28BuY" -> null
+
+      - expiration_policy {
+          - ttl = "2678400s" -> null
+        }
+
+      - retry_policy {
+          - maximum_backoff = "300s" -> null
+          - minimum_backoff = "30s" -> null
+        }
+    }
+
+  # module.slurm_login.module.slurm_login_instance.module.slurm_login_instance.google_pubsub_subscription_iam_member.pull_subscription_binding[0] will be destroyed
+  - resource "google_pubsub_subscription_iam_member" "pull_subscription_binding" {
+      - etag         = "BwYTIzxI2KA=" -> null
+      - id           = "projects/eimantask-personal-project/subscriptions/cluster046-login-x5aqsoyt-001/roles/pubsub.subscriber/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - member       = "serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+      - project      = "eimantask-personal-project" -> null
+      - role         = "roles/pubsub.subscriber" -> null
+      - subscription = "cluster046-login-x5aqsoyt-001" -> null
+    }
+
+  # module.slurm_login.module.slurm_login_template.module.instance_template.google_compute_instance_template.tpl will be destroyed
+  - resource "google_compute_instance_template" "tpl" {
+      - can_ip_forward          = false -> null
+      - id                      = "projects/eimantask-personal-project/global/instanceTemplates/cluster046-login-default-20240308095823936900000002" -> null
+      - labels                  = {
+          - "created_by"          = "aicluster-server"
+          - "ghpc_blueprint"      = "cluster-046885a3"
+          - "ghpc_deployment"     = "cluster-046885a3"
+          - "ghpc_module"         = "schedmd-slurm-gcp-v5-login"
+          - "ghpc_role"           = "scheduler"
+          - "slurm_cluster_name"  = "cluster046"
+          - "slurm_instance_role" = "login"
+        } -> null
+      - machine_type            = "n2-standard-2" -> null
+      - metadata                = {
+          - "VmDnsSetting"        = "GlobalOnly"
+          - "enable-oslogin"      = "TRUE"
+          - "slurm_cluster_name"  = "cluster046"
+          - "slurm_instance_role" = "login"
+        } -> null
+      - metadata_fingerprint    = "3m_-J7phU38=" -> null
+      - metadata_startup_script = <<-EOT
+            #!/bin/bash
+            # Copyright (C) SchedMD LLC.
+            #
+            # Licensed under the Apache License, Version 2.0 (the "License");
+            # you may not use this file except in compliance with the License.
+            # You may obtain a copy of the License at
+            #
+            #     http://www.apache.org/licenses/LICENSE-2.0
+            #
+            # Unless required by applicable law or agreed to in writing, software
+            # distributed under the License is distributed on an "AS IS" BASIS,
+            # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+            # See the License for the specific language governing permissions and
+            # limitations under the License.
+            
+            set -e
+            
+            SLURM_DIR=/slurm
+            FLAGFILE=$SLURM_DIR/slurm_configured_do_not_remove
+            SCRIPTS_DIR=$SLURM_DIR/scripts
+            
+            METADATA_SERVER="metadata.google.internal"
+            URL="http://$METADATA_SERVER/computeMetadata/v1"
+            HEADER="Metadata-Flavor:Google"
+            CURL="curl -sS --fail --header $HEADER"
+            
+            function fetch_scripts {
+            	# fetch project metadata
+            	if ! CLUSTER=$($CURL $URL/instance/attributes/slurm_cluster_name); then
+            		echo "ERROR: cluster name not found in instance metadata. Quitting!"
+            		return 1
+            	fi
+            	if ! META_DEVEL=$($CURL $URL/project/attributes/$CLUSTER-slurm-devel); then
+            		echo "WARNING: $CLUSTER-slurm-devel not found in project metadata, skipping script update"
+            		return
+            	fi
+            	echo devel data found in project metadata, looking to update scripts
+            	if STARTUP_SCRIPT=$(jq -re '."startup-script"' <<< "$META_DEVEL"); then
+            		echo "INFO: updating startup.sh from project metadata"
+            		printf '%s' "$STARTUP_SCRIPT" > $STARTUP_SCRIPT_FILE
+            	else
+            		echo "WARNING: startup-script not found in project metadata, skipping update"
+            	fi
+            	if SETUP_SCRIPT=$(jq -re '."setup-script"' <<< "$META_DEVEL"); then
+            		echo "INFO: updating setup.py from project metadata"
+            		printf '%s' "$SETUP_SCRIPT" > $SETUP_SCRIPT_FILE
+            	else
+            		echo "WARNING: setup-script not found in project metadata, skipping update"
+            	fi
+            	if UTIL_SCRIPT=$(jq -re '."util-script"' <<< "$META_DEVEL"); then
+            		echo "INFO: updating util.py from project metadata"
+            		printf '%s' "$UTIL_SCRIPT" > $UTIL_SCRIPT_FILE
+            	else
+            		echo "WARNING: util-script not found in project metadata, skipping update"
+            	fi
+            	if RESUME_SCRIPT=$(jq -re '."slurm-resume"' <<< "$META_DEVEL"); then
+            		echo "INFO: updating resume.py from project metadata"
+            		printf '%s' "$RESUME_SCRIPT" > $RESUME_SCRIPT_FILE
+            	else
+            		echo "WARNING: slurm-resume not found in project metadata, skipping update"
+            	fi
+            	if SUSPEND_SCRIPT=$(jq -re '."slurm-suspend"' <<< "$META_DEVEL"); then
+            		echo "INFO: updating suspend.py from project metadata"
+            		printf '%s' "$SUSPEND_SCRIPT" > $SUSPEND_SCRIPT_FILE
+            	else
+            		echo "WARNING: slurm-suspend not found in project metadata, skipping update"
+            	fi
+            	if SLURMSYNC_SCRIPT=$(jq -re '."slurmsync"' <<< "$META_DEVEL"); then
+            		echo "INFO: updating slurmsync.py from project metadata"
+            		printf '%s' "$SLURMSYNC_SCRIPT" > $SLURMSYNC_SCRIPT_FILE
+            	else
+            		echo "WARNING: slurmsync not found in project metadata, skipping update"
+            	fi
+            	if SLURMEVENTD_SCRIPT=$(jq -re '."slurmeventd"' <<< "$META_DEVEL"); then
+            		echo "INFO: updating slurmeventd.py from project metadata"
+            		printf '%s' "$SLURMEVENTD_SCRIPT" > $SLURMEVENTD_SCRIPT_FILE
+            	else
+            		echo "WARNING: slurmeventd not found in project metadata, skipping update"
+            	fi
+            }
+            
+            PING_METADATA="ping -q -w1 -c1 $METADATA_SERVER"
+            echo "INFO: $PING_METADATA"
+            for i in $(seq 10); do
+                [ $i -gt 1 ] && sleep 5;
+                $PING_METADATA > /dev/null && s=0 && break || s=$?;
+                echo "ERROR: Failed to contact metadata server, will retry"
+            done
+            if [ $s -ne 0 ]; then
+                echo "ERROR: Unable to contact metadata server, aborting"
+                wall -n '*** Slurm setup failed in the startup script! see `journalctl -u google-startup-scripts` ***'
+                exit 1
+            else
+                echo "INFO: Successfully contacted metadata server"
+            fi
+            
+            GOOGLE_DNS=8.8.8.8
+            PING_GOOGLE="ping -q -w1 -c1 $GOOGLE_DNS"
+            echo "INFO: $PING_GOOGLE"
+            for i in $(seq 5); do
+                [ $i -gt 1 ] && sleep 2;
+                $PING_GOOGLE > /dev/null && s=0 && break || s=$?;
+            	echo "failed to ping Google DNS, will retry"
+            done
+            if [ $s -ne 0 ]; then
+                echo "WARNING: No internet access detected"
+            else
+                echo "INFO: Internet access detected"
+            fi
+            
+            mkdir -p $SCRIPTS_DIR
+            
+            STARTUP_SCRIPT_FILE=$SCRIPTS_DIR/startup.sh
+            SETUP_SCRIPT_FILE=$SCRIPTS_DIR/setup.py
+            UTIL_SCRIPT_FILE=$SCRIPTS_DIR/util.py
+            RESUME_SCRIPT_FILE=$SCRIPTS_DIR/resume.py
+            SUSPEND_SCRIPT_FILE=$SCRIPTS_DIR/suspend.py
+            SLURMSYNC_SCRIPT_FILE=$SCRIPTS_DIR/slurmsync.py
+            SLURMEVENTD_SCRIPT_FILE=$SCRIPTS_DIR/slurmeventd.py
+            fetch_scripts
+            
+            if [ -f $FLAGFILE ]; then
+            	echo "WARNING: Slurm was previously configured, quitting"
+            	exit 0
+            fi
+            touch $FLAGFILE
+            
+            function fetch_feature {
+            	if slurmd_feature="$($CURL $URL/instance/attributes/slurmd_feature)"; then
+            		echo "$slurmd_feature"
+            	else
+            		echo ""
+            	fi
+            }
+            SLURMD_FEATURE="$(fetch_feature)"
+            
+            echo "INFO: Running python cluster setup script"
+            chmod +x $SETUP_SCRIPT_FILE
+            python3 $SCRIPTS_DIR/util.py
+            if [[ -n "$SLURMD_FEATURE" ]]; then
+            	echo "INFO: Running dynamic node setup."
+            	exec $SETUP_SCRIPT_FILE --slurmd-feature="$SLURMD_FEATURE"
+            else
+            	exec $SETUP_SCRIPT_FILE
+            fi
+        EOT -> null
+      - name                    = "cluster046-login-default-20240308095823936900000002" -> null
+      - name_prefix             = "cluster046-login-default-" -> null
+      - project                 = "eimantask-personal-project" -> null
+      - region                  = "us-east1" -> null
+      - self_link               = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/global/instanceTemplates/cluster046-login-default-20240308095823936900000002" -> null
+      - self_link_unique        = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/global/instanceTemplates/cluster046-login-default-20240308095823936900000002?uniqueId=4817421109735940015" -> null
+      - tags                    = [
+          - "cluster046",
+        ] -> null
+
+      - advanced_machine_features {
+          - enable_nested_virtualization = false -> null
+          - threads_per_core             = 1 -> null
+          - visible_core_count           = 0 -> null
+        }
+
+      - confidential_instance_config {
+          - enable_confidential_compute = false -> null
+        }
+
+      - disk {
+          - auto_delete       = true -> null
+          - boot              = true -> null
+          - device_name       = "persistent-disk-0" -> null
+          - disk_size_gb      = 50 -> null
+          - disk_type         = "pd-standard" -> null
+          - interface         = "SCSI" -> null
+          - labels            = {
+              - "created_by"          = "aicluster-server"
+              - "ghpc_blueprint"      = "cluster-046885a3"
+              - "ghpc_deployment"     = "cluster-046885a3"
+              - "ghpc_module"         = "schedmd-slurm-gcp-v5-login"
+              - "ghpc_role"           = "scheduler"
+              - "slurm_cluster_name"  = "cluster046"
+              - "slurm_instance_role" = "login"
+            } -> null
+          - mode              = "READ_WRITE" -> null
+          - provisioned_iops  = 0 -> null
+          - resource_policies = [] -> null
+          - source_image      = "projects/schedmd-slurm-public/global/images/family/slurm-gcp-5-10-hpc-centos-7" -> null
+          - type              = "PERSISTENT" -> null
+        }
+
+      - network_interface {
+          - internal_ipv6_prefix_length = 0 -> null
+          - name                        = "nic0" -> null
+          - network                     = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/global/networks/legible-polliwog-network" -> null
+          - queue_count                 = 0 -> null
+          - subnetwork                  = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/regions/us-east1/subnetworks/legible-polliwog-subnet-2" -> null
+          - subnetwork_project          = "eimantask-personal-project" -> null
+        }
+
+      - network_performance_config {
+          - total_egress_bandwidth_tier = "DEFAULT" -> null
+        }
+
+      - scheduling {
+          - automatic_restart   = true -> null
+          - min_node_cpus       = 0 -> null
+          - on_host_maintenance = "MIGRATE" -> null
+          - preemptible         = false -> null
+          - provisioning_model  = "STANDARD" -> null
+        }
+
+      - service_account {
+          - email  = "cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com" -> null
+          - scopes = [
+              - "https://www.googleapis.com/auth/cloud-platform",
+              - "https://www.googleapis.com/auth/devstorage.read_write",
+              - "https://www.googleapis.com/auth/logging.write",
+              - "https://www.googleapis.com/auth/monitoring.write",
+            ] -> null
+        }
+    }
+
+  # module.partition_0.module.slurm_partition.module.slurm_compute_template["ghpc"].module.instance_template.google_compute_instance_template.tpl will be destroyed
+  - resource "google_compute_instance_template" "tpl" {
+      - can_ip_forward          = false -> null
+      - id                      = "projects/eimantask-personal-project/global/instanceTemplates/cluster046-compute-batch-ghpc-20240308095739680500000001" -> null
+      - labels                  = {
+          - "created_by"          = "aicluster-server"
+          - "ghpc_blueprint"      = "cluster-046885a3"
+          - "ghpc_deployment"     = "cluster-046885a3"
+          - "ghpc_module"         = "schedmd-slurm-gcp-v5-node-group"
+          - "ghpc_role"           = "compute"
+          - "slurm_cluster_name"  = "cluster046"
+          - "slurm_instance_role" = "compute"
+        } -> null
+      - machine_type            = "c2-standard-60" -> null
+      - metadata                = {
+          - "VmDnsSetting"        = "GlobalOnly"
+          - "enable-oslogin"      = "TRUE"
+          - "slurm_cluster_name"  = "cluster046"
+          - "slurm_instance_role" = "compute"
+        } -> null
+      - metadata_fingerprint    = "E62kivs2zuI=" -> null
+      - metadata_startup_script = <<-EOT
+            #!/bin/bash
+            # Copyright (C) SchedMD LLC.
+            #
+            # Licensed under the Apache License, Version 2.0 (the "License");
+            # you may not use this file except in compliance with the License.
+            # You may obtain a copy of the License at
+            #
+            #     http://www.apache.org/licenses/LICENSE-2.0
+            #
+            # Unless required by applicable law or agreed to in writing, software
+            # distributed under the License is distributed on an "AS IS" BASIS,
+            # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+            # See the License for the specific language governing permissions and
+            # limitations under the License.
+            
+            set -e
+            
+            SLURM_DIR=/slurm
+            FLAGFILE=$SLURM_DIR/slurm_configured_do_not_remove
+            SCRIPTS_DIR=$SLURM_DIR/scripts
+            
+            METADATA_SERVER="metadata.google.internal"
+            URL="http://$METADATA_SERVER/computeMetadata/v1"
+            HEADER="Metadata-Flavor:Google"
+            CURL="curl -sS --fail --header $HEADER"
+            
+            function fetch_scripts {
+            	# fetch project metadata
+            	if ! CLUSTER=$($CURL $URL/instance/attributes/slurm_cluster_name); then
+            		echo "ERROR: cluster name not found in instance metadata. Quitting!"
+            		return 1
+            	fi
+            	if ! META_DEVEL=$($CURL $URL/project/attributes/$CLUSTER-slurm-devel); then
+            		echo "WARNING: $CLUSTER-slurm-devel not found in project metadata, skipping script update"
+            		return
+            	fi
+            	echo devel data found in project metadata, looking to update scripts
+            	if STARTUP_SCRIPT=$(jq -re '."startup-script"' <<< "$META_DEVEL"); then
+            		echo "INFO: updating startup.sh from project metadata"
+            		printf '%s' "$STARTUP_SCRIPT" > $STARTUP_SCRIPT_FILE
+            	else
+            		echo "WARNING: startup-script not found in project metadata, skipping update"
+            	fi
+            	if SETUP_SCRIPT=$(jq -re '."setup-script"' <<< "$META_DEVEL"); then
+            		echo "INFO: updating setup.py from project metadata"
+            		printf '%s' "$SETUP_SCRIPT" > $SETUP_SCRIPT_FILE
+            	else
+            		echo "WARNING: setup-script not found in project metadata, skipping update"
+            	fi
+            	if UTIL_SCRIPT=$(jq -re '."util-script"' <<< "$META_DEVEL"); then
+            		echo "INFO: updating util.py from project metadata"
+            		printf '%s' "$UTIL_SCRIPT" > $UTIL_SCRIPT_FILE
+            	else
+            		echo "WARNING: util-script not found in project metadata, skipping update"
+            	fi
+            	if RESUME_SCRIPT=$(jq -re '."slurm-resume"' <<< "$META_DEVEL"); then
+            		echo "INFO: updating resume.py from project metadata"
+            		printf '%s' "$RESUME_SCRIPT" > $RESUME_SCRIPT_FILE
+            	else
+            		echo "WARNING: slurm-resume not found in project metadata, skipping update"
+            	fi
+            	if SUSPEND_SCRIPT=$(jq -re '."slurm-suspend"' <<< "$META_DEVEL"); then
+            		echo "INFO: updating suspend.py from project metadata"
+            		printf '%s' "$SUSPEND_SCRIPT" > $SUSPEND_SCRIPT_FILE
+            	else
+            		echo "WARNING: slurm-suspend not found in project metadata, skipping update"
+            	fi
+            	if SLURMSYNC_SCRIPT=$(jq -re '."slurmsync"' <<< "$META_DEVEL"); then
+            		echo "INFO: updating slurmsync.py from project metadata"
+            		printf '%s' "$SLURMSYNC_SCRIPT" > $SLURMSYNC_SCRIPT_FILE
+            	else
+            		echo "WARNING: slurmsync not found in project metadata, skipping update"
+            	fi
+            	if SLURMEVENTD_SCRIPT=$(jq -re '."slurmeventd"' <<< "$META_DEVEL"); then
+            		echo "INFO: updating slurmeventd.py from project metadata"
+            		printf '%s' "$SLURMEVENTD_SCRIPT" > $SLURMEVENTD_SCRIPT_FILE
+            	else
+            		echo "WARNING: slurmeventd not found in project metadata, skipping update"
+            	fi
+            }
+            
+            PING_METADATA="ping -q -w1 -c1 $METADATA_SERVER"
+            echo "INFO: $PING_METADATA"
+            for i in $(seq 10); do
+                [ $i -gt 1 ] && sleep 5;
+                $PING_METADATA > /dev/null && s=0 && break || s=$?;
+                echo "ERROR: Failed to contact metadata server, will retry"
+            done
+            if [ $s -ne 0 ]; then
+                echo "ERROR: Unable to contact metadata server, aborting"
+                wall -n '*** Slurm setup failed in the startup script! see `journalctl -u google-startup-scripts` ***'
+                exit 1
+            else
+                echo "INFO: Successfully contacted metadata server"
+            fi
+            
+            GOOGLE_DNS=8.8.8.8
+            PING_GOOGLE="ping -q -w1 -c1 $GOOGLE_DNS"
+            echo "INFO: $PING_GOOGLE"
+            for i in $(seq 5); do
+                [ $i -gt 1 ] && sleep 2;
+                $PING_GOOGLE > /dev/null && s=0 && break || s=$?;
+            	echo "failed to ping Google DNS, will retry"
+            done
+            if [ $s -ne 0 ]; then
+                echo "WARNING: No internet access detected"
+            else
+                echo "INFO: Internet access detected"
+            fi
+            
+            mkdir -p $SCRIPTS_DIR
+            
+            STARTUP_SCRIPT_FILE=$SCRIPTS_DIR/startup.sh
+            SETUP_SCRIPT_FILE=$SCRIPTS_DIR/setup.py
+            UTIL_SCRIPT_FILE=$SCRIPTS_DIR/util.py
+            RESUME_SCRIPT_FILE=$SCRIPTS_DIR/resume.py
+            SUSPEND_SCRIPT_FILE=$SCRIPTS_DIR/suspend.py
+            SLURMSYNC_SCRIPT_FILE=$SCRIPTS_DIR/slurmsync.py
+            SLURMEVENTD_SCRIPT_FILE=$SCRIPTS_DIR/slurmeventd.py
+            fetch_scripts
+            
+            if [ -f $FLAGFILE ]; then
+            	echo "WARNING: Slurm was previously configured, quitting"
+            	exit 0
+            fi
+            touch $FLAGFILE
+            
+            function fetch_feature {
+            	if slurmd_feature="$($CURL $URL/instance/attributes/slurmd_feature)"; then
+            		echo "$slurmd_feature"
+            	else
+            		echo ""
+            	fi
+            }
+            SLURMD_FEATURE="$(fetch_feature)"
+            
+            echo "INFO: Running python cluster setup script"
+            chmod +x $SETUP_SCRIPT_FILE
+            python3 $SCRIPTS_DIR/util.py
+            if [[ -n "$SLURMD_FEATURE" ]]; then
+            	echo "INFO: Running dynamic node setup."
+            	exec $SETUP_SCRIPT_FILE --slurmd-feature="$SLURMD_FEATURE"
+            else
+            	exec $SETUP_SCRIPT_FILE
+            fi
+        EOT -> null
+      - name                    = "cluster046-compute-batch-ghpc-20240308095739680500000001" -> null
+      - name_prefix             = "cluster046-compute-batch-ghpc-" -> null
+      - project                 = "eimantask-personal-project" -> null
+      - region                  = "us-east1" -> null
+      - self_link               = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/global/instanceTemplates/cluster046-compute-batch-ghpc-20240308095739680500000001" -> null
+      - self_link_unique        = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/global/instanceTemplates/cluster046-compute-batch-ghpc-20240308095739680500000001?uniqueId=7889902273613488123" -> null
+      - tags                    = [
+          - "cluster046",
+        ] -> null
+
+      - advanced_machine_features {
+          - enable_nested_virtualization = false -> null
+          - threads_per_core             = 1 -> null
+          - visible_core_count           = 0 -> null
+        }
+
+      - confidential_instance_config {
+          - enable_confidential_compute = false -> null
+        }
+
+      - disk {
+          - auto_delete       = true -> null
+          - boot              = true -> null
+          - device_name       = "persistent-disk-0" -> null
+          - disk_size_gb      = 50 -> null
+          - disk_type         = "pd-standard" -> null
+          - interface         = "SCSI" -> null
+          - labels            = {
+              - "created_by"          = "aicluster-server"
+              - "ghpc_blueprint"      = "cluster-046885a3"
+              - "ghpc_deployment"     = "cluster-046885a3"
+              - "ghpc_module"         = "schedmd-slurm-gcp-v5-node-group"
+              - "ghpc_role"           = "compute"
+              - "slurm_cluster_name"  = "cluster046"
+              - "slurm_instance_role" = "compute"
+            } -> null
+          - mode              = "READ_WRITE" -> null
+          - provisioned_iops  = 0 -> null
+          - resource_policies = [] -> null
+          - source_image      = "projects/schedmd-slurm-public/global/images/family/slurm-gcp-5-10-hpc-centos-7" -> null
+          - type              = "PERSISTENT" -> null
+        }
+
+      - network_interface {
+          - internal_ipv6_prefix_length = 0 -> null
+          - name                        = "nic0" -> null
+          - network                     = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/global/networks/legible-polliwog-network" -> null
+          - queue_count                 = 0 -> null
+          - subnetwork                  = "https://www.googleapis.com/compute/v1/projects/eimantask-personal-project/regions/us-east1/subnetworks/legible-polliwog-subnet-2" -> null
+          - subnetwork_project          = "eimantask-personal-project" -> null
+        }
+
+      - network_performance_config {
+          - total_egress_bandwidth_tier = "DEFAULT" -> null
+        }
+
+      - scheduling {
+          - automatic_restart   = true -> null
+          - min_node_cpus       = 0 -> null
+          - on_host_maintenance = "TERMINATE" -> null
+          - preemptible         = false -> null
+          - provisioning_model  = "STANDARD" -> null
+        }
+
+      - service_account {
+          - email  = "260846834422-compute@developer.gserviceaccount.com" -> null
+          - scopes = [
+              - "https://www.googleapis.com/auth/cloud-platform",
+            ] -> null
+        }
+    }
+
+Plan: 0 to add, 0 to change, 42 to destroy.
+module.partition_0.module.slurm_partition.module.reconfigure_node_groups["ghpc"].null_resource.destroy_nodes_on_create[0]: Destroying... [id=1579400926878710909]
+module.partition_0.module.slurm_partition.module.reconfigure_placement_groups[0].null_resource.destroy_resource_policies_on_create[0]: Destroying... [id=2304768098085504411]
+module.slurm_controller.module.slurm_controller_instance.module.reconfigure_partitions[0].null_resource.destroy_nodes_on_create[0]: Destroying... [id=8646314523304668344]
+module.slurm_controller.module.slurm_controller_instance.module.cleanup_subscriptions[0].null_resource.destroy_subscriptions_on_destroy[0]: Destroying... [id=1497888407346476055]
+module.slurm_controller.module.slurm_controller_instance.module.cleanup_subscriptions[0].null_resource.destroy_subscriptions_on_destroy[0]: Provisioning with 'local-exec'...
+module.slurm_controller.module.slurm_controller_instance.module.cleanup_subscriptions[0].null_resource.destroy_subscriptions_on_destroy[0] (local-exec): Executing: ["/bin/sh" "-c" "/opt/gcluster/hpc-toolkit/community/front-end/ofe/clusters/cluster_7/cluster-046885a3/primary/.terraform/modules/slurm_controller.slurm_controller_instance/scripts/destroy_subscriptions.py 'cluster046'\n"]
+module.slurm_controller.module.slurm_controller_instance.module.reconfigure_notify[0].null_resource.notify_cluster: Destroying... [id=4299471615973268702]
+module.partition_0.module.slurm_partition.null_resource.partition: Destroying... [id=5569231588619603831]
+module.partition_0.module.slurm_partition.null_resource.partition: Destruction complete after 0s
+module.slurm_controller.module.slurm_controller_instance.module.reconfigure_notify[0].null_resource.notify_cluster: Destruction complete after 0s
+module.partition_0.module.slurm_partition.module.reconfigure_placement_groups[0].null_resource.destroy_resource_policies_on_create[0]: Destruction complete after 0s
+module.slurm_controller.module.slurm_controller_instance.module.reconfigure_partitions[0].null_resource.destroy_nodes_on_create[0]: Destruction complete after 0s
+module.partition_0.module.slurm_partition.module.reconfigure_node_groups["ghpc"].null_resource.destroy_nodes_on_create[0]: Destruction complete after 0s
+module.slurm_controller.module.slurm_controller_instance.module.reconfigure_critical[0].null_resource.destroy_nodes_on_create[0]: Destroying... [id=4001283573291694997]
+module.partition_0.module.slurm_partition.module.reconfigure_critical[0].null_resource.destroy_nodes_on_create[0]: Destroying... [id=2053133343504039332]
+module.slurm_login.module.slurm_login_instance.module.slurm_login_instance.google_compute_instance_from_template.slurm_instance[0]: Destroying... [id=projects/eimantask-personal-project/zones/us-east1-b/instances/cluster046-login-x5aqsoyt-001]
+module.slurm_login.module.slurm_login_instance.module.slurm_login_instance.google_pubsub_subscription_iam_member.pull_subscription_binding[0]: Destroying... [id=projects/eimantask-personal-project/subscriptions/cluster046-login-x5aqsoyt-001/roles/pubsub.subscriber/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.compute_startup_scripts["ghpc_startup_sh"]: Destroying... [id=cluster046-slurm-compute-script-ghpc_startup_sh]
+module.slurm_controller.module.slurm_controller_instance.google_pubsub_topic_iam_member.topic_publisher[0]: Destroying... [id=projects/eimantask-personal-project/topics/cluster046-slurm-events-WTu28BuY/roles/pubsub.publisher/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.slurm_controller.module.slurm_controller_instance.module.reconfigure_critical[0].null_resource.destroy_nodes_on_create[0]: Destruction complete after 0s
+module.partition_0.module.slurm_partition.module.reconfigure_critical[0].null_resource.destroy_nodes_on_create[0]: Destruction complete after 0s
+module.slurm_controller.module.slurm_controller_instance.module.cleanup_subscriptions[0].null_resource.destroy_subscriptions_on_destroy[0] (local-exec): WARNING:util:config file not found: /opt/gcluster/hpc-toolkit/community/front-end/ofe/clusters/cluster_7/cluster-046885a3/primary/.terraform/modules/slurm_controller.slurm_controller_instance/scripts/config.yaml
+module.slurm_controller.module.slurm_controller_instance.module.cleanup_subscriptions[0].null_resource.destroy_subscriptions_on_destroy[0] (local-exec): WARNING:util:config not found in metadata
+module.slurm_controller.module.slurm_controller_instance.module.cleanup_subscriptions[0].null_resource.destroy_subscriptions_on_destroy[0] (local-exec): WARNING:util:User 'slurm' does not exist. Cannot 'chown slurm:slurm /opt/gcluster/hpc-toolkit/community/front-end/ofe/clusters/cluster_7/cluster-046885a3/primary/.terraform/modules/slurm_controller.slurm_controller_instance/scripts/destroy_subscriptions.log'.
+module.partition_0.module.slurm_partition.google_compute_project_metadata_item.partition_startup_scripts["ghpc_startup_sh"]: Destroying... [id=cluster046-slurm-partition-batch-script-ghpc_startup_sh]
+module.slurm_controller.module.slurm_controller_instance.module.cleanup_subscriptions[0].null_resource.destroy_subscriptions_on_destroy[0] (local-exec): INFO: Deleting 1 subscriptions:
+module.slurm_controller.module.slurm_controller_instance.module.cleanup_subscriptions[0].null_resource.destroy_subscriptions_on_destroy[0] (local-exec): projects/eimantask-personal-project/subscriptions/cluster046-login-x5aqsoyt-001
+module.slurm_controller.module.slurm_controller_instance.module.cleanup_subscriptions[0].null_resource.destroy_subscriptions_on_destroy[0] (local-exec): INFO: Subscription deleted: projects/eimantask-personal-project/subscriptions/cluster046-login-x5aqsoyt-001.
+module.slurm_controller.module.slurm_controller_instance.module.cleanup_subscriptions[0].null_resource.destroy_subscriptions_on_destroy[0]: Destruction complete after 3s
+module.slurm_login.module.slurm_login_instance.module.slurm_login_instance.google_pubsub_subscription_iam_member.pull_subscription_binding[0]: Destruction complete after 3s
+module.slurm_controller.module.slurm_controller_instance.google_pubsub_topic_iam_member.topic_publisher[0]: Destruction complete after 4s
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.compute_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-compute-script-ghpc_startup_sh, 10s elapsed]
+module.slurm_login.module.slurm_login_instance.module.slurm_login_instance.google_compute_instance_from_template.slurm_instance[0]: Still destroying... [id=projects/eimantask-personal-project/zon...nstances/cluster046-login-x5aqsoyt-001, 10s elapsed]
+module.partition_0.module.slurm_partition.google_compute_project_metadata_item.partition_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-partition-batch-script-ghpc_startup_sh, 10s elapsed]
+module.slurm_login.module.slurm_login_instance.module.slurm_login_instance.google_compute_instance_from_template.slurm_instance[0]: Still destroying... [id=projects/eimantask-personal-project/zon...nstances/cluster046-login-x5aqsoyt-001, 20s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.compute_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-compute-script-ghpc_startup_sh, 20s elapsed]
+module.partition_0.module.slurm_partition.google_compute_project_metadata_item.partition_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-partition-batch-script-ghpc_startup_sh, 20s elapsed]
+module.slurm_login.module.slurm_login_instance.module.slurm_login_instance.google_compute_instance_from_template.slurm_instance[0]: Destruction complete after 21s
+module.slurm_controller.module.slurm_controller_instance.module.slurm_controller_instance.google_pubsub_subscription_iam_member.pull_subscription_binding[0]: Destroying... [id=projects/eimantask-personal-project/subscriptions/cluster046-controller/roles/pubsub.subscriber/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.slurm_controller.module.slurm_controller_instance.module.slurm_controller_instance.google_compute_instance_from_template.slurm_instance[0]: Destroying... [id=projects/eimantask-personal-project/zones/us-east1-b/instances/cluster046-controller]
+module.slurm_login.module.slurm_login_instance.module.slurm_login_instance.google_pubsub_subscription.pull_subscriptions[0]: Destroying... [id=projects/eimantask-personal-project/subscriptions/cluster046-login-x5aqsoyt-001]
+module.slurm_login.module.slurm_login_template.module.instance_template.google_compute_instance_template.tpl: Destroying... [id=projects/eimantask-personal-project/global/instanceTemplates/cluster046-login-default-20240308095823936900000002]
+module.slurm_login.module.slurm_login_instance.module.slurm_login_instance.google_pubsub_subscription.pull_subscriptions[0]: Destruction complete after 0s
+module.slurm_login.module.slurm_login_instance.google_compute_project_metadata_item.login_startup_scripts["ghpc_startup_sh"]: Destroying... [id=cluster046-slurm-login_x5aqsoyt-script-ghpc_startup_sh]
+module.slurm_controller.module.slurm_controller_instance.module.slurm_controller_instance.google_pubsub_subscription_iam_member.pull_subscription_binding[0]: Destruction complete after 4s
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.compute_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-compute-script-ghpc_startup_sh, 30s elapsed]
+module.partition_0.module.slurm_partition.google_compute_project_metadata_item.partition_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-partition-batch-script-ghpc_startup_sh, 30s elapsed]
+module.slurm_controller.module.slurm_controller_instance.module.slurm_controller_instance.google_compute_instance_from_template.slurm_instance[0]: Still destroying... [id=projects/eimantask-personal-project/zon...ast1-b/instances/cluster046-controller, 10s elapsed]
+module.slurm_login.module.slurm_login_template.module.instance_template.google_compute_instance_template.tpl: Still destroying... [id=projects/eimantask-personal-project/glo...gin-default-20240308095823936900000002, 10s elapsed]
+module.slurm_login.module.slurm_login_instance.google_compute_project_metadata_item.login_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-login_x5aqsoyt-script-ghpc_startup_sh, 10s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.compute_startup_scripts["ghpc_startup_sh"]: Destruction complete after 32s
+module.slurm_login.module.slurm_login_template.module.instance_template.google_compute_instance_template.tpl: Destruction complete after 11s
+module.partition_0.module.slurm_partition.google_compute_project_metadata_item.partition_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-partition-batch-script-ghpc_startup_sh, 40s elapsed]
+module.slurm_controller.module.slurm_controller_instance.module.slurm_controller_instance.google_compute_instance_from_template.slurm_instance[0]: Still destroying... [id=projects/eimantask-personal-project/zon...ast1-b/instances/cluster046-controller, 20s elapsed]
+module.slurm_login.module.slurm_login_instance.google_compute_project_metadata_item.login_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-login_x5aqsoyt-script-ghpc_startup_sh, 20s elapsed]
+module.slurm_controller.module.slurm_controller_instance.module.slurm_controller_instance.google_compute_instance_from_template.slurm_instance[0]: Destruction complete after 21s
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.slurm_conf: Destroying... [id=cluster046-slurm-tpl-slurm-conf]
+module.slurm_controller.module.slurm_controller_template.module.instance_template.google_compute_instance_template.tpl: Destroying... [id=projects/eimantask-personal-project/global/instanceTemplates/cluster046-controller-default-20240308095823951300000003]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.cgroup_conf: Destroying... [id=cluster046-slurm-tpl-cgroup-conf]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.config: Destroying... [id=cluster046-slurm-config]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.slurmdbd_conf: Destroying... [id=cluster046-slurm-tpl-slurmdbd-conf]
+module.slurm_controller.module.slurm_controller_instance.module.slurm_controller_instance.google_pubsub_subscription.pull_subscriptions[0]: Destroying... [id=projects/eimantask-personal-project/subscriptions/cluster046-controller]
+module.slurm_controller.module.slurm_controller_instance.module.slurm_controller_instance.google_pubsub_subscription.pull_subscriptions[0]: Destruction complete after 1s
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.controller_startup_scripts["ghpc_startup_sh"]: Destroying... [id=cluster046-slurm-controller-script-ghpc_startup_sh]
+module.partition_0.module.slurm_partition.google_compute_project_metadata_item.partition_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-partition-batch-script-ghpc_startup_sh, 50s elapsed]
+module.slurm_login.module.slurm_login_instance.google_compute_project_metadata_item.login_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-login_x5aqsoyt-script-ghpc_startup_sh, 30s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.slurm_conf: Still destroying... [id=cluster046-slurm-tpl-slurm-conf, 10s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.slurmdbd_conf: Still destroying... [id=cluster046-slurm-tpl-slurmdbd-conf, 10s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.config: Still destroying... [id=cluster046-slurm-config, 10s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.cgroup_conf: Still destroying... [id=cluster046-slurm-tpl-cgroup-conf, 10s elapsed]
+module.slurm_controller.module.slurm_controller_template.module.instance_template.google_compute_instance_template.tpl: Still destroying... [id=projects/eimantask-personal-project/glo...ler-default-20240308095823951300000003, 10s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.controller_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-controller-script-ghpc_startup_sh, 10s elapsed]
+module.slurm_controller.module.slurm_controller_template.module.instance_template.google_compute_instance_template.tpl: Destruction complete after 11s
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/iam.serviceAccountAdmin"]: Destroying... [id=eimantask-personal-project/roles/iam.serviceAccountAdmin/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/resourcemanager.projectIamAdmin"]: Destroying... [id=eimantask-personal-project/roles/resourcemanager.projectIamAdmin/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/pubsub.admin"]: Destroying... [id=eimantask-personal-project/roles/pubsub.admin/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.partition_0.module.slurm_partition.google_compute_project_metadata_item.partition_startup_scripts["ghpc_startup_sh"]: Destruction complete after 53s
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/compute.networkAdmin"]: Destroying... [id=eimantask-personal-project/roles/compute.networkAdmin/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/compute.networkAdmin"]: Destruction complete after 8s
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/compute.securityAdmin"]: Destroying... [id=eimantask-personal-project/roles/compute.securityAdmin/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/iam.serviceAccountAdmin"]: Destruction complete after 8s
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/storage.objectAdmin"]: Destroying... [id=eimantask-personal-project/roles/storage.objectAdmin/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.slurm_login.module.slurm_login_instance.google_compute_project_metadata_item.login_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-login_x5aqsoyt-script-ghpc_startup_sh, 40s elapsed]
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/resourcemanager.projectIamAdmin"]: Destruction complete after 8s
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/compute.instanceAdmin.v1"]: Destroying... [id=eimantask-personal-project/roles/compute.instanceAdmin.v1/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/pubsub.admin"]: Destruction complete after 8s
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/logging.logWriter"]: Destroying... [id=eimantask-personal-project/roles/logging.logWriter/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.slurm_conf: Still destroying... [id=cluster046-slurm-tpl-slurm-conf, 20s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.config: Still destroying... [id=cluster046-slurm-config, 20s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.slurmdbd_conf: Still destroying... [id=cluster046-slurm-tpl-slurmdbd-conf, 20s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.cgroup_conf: Still destroying... [id=cluster046-slurm-tpl-cgroup-conf, 20s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.controller_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-controller-script-ghpc_startup_sh, 20s elapsed]
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/logging.logWriter"]: Destruction complete after 7s
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/monitoring.metricWriter"]: Destroying... [id=eimantask-personal-project/roles/monitoring.metricWriter/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/storage.objectAdmin"]: Destruction complete after 7s
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/iam.serviceAccountUser"]: Destroying... [id=eimantask-personal-project/roles/iam.serviceAccountUser/serviceAccount:cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/compute.securityAdmin"]: Destruction complete after 7s
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/compute.instanceAdmin.v1"]: Destruction complete after 8s
+module.slurm_login.module.slurm_login_instance.google_compute_project_metadata_item.login_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-login_x5aqsoyt-script-ghpc_startup_sh, 50s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.slurm_conf: Still destroying... [id=cluster046-slurm-tpl-slurm-conf, 30s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.slurmdbd_conf: Still destroying... [id=cluster046-slurm-tpl-slurmdbd-conf, 30s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.config: Still destroying... [id=cluster046-slurm-config, 30s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.cgroup_conf: Still destroying... [id=cluster046-slurm-tpl-cgroup-conf, 30s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.controller_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-controller-script-ghpc_startup_sh, 30s elapsed]
+module.slurm_login.module.slurm_login_instance.google_compute_project_metadata_item.login_startup_scripts["ghpc_startup_sh"]: Destruction complete after 54s
+module.slurm_login.module.slurm_login_instance.random_string.suffix: Destroying... [id=x5aqsoyt]
+module.slurm_login.module.slurm_login_instance.random_string.suffix: Destruction complete after 0s
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/iam.serviceAccountUser"]: Destruction complete after 8s
+module.hpc_service_account.module.service_account.google_project_iam_member.project-roles["sa-eimantask-personal-project=>roles/monitoring.metricWriter"]: Destruction complete after 8s
+module.hpc_service_account.module.service_account.google_service_account.service_accounts["sa"]: Destroying... [id=projects/eimantask-personal-project/serviceAccounts/cluster-046885a3-sa@eimantask-personal-project.iam.gserviceaccount.com]
+module.hpc_service_account.module.service_account.google_service_account.service_accounts["sa"]: Destruction complete after 1s
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.slurm_conf: Still destroying... [id=cluster046-slurm-tpl-slurm-conf, 40s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.config: Still destroying... [id=cluster046-slurm-config, 40s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.cgroup_conf: Still destroying... [id=cluster046-slurm-tpl-cgroup-conf, 40s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.slurmdbd_conf: Still destroying... [id=cluster046-slurm-tpl-slurmdbd-conf, 40s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.controller_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-controller-script-ghpc_startup_sh, 40s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.slurm_conf: Still destroying... [id=cluster046-slurm-tpl-slurm-conf, 50s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.slurmdbd_conf: Still destroying... [id=cluster046-slurm-tpl-slurmdbd-conf, 50s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.config: Still destroying... [id=cluster046-slurm-config, 50s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.cgroup_conf: Still destroying... [id=cluster046-slurm-tpl-cgroup-conf, 50s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.controller_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-controller-script-ghpc_startup_sh, 50s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.slurm_conf: Destruction complete after 54s
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.cgroup_conf: Still destroying... [id=cluster046-slurm-tpl-cgroup-conf, 1m0s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.slurmdbd_conf: Still destroying... [id=cluster046-slurm-tpl-slurmdbd-conf, 1m0s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.config: Still destroying... [id=cluster046-slurm-config, 1m0s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.controller_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-controller-script-ghpc_startup_sh, 1m0s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.cgroup_conf: Destruction complete after 1m5s
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.slurmdbd_conf: Still destroying... [id=cluster046-slurm-tpl-slurmdbd-conf, 1m10s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.config: Still destroying... [id=cluster046-slurm-config, 1m10s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.controller_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-controller-script-ghpc_startup_sh, 1m10s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.config: Still destroying... [id=cluster046-slurm-config, 1m20s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.slurmdbd_conf: Still destroying... [id=cluster046-slurm-tpl-slurmdbd-conf, 1m20s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.controller_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-controller-script-ghpc_startup_sh, 1m20s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.config: Destruction complete after 1m27s
+module.slurm_controller.module.slurm_controller_instance.random_uuid.cluster_id: Destroying... [id=9d4addc8-26e4-8899-5a8e-2a766aa05b68]
+module.partition_0.module.slurm_partition.module.slurm_compute_template["ghpc"].module.instance_template.google_compute_instance_template.tpl: Destroying... [id=projects/eimantask-personal-project/global/instanceTemplates/cluster046-compute-batch-ghpc-20240308095739680500000001]
+module.slurm_controller.module.slurm_controller_instance.google_pubsub_topic.this[0]: Destroying... [id=projects/eimantask-personal-project/topics/cluster046-slurm-events-WTu28BuY]
+module.slurm_controller.module.slurm_controller_instance.random_uuid.cluster_id: Destruction complete after 0s
+module.slurm_controller.module.slurm_controller_instance.google_pubsub_topic.this[0]: Destruction complete after 2s
+module.slurm_controller.module.slurm_controller_instance.google_pubsub_schema.this[0]: Destroying... [id=projects/eimantask-personal-project/schemas/cluster046-slurm-events]
+module.slurm_controller.module.slurm_controller_instance.random_string.topic_suffix: Destroying... [id=WTu28BuY]
+module.slurm_controller.module.slurm_controller_instance.random_string.topic_suffix: Destruction complete after 0s
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.slurmdbd_conf: Still destroying... [id=cluster046-slurm-tpl-slurmdbd-conf, 1m30s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.controller_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-controller-script-ghpc_startup_sh, 1m30s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_pubsub_schema.this[0]: Destruction complete after 6s
+module.partition_0.module.slurm_partition.module.slurm_compute_template["ghpc"].module.instance_template.google_compute_instance_template.tpl: Still destroying... [id=projects/eimantask-personal-project/glo...-batch-ghpc-20240308095739680500000001, 10s elapsed]
+module.partition_0.module.slurm_partition.module.slurm_compute_template["ghpc"].module.instance_template.google_compute_instance_template.tpl: Destruction complete after 11s
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.slurmdbd_conf: Destruction complete after 1m38s
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.controller_startup_scripts["ghpc_startup_sh"]: Still destroying... [id=cluster046-slurm-controller-script-ghpc_startup_sh, 1m40s elapsed]
+module.slurm_controller.module.slurm_controller_instance.google_compute_project_metadata_item.controller_startup_scripts["ghpc_startup_sh"]: Destruction complete after 1m49s
+
+Warning: Argument is deprecated
+
+  with module.slurm_controller.module.slurm_controller_instance.google_secret_manager_secret.cloudsql,
+  on .terraform/modules/slurm_controller.slurm_controller_instance/terraform/slurm_cluster/modules/slurm_controller_instance/main.tf line 399, in resource "google_secret_manager_secret" "cloudsql":
+ 399:     automatic = true
+
+`automatic` is deprecated and will be removed in a future major release. Use
+`auto` instead.
+
+Destroy complete! Resources: 42 destroyed.
