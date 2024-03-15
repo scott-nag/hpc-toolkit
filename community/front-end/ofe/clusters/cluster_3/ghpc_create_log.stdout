@@ -1,8 +1,0 @@
-To deploy your infrastructure please run:
-
-../../../../../ghpc deploy cluster-a0d34405
-
-Find instructions for cleanly destroying infrastructure and advanced manual
-deployment instructions at:
-
-cluster-a0d34405/instructions.txt
