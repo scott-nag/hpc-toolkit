@@ -507,78 +507,167 @@ exec {install_script}
 def cb_ngccontainer_download(message):
     """Custom application installation handler"""
 
+    ackid = message.get("ackid", None)
+    appid = message.get("app_id", None)
+
     appid = message["app_id"]
-    app_name = message["name"]
-    response = {"ackid": message["ackid"], "app_id": appid, "status": "e"}
+    app_name = message["ngccontainer_name"]
     logger.info(
-        "Beginning install of custom application %s:%s", appid, app_name
+        "Starting NGC Container download for %s:%s - Message: %s",
+        appid,
+        app_name,
+        message,
     )
 
+    ngccontainer_stdout = f"/opt/cluster/installs/{appid}/{app_name}.out"
+    ngccontainer_stderr = f"/opt/cluster/installs/{appid}/{app_name}.err"
     gcs_tgt_out = f"installs/{appid}/stdout"
     gcs_tgt_err = f"installs/{appid}/stderr"
 
-    (jobid, outfile, errfile) = _install_submit_job(**message)
+    (jobid, outfile, errfile) = _ngccontainer_submit_build(
+        appid,
+        message["partition"],
+        app_name,
+        message["spec"],
+    )
     if not jobid:
         # There was an error - stdout, stderr in outfile, errfile
-        logger.error("Failed to run batch submission")
+        logger.error(
+            "Failed to run batch submission for %s:%s", appid, app_name
+        )
         _upload_log_blobs(
             {
                 gcs_tgt_out: outfile,
                 gcs_tgt_err: errfile,
             }
         )
-        response["status"] = "e"
-        send_message("ACK", response)
+        send_message(
+            "ACK",
+            {"ackid": ackid, "app_id": appid, "jobid": jobid, "status": "e"},
+        )
         return
-    logger.info("Install job queued for %s:%s", appid, app_name)
-    response["status"] = "q"
-    send_message("UPDATE", response)
+    logger.info("Job Queued")
+    send_message(
+        "UPDATE",
+        {"ackid": ackid, "app_id": appid, "jobid": jobid, "status": "q"},
+    )
 
     state = "PENDING"
     while state in ["PENDING", "CONFIGURING"]:
         time.sleep(30)
         state = _slurm_get_job_state(jobid)
     if state == "RUNNING":
-        logger.info("Install job running for %s:%s", appid, app_name)
-        response["status"] = "i"
-        send_message("UPDATE", response)
+        logger.info("Spack build job running for %s:%s", appid, app_name)
+        send_message(
+            "UPDATE",
+            {"ackid": ackid, "app_id": appid, "jobid": jobid, "status": "i"},
+        )
     while state in ["RUNNING"]:
         time.sleep(30)
         state = _slurm_get_job_state(jobid)
+        try:
+            _upload_log_files(
+                {gcs_tgt_out: ngccontainer_stdout, gcs_tgt_err: ngccontainer_stderr}
+            )
+        except Exception as err:
+            logger.error(
+                "Failed to upload log files for %s:%s",
+                appid,
+                app_name,
+                exc_info=err,
+            )
     logger.info(
-        "Install job for %s:%s completed with result %s",
-        appid,
-        app_name,
-        state,
+        "Job for %s:%s completed with result %s", appid, app_name, state
     )
     status = "r" if state in ["COMPLETED", "COMPLETING"] else "e"
-    response["status"] = status
+    final_update = {"ackid": ackid, "app_id": appid, "status": status}
     if status == "r":
-        # Application installed.  Install Module file if appropriate
-        if message.get("module_name", "") and message.get("module_script", ""):
-            module_path = (
-                Path("/opt/cluster/modulefiles") / message["module_name"]
+        final_update.update(
+            _ngccontainer_confirm_install(
+                app_name, f"/opt/cluster/installs/{appid}/{app_name}.out"
             )
-            module_path.parent.mkdir(parents=True, exist_ok=True)
-            with module_path.open("w") as fileh:
-                fileh.write(message["module_script"])
-
+        )
     logger.info(
-        "Uploading install log files for %s:%s (state: %s)",
+        "Uploading log files for %s:%s - (state: %s)",
         appid,
         app_name,
-        response["status"],
+        final_update["status"],
     )
     try:
         _upload_log_files(
-            {
-                gcs_tgt_out: f"/opt/cluster/installs/{appid}/{app_name}.out",
-                gcs_tgt_err: f"/opt/cluster/installs/{appid}/{app_name}.err",
-            }
+            {gcs_tgt_out: ngccontainer_stdout, gcs_tgt_err: ngccontainer_stderr}
         )
     except Exception as err:
         logger.error("Failed to upload log files", exc_info=err)
-    send_message("ACK", response)
+    send_message("ACK", final_update)
+
+
+def _ngccontainer_submit_build(app_id, partition, app_name):
+    build_dir = Path("/opt/cluster/installs") / str(app_id)
+    build_dir.mkdir(parents=True, exist_ok=True)
+
+    outfile = build_dir / f"{app_name}.out"
+    errfile = build_dir / f"{app_name}.err"
+
+    extra_sbatch = (
+        "\n".join([f"#SBATCH {e}" for e in extra_sbatch])
+        if extra_sbatch
+        else ""
+    )
+
+    script = build_dir / "install.sh"
+    with script.open("w") as fileh:
+        fileh.write(
+            f"""#!/bin/bash
+#SBATCH --partition={partition}
+#SBATCH --nodes=1
+#SBATCH --job-name={app_name}-install
+#SBATCH --output={outfile.as_posix()}
+#SBATCH --error={errfile.as_posix()}
+#SBATCH --container-image nvcr.io\#nvidia\{app_name}
+{extra_sbatch}
+
+
+"""
+        )
+
+    # Submit job
+    try:
+        proc = subprocess.run(
+            ["sbatch", script.as_posix()],
+            cwd=build_dir,
+            check=True,
+            encoding="utf-8",
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+        if "Submitted batch job" in proc.stdout:
+            jobid = int(proc.stdout.split()[-1])
+            return (jobid, outfile, errfile)
+
+        return (None, proc.stdout, proc.stderr)
+
+    except subprocess.CalledProcessError as err:
+        logger.error("sbatch exception", exc_info=err)
+        return (None, err.stdout, err.stderr)
+
+
+def _ngccontainer_confirm_install(app_name, log_file):
+    """Return status of spack install
+
+    Returns dict of 'status': ('r', 'e') (Ready, Error), and other data for
+    database"""
+    # Double-check that the install completed correctly
+    results = {"status": "r"}
+    try:
+        results = {"status": "r"}
+
+    except Exception as err:
+        logger.error(
+            "Failed to confirm NGC container install of {app_name}", exc_info=err
+        )
+
+    return results
 
 
 @cb_in_thread

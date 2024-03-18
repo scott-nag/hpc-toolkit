@@ -29,7 +29,7 @@ $( function() {
             select: function( event, ui ) {
                 $.getJSON("{% url 'api-ngccontainer-list' %}"+ui.item.value,
                     function(data) {
-                        /*console.log(data[0]);*/
+                        console.log(data[0]);
                         document.getElementById("id_description").innerHTML = data[0].description;
                         vers_select = document.getElementById("id_version");
                         $("#id_version").find('option').remove().end();

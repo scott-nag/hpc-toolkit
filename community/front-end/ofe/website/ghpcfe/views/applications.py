@@ -71,6 +71,8 @@ class ApplicationListView(LoginRequiredMixin, generic.ListView):
         for item in queryset:
             if hasattr(item, "spackapplication"):
                 item.type = "spack"
+            if hasattr(item, "ngccontainer"):
+                item.type = "ngccontainer"
             elif hasattr(item, "custominstallationapplication"):
                 item.type = "custom"
             else:
@@ -111,8 +113,8 @@ class ApplicationDetailView(generic.DetailView):
         )
         if hasattr(self.get_object(), "spackapplication"):
             return ["application/spack_detail.html"]
-        elif hasattr(self.get_object(), "ngccontainerapplication"):
-            return ["application/_detail.html"]
+        elif hasattr(self.get_object(), "ngccontainer"):
+            return ["application/ngccontainer_detail.html"]
         return super().get_template_names()
 
     def get_context_data(self, **kwargs):
@@ -128,6 +130,12 @@ class ApplicationDetailView(generic.DetailView):
             load = context["application"].load_command
             if load and load.startswith("spack load /"):
                 context["application"].spack_hash = load.split("/", 1)[1]
+        if hasattr(self.get_object(), "ngccontainer"):
+            ngccontainer = NGCContainer.objects.get(
+                pk=context["application"].id
+            )
+            context["application"].name = ngccontainer.name
+            load = context["application"].load_command
         context["navtab"] = "application"
         context["admin_view"] = admin_view
         return context
@@ -300,7 +308,8 @@ class NGCContainerCreateView(LoginRequiredMixin, generic.CreateView):
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
-        self.object.install_loc = self.object.cluster.spack_install
+        self.object.install_loc = self.object.cluster.ngccontainer_install
+        print(self.object)
         #if self.object.version:
         #    # We need to insert the version immediately following the app name
         #    # and eventually support compiler...
@@ -424,12 +433,12 @@ class NGCContainerViewSet(LoginRequiredMixin, viewsets.ViewSet):
    """Download a list of NGC Containers available"""
 
    def list(self, request):
-       return Response(ngccontainer.get_model_list())
+       return Response(ngccontainer.get_ngccontainer_list())
 
    def retrieve(self, request, pk=None):
-       pkgs = ngccontainer.get_model_list()
+       pkgs = ngccontainer.get_ngccontainer_list()
        if pk in pkgs:
-           return Response(ngccontainer.get_model_info([pk]))
+           return Response(ngccontainer.get_ngccontainer_info([pk]))
        return Response("Package Not Found", status=404)
     
 

@@ -715,6 +715,13 @@ class Cluster(CloudResource):
         blank=True,
         related_name="+",
     )
+    ngccontainer_install = models.ForeignKey(
+        "ApplicationInstallationLocation",
+        on_delete=models.SET_NULL,
+        related_name="+",
+        null=True,
+        blank=True,
+    )
     spack_install = models.ForeignKey(
         "ApplicationInstallationLocation",
         on_delete=models.SET_NULL,

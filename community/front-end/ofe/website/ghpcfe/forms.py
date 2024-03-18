@@ -612,6 +612,7 @@ class NGCContainerForm(forms.ModelForm):
             "name",
             "version",
             "description",
+            "install_partition",
         )
 
         widgets = {
@@ -622,6 +623,7 @@ class NGCContainerForm(forms.ModelForm):
             "name": forms.TextInput(attrs={"class": "form-control"}),
             "version": forms.Select(attrs={"class": "form-control"}),
             "description": forms.Textarea(attrs={"class": "form-control"}),
+            "install_partition": forms.Select(attrs={"class": "form-control"}),
         }
 
     def __init__(self, *args, **kwargs):

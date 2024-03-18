@@ -18,15 +18,11 @@
 #import sys
 import requests
 
-url = 'https://api.ngc.nvidia.com/v2/models/'
-response = requests.get(url)
 
-def get_model_list():
+def get_ngccontainer_list():
     """
-    Fetches model names from the NVIDIA NGC API and returns them in a structured list.
-    
-    Returns:
-        list of str: A list containing the names of the models.
+    Fetches and returns model names from the NVIDIA NGC API.
+
     """
     url = 'https://api.ngc.nvidia.com/v2/models/'
     model_names = []
@@ -48,8 +44,15 @@ def get_model_list():
     return model_names
 
 
-def get_model_info(names):
+def get_ngccontainer_info(data, names):
+    """
+    Gets details about containers from the NVIDIA NGC API.
+
+    """
     models = [model for model in data['models'] if model['name'] in names]
+    print(f"###")
+    print(models)
+    print(f"###")
     return (
         {
             "name": model['name'],
