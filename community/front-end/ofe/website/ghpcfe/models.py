@@ -322,7 +322,6 @@ class CloudResource(models.Model):
 
 class VirtualNetwork(CloudResource):
     """Model representing a virtual network (VPC) in the cloud"""
-
     name = models.CharField(
         max_length=64,
         help_text="Name for the virtual network",
@@ -354,7 +353,6 @@ class VirtualNetwork(CloudResource):
 
 class VirtualSubnet(CloudResource):
     """Model representing a subnet in the cloud"""
-
     name = models.CharField(
         max_length=64,
         help_text="Name for the virtual subnet",
@@ -866,6 +864,99 @@ class ComputeInstance(CloudResource):
     )
 
 
+class MachineTypeFlavour(models.Model):
+    description = models.TextField(
+        blank=True,
+        null=True,
+        help_text="Long description of the GCP VM type",
+    )
+    gcp_id = models.CharField(
+        max_length=255,
+        help_text="ID for the GCP resource"
+    )
+    guestAcceleratorCount = models.IntegerField(
+        default=0,
+        help_text="Number of guest accelerators / GPUs"
+    )
+    guestAcceleratorType = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+        help_text="Type of guest accelerator / GPU"
+    )
+    guestCpus = models.IntegerField(
+        help_text="Number of guest CPUs"
+    )
+    memoryMb = models.IntegerField(
+        help_text="Amount of memory in MB"
+    )
+    memoryGb = models.IntegerField(
+        help_text="Amount of memory in GB"
+    )
+    maximumPersistentDisks = models.IntegerField(
+        help_text="Maximum number of persistent disks"
+    )
+    maximumPersistentDisksSizeGb = models.CharField(
+        max_length=100,
+        help_text="Maximum size of persistent disks in GB"
+    )
+    imageSpaceGb = models.IntegerField(
+        default=0,
+        help_text="Amount of image space in GB"
+    )
+    isSharedCpu = models.BooleanField(
+        default=False,
+        help_text="Indicates if the CPU is shared"
+    )
+    tier_1_compatible = models.BooleanField(
+        default=False,
+        help_text="Indicates if the VM is Tier 1 networking compatible"
+    )
+    local_ssd = models.CharField(
+        max_length=50,
+        help_text="Local SSD configuration (none, variable, fixed)"
+    )
+    number_of_local_ssd_disks = models.CharField(
+        max_length=100,
+        help_text="Number of local SSD disks"
+    )
+    vm_name = models.CharField(
+        max_length=100,
+        help_text="VM name to ensure unique flavour"
+    )
+    placement_support = models.BooleanField(
+        default=False,
+        help_text="Indicates if the VM type supports Placement Groups"
+    )
+
+    class Meta:
+        unique_together = ('vm_name', 'guestCpus', 'memoryMb', 'guestAcceleratorCount', 'guestAcceleratorType', 'local_ssd')
+
+    def __str__(self):
+        return f"{self.vm_name} ({self.gcp_id})"
+
+class MachineType(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    flavour = models.ForeignKey(MachineTypeFlavour, related_name='machine_types', on_delete=models.CASCADE)
+    kind = models.CharField(max_length=100, blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+class MachineInstance(models.Model):
+    machine_type = models.ForeignKey(MachineType, related_name='machine_instances', on_delete=models.CASCADE)
+    zone = models.CharField(max_length=100)
+    cloud_region = models.CharField(max_length=100)
+    cloud_zone = models.CharField(max_length=100)
+    selfLink = models.CharField(max_length=255, help_text="URL for the GCP resource")
+
+    class Meta:
+        unique_together = ('machine_type', 'zone', 'selfLink')
+
+    def __str__(self):
+        return f"{self.machine_type.name} in {self.zone}"
+
+
 class ClusterPartition(models.Model):
     """Compute partition on a cluster"""
 
@@ -978,6 +1069,18 @@ class ClusterPartition(models.Model):
         help_text=(
             "Automatically delete additional disk when node is deleted?"
         ),
+    )
+    tier_1_compatible = models.BooleanField(
+        default=False,
+        help_text="Indicates if the VM is Tier 1 networking compatible"
+    )
+    local_ssd = models.CharField(
+        max_length=50,
+        help_text="Local SSD configuration (none, variable, fixed)"
+    )
+    number_of_local_ssd_disks = models.CharField(
+        max_length=100,
+        help_text="Number of local SSD disks"
     )
 
     def __str__(self):

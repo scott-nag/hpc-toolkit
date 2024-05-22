@@ -150,6 +150,35 @@ class JobAdmin(admin.ModelAdmin):
 
     get_name.short_description = "Application"  #Renames column head
 
+class MachineTypeAdmin(admin.ModelAdmin):
+    """ Custom Admin for MachineType model """
+    list_display = ('name', 'kind', 'flavour')
+    list_filter = ('name', 'kind', 'flavour')
+    search_fields = ('name', 'kind', 'flavour__description')
+
+class MachineTypeFlavourAdmin(admin.ModelAdmin):
+    """ Custom Admin for MachineTypeFlavour model """
+    list_display = (
+        'vm_name', 'guestCpus', 'memoryGb', 'guestAcceleratorCount', 'guestAcceleratorType',
+        'local_ssd', 'number_of_local_ssd_disks', 'maximumPersistentDisks', 'maximumPersistentDisksSizeGb',
+        'tier_1_compatible', 'description', 'isSharedCpu', 'imageSpaceGb', 'get_machine_types',
+        'placement_support'
+    )
+    list_filter = (
+        'vm_name', 'guestCpus', 'memoryGb', 'guestAcceleratorType', 'tier_1_compatible'
+    )
+    search_fields = ('vm_name', 'gcp_id', 'description')
+
+    def get_machine_types(self, obj):
+        return ", ".join(set([mt.name for mt in obj.machine_types.all()]))
+    get_machine_types.short_description = 'Machine Types'
+
+class MachineInstanceAdmin(admin.ModelAdmin):
+    """ Custom Admin for MachineInstance model """
+    list_display = ('machine_type', 'zone', 'cloud_region', 'cloud_zone', 'selfLink')
+    list_filter = ('machine_type', 'zone', 'cloud_region', 'cloud_zone')
+    search_fields = ('machine_type__name', 'zone', 'cloud_region', 'cloud_zone', 'selfLink')
+
 
 # Register your models here.
 admin.site.register(Application, ApplicationAdmin)
@@ -176,3 +205,6 @@ admin.site.register(AuthorisedUser)
 admin.site.register(WorkbenchMountPoint)
 admin.site.register(StartupScript)
 admin.site.register(Image)
+admin.site.register(MachineType, MachineTypeAdmin)
+admin.site.register(MachineTypeFlavour, MachineTypeFlavourAdmin)
+admin.site.register(MachineInstance, MachineInstanceAdmin)

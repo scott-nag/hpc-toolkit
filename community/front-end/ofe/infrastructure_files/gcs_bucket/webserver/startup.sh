@@ -216,6 +216,7 @@ sudo su - gcluster -c /bin/bash <<EOF
   printf "\nSet up static contents..."
   python manage.py collectstatic
   python manage.py seed_workbench_presets
+  python manage.py seed_machine_types
   popd
 
   printf "\nUpdating nginx config...\n"
@@ -300,6 +301,18 @@ if [ -n "${SERVER_HOSTNAME}" ]; then
 	crontab -u root "${tmpcron}"
 	rm "${tmpcron}"
 fi
+
+# Cron job to refresh machine-info in the backend. seed_machine_types.py places a hash in project metadata.
+# The hash is used to determine if any changes have been made, so that the model data is only updated if changes are detected.
+printf "Setting up cron job to seed machine types every 6 hours...\n"
+cronjob="0 */6 * * * /opt/gcluster/django-env/bin/python /opt/gcluster/hpc-toolkit/community/front-end/ofe/website/manage.py seed_machine_types"
+
+# Add the cron job to the crontab
+tmpcron=$(mktemp)
+crontab -l root > "${tmpcron}" 2>/dev/null
+echo "$cronjob" >> "${tmpcron}"
+crontab -u root "${tmpcron}"
+rm "${tmpcron}"
 
 #set +v
 

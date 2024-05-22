@@ -55,6 +55,9 @@ from ..models import (
     Role,
     ClusterPartition,
     VirtualSubnet,
+    MachineType,
+    MachineInstance,
+    MachineTypeFlavour,
     Task,
     User,
 )
@@ -69,7 +72,85 @@ from .view_utils import TerraformLogFile, GCSFile, StreamingFileView
 import logging
 import secrets
 
+from collections import defaultdict
+
 logger = logging.getLogger(__name__)
+
+def get_regions_and_zones(subnet_id):
+    # Fetch the subnet object based on the provided ID
+    subnet = VirtualSubnet.objects.filter(id=subnet_id).first()
+
+    if not subnet:
+        return {"regions": [], "zones": {}}
+
+    # Extract region and zone information
+    region = subnet.cloud_region
+    zones = [subnet.cloud_zone] if subnet.cloud_zone else []
+
+    # Fetch zones using GCP credentials if available
+    if subnet.cloud_credential:
+        credentials = subnet.cloud_credential.detail
+        region_zone_info = cloud_info._get_gcp_region_zone_info(credentials)
+        zones = region_zone_info.get(region, [])
+
+    return {
+        "regions": [region],
+        "zones": {region: zones}
+    }
+
+
+class FetchRegionsAndZonesView(View):
+    def post(self, request, *args, **kwargs):
+        subnet_id = request.POST.get('subnet_id')
+        logger.info(f"Received subnet_id: {subnet_id}")
+        if subnet_id:
+            try:
+                data = get_regions_and_zones(subnet_id)
+                return JsonResponse(data)
+            except Exception as e:
+                logger.error(f"Error fetching regions and zones: {str(e)}")
+                return JsonResponse({'error': 'Error fetching regions and zones'}, status=400)
+        logger.error("Invalid subnet_id provided")
+        return JsonResponse({'error': 'Invalid subnet_id'}, status=400)
+
+
+class FetchMachineTypesView(View):
+    def post(self, request, *args, **kwargs):
+        region = request.POST.get('region')
+        zone = request.POST.get('zone')
+        tier_1 = request.POST.get('tier_1') == 'true'
+        gpu_type = request.POST.get('gpu_type')
+
+        if region and zone:
+            machine_instances = MachineInstance.objects.filter(zone=zone, cloud_region=region)
+            machine_types = MachineType.objects.filter(machine_instances__in=machine_instances)
+
+            if tier_1:
+                machine_types = machine_types.filter(flavour__tier_1_compatible=True)
+
+            if gpu_type:
+                machine_types = machine_types.filter(flavour__guestAcceleratorType=gpu_type)
+
+            machine_type_dict = defaultdict(list)
+            for machine_type in machine_types:
+                flavour = machine_type.flavour
+                category = machine_type.name.split('-')[0]
+                machine_info = {
+                    'id': machine_type.id,
+                    'name': machine_type.name,
+                    'gpu_count': flavour.guestAcceleratorCount,
+                    'gpu_type': flavour.guestAcceleratorType,
+                    'tier_1_compatible': flavour.tier_1_compatible,
+                    'local_ssd': flavour.local_ssd,
+                    'number_of_local_ssd_disks': flavour.number_of_local_ssd_disks,
+                    'placement_support': flavour.placement_support
+                }
+                machine_type_dict[category].append(machine_info)
+
+            return JsonResponse({'machine_types': dict(machine_type_dict)})
+
+        return JsonResponse({'error': 'Invalid region or zone'}, status=400)
+
 
 class ClusterPartitionDeleteView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
@@ -171,11 +252,18 @@ class ClusterUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "cluster/update_form.html"
     form_class = ClusterForm
 
+    def _get_region_info(self):
+        if not hasattr(self, "region_info"):
+            self.region_info = cloud_info.get_region_zone_info(
+                "GCP", self.get_object().cloud_credential.detail
+            )
+        return self.region_info
+
     def get_mp_formset(self, **kwargs):
         def formfield_cb(model_field, **kwargs):
             field = model_field.formfield(**kwargs)
             cluster = self.object
-            
+
             if model_field.name == "export":
                 if cluster.shared_fs is None:
                     # Create and save the shared filesystem, exports, and mount points
@@ -219,7 +307,7 @@ class ClusterUpdateView(LoginRequiredMixin, UpdateView):
                         mount_path="/home",
                     )
                     mp.save()
-            
+
             # Continue with the usual logic for handling exports
             if cluster.shared_fs is not None:
                 fsquery = (
@@ -234,12 +322,11 @@ class ClusterUpdateView(LoginRequiredMixin, UpdateView):
                 field.queryset = FilesystemExport.objects.filter(
                     filesystem__in=fsystems
                 )
-            
+
             return field
 
-
         # This creates a new class on the fly
-        FormClass = inlineformset_factory(  # pylint: disable=invalid-name
+        FormClass = inlineformset_factory(
             Cluster,
             MountPoint,
             form=ClusterMountPointForm,
@@ -259,33 +346,59 @@ class ClusterUpdateView(LoginRequiredMixin, UpdateView):
 
             if not cluster.partitions.exists():
                 logger.info("No partitions exist, creating a default one.")
+                # Retrieve the first MachineType instance
+                machine_type = MachineType.objects.first()
+                if not machine_type:
+                    logger.error("No MachineType instances available to set as default.")
+                    raise ValueError("No MachineType instances available to set as default.")
+
+                flavour = machine_type.flavour
+
                 # Create and save the default partition with hardcoded values
                 default_partition = ClusterPartition(
                     name="batch",
-                    machine_type="c2-standard-60",
+                    machine_type=machine_type,  # Ensure a valid machine type is assigned
                     dynamic_node_count=4,
-                    vCPU_per_node=30,
-                    cluster=cluster  # Set the cluster for the partition
+                    static_node_count=0,
+                    cluster=cluster,
+                    GPU_per_node=flavour.guestAcceleratorCount,
+                    GPU_type=flavour.guestAcceleratorType,
+                    tier_1_compatible=flavour.tier_1_compatible,
+                    local_ssd=flavour.local_ssd,
+                    number_of_local_ssd_disks=flavour.number_of_local_ssd_disks
                 )
                 default_partition.save()
+
+            # Get the region info using the _get_region_info method
+            region_info = self._get_region_info()
+            if region_info:
+                selected_region = cluster.cloud_region
+                selected_zone = cluster.cloud_zone
+                if selected_region and selected_zone:
+                    queryset = MachineType.objects.filter(
+                        machine_instances__cloud_region=selected_region,
+                        machine_instances__zone=selected_zone
+                    ).distinct()
+                    if model_field.name == "machine_type":
+                        field.queryset = queryset
+
             return field
 
-        # This creates a new class on the fly
-        FormClass = inlineformset_factory(  # pylint: disable=invalid-name
+        FormClass = inlineformset_factory(
             Cluster,
             ClusterPartition,
             form=ClusterPartitionForm,
             formfield_callback=formfield_cb,
             can_delete=True,
-            extra=0,
+            extra=1,
         )
 
         if self.request.POST:
             kwargs["data"] = self.request.POST
-        return FormClass(instance=self.object, **kwargs)
+        return FormClass(instance=self.object, prefix='partitions', **kwargs)
 
     def get_success_url(self):
-        logger.info(f"Current cluster state { self.object.cloud_state }")
+        logger.info(f"Current cluster state {self.object.cloud_state}")
         if self.object.cloud_state == "m":
             # Perform live cluster reconfiguration
             return reverse("backend-reconfigure-cluster", kwargs={"pk": self.object.pk})
@@ -293,261 +406,26 @@ class ClusterUpdateView(LoginRequiredMixin, UpdateView):
             # Perform live cluster reconfiguration
             return reverse("backend-start-cluster", kwargs={"pk": self.object.pk})
 
-    def _get_region_info(self):
-        if not hasattr(self, "region_info"):
-            self.region_info = cloud_info.get_region_zone_info(
-                "GCP", self.get_object().cloud_credential.detail
-            )
-        return self.region_info
-
     def get_context_data(self, **kwargs):
-        """Perform extra query to populate instance types data"""
         context = super().get_context_data(**kwargs)
-        subnet_regions = {
-            sn.id: sn.cloud_region
-            for sn in VirtualSubnet.objects.filter(
-                cloud_credential=self.get_object().cloud_credential
-            ).all()
-        }
-        subnet_regions = {
-            sn.id: sn.cloud_region
-            for sn in VirtualSubnet.objects.filter(
-                cloud_credential=self.get_object().cloud_credential
-            )
-            .filter(Q(cloud_state="i") | Q(cloud_state="m"))
-            .all()
-        }
-        
-        context["subnet_regions"] = json.dumps(subnet_regions)
-        context["object"] = self.object
-        context["region_info"] = json.dumps(self._get_region_info())
-        context["navtab"] = "cluster"
-        context["mountpoints_formset"] = self.get_mp_formset()
-        context["cluster_partitions_formset"] = self.get_partition_formset()
-        context["title"] = "Create cluster" if self.object.status == "n" else "Update cluster"
+        context['mp_formset'] = self.get_mp_formset()
+        context['partition_formset'] = self.get_partition_formset()
+        context['region_info'] = self._get_region_info()  # Add region info to context
         return context
 
-
     def form_valid(self, form):
-        logger.info("In form_valid")
         context = self.get_context_data()
-        mountpoints = context["mountpoints_formset"]
-        partitions = context["cluster_partitions_formset"]
-
-        if self.object.status == "n":
-            # If creating a new cluster generate unique cloud id.
-            unique_str = secrets.token_hex(4)
-            self.object.cloud_id = self.object.name + "-" + unique_str
-            suffix = self.object.cloud_id.split("-")[-1]
-            self.object.cloud_id = self.object.name + "-" + suffix
-        
-        self.object.cloud_region = self.object.subnet.cloud_region
-
-        machine_info = cloud_info.get_machine_types(
-            "GCP",
-            self.object.cloud_credential.detail,
-            self.object.cloud_region,
-            self.object.cloud_zone,
-        )
-        disk_info = {
-            x["name"]: x
-            for x in cloud_info.get_disk_types(
-                "GCP",
-                self.object.cloud_credential.detail,
-                self.object.cloud_region,
-                self.object.cloud_zone,
-            )
-            if x["name"].startswith("pd-")
-        }
-        
-        if self.object.status != "n" and self.object.status != "r":
-            form.add_error(None, "It is not newly created cluster or it is not running yet.")
-            return self.form_invalid(form)
-
-        # Verify Disk Types & Sizes
-        try:
-            my_info = disk_info[self.object.controller_disk_type]
-            if self.object.controller_disk_size < my_info["minSizeGB"]:
-                form.add_error(
-                    "controller_disk_size",
-                    "Minimum Disk Size for "
-                    f"{self.object.controller_disk_type} is "
-                    f"{my_info['minSizeGB']}"
-                )
-                return self.form_invalid(form)
-            if self.object.controller_disk_size > my_info["maxSizeGB"]:
-                form.add_error(
-                    "controller_disk_size",
-                    "Maximum Disk Size for "
-                    f"{self.object.controller_disk_type} is "
-                    f"{my_info['maxSizeGB']}"
-                )
-                return self.form_invalid(form)
-
-        except KeyError:
-            form.add_error("controller_disk_type", "Invalid Disk Type")
-            return self.form_invalid(form)
-
-        try:
-            my_info = disk_info[self.object.login_node_disk_type]
-            if self.object.login_node_disk_size < my_info["minSizeGB"]:
-                form.add_error(
-                    "login_node_disk_size",
-                    "Minimum Disk Size for "
-                    f"{self.object.login_node_disk_type} is "
-                    f"{my_info['minSizeGB']}"
-                )
-                return self.form_invalid(form)
-            if self.object.login_node_disk_size > my_info["maxSizeGB"]:
-                form.add_error(
-                    "login_node_disk_size",
-                    "Maximum Disk Size for "
-                    f"{self.object.login_node_disk_type} is "
-                    f"{my_info['maxSizeGB']}"
-                )
-                return self.form_invalid(form)
-
-        except KeyError:
-            form.add_error("login_node_disk_type", "Invalid Disk Type")
-            return self.form_invalid(form)
-
-        # Verify formset validity (surprised there's no method to do this)
-        for formset, formset_name in [
-            (mountpoints, "mountpoints"),
-            (partitions, "partitions"),
-        ]:
-            if not formset.is_valid():
-                form.add_error(None, f"Error in {formset_name} section")
-                return self.form_invalid(form)
-
-        # Get the existing MountPoint objects associated with the cluster
-        existing_mount_points = MountPoint.objects.filter(cluster=self.object)
-
-        # Iterate through the existing mount points and check if they are in the updated formset
-        for mount_point in existing_mount_points:
-            if not any(mount_point_form.instance == mount_point for mount_point_form in mountpoints.forms):
-                # The mount point is not in the updated formset, so delete it
-                mount_point_path = mount_point.mount_path
-                mount_point_id = mount_point.pk
-                logger.info(f"Deleting mount point: {mount_point_path}, ID: {mount_point_id}")
-                mount_point.delete()
-
-       # Get the existing ClusterPartition objects associated with the cluster
-        existing_partitions = ClusterPartition.objects.filter(cluster=self.object)
-
-        logger.info(f"Processing total {len(partitions.forms)} partition forms.")
-        logger.info(f"Existing number of partitions is {len(partitions.forms)}.")
-
-        for partition in existing_partitions:
-            #logger.info(f"Checking existing partition: {partition.name}")
-            found = False
-            for partition_form in partitions.forms:
-                #logger.info(f"Checking form for partition: {partition_form.instance.name}")
-                if partition_form.instance == partition:
-                    found = True
-                    delete_status = partition_form.cleaned_data.get('DELETE', False)
-                    if delete_status:
-                        # Log the intent to delete then delete the partition
-                        logger.info(f"Partition: {partition.name} (ID: {partition.pk}) marked for deletion.")
-                        partition.delete()
-                    else:
-                        logger.info(f"No deletion requested for existing partition: {partition.name}.")
-            if not found:
-                # Log if no corresponding form was found for the partition
-                logger.info(f"No form found for Partition: {partition.name}.")
-                
-        try:
-            with transaction.atomic():
-                # Save the modified Cluster object
-                self.object.save()
-                self.object = form.save()
-                mountpoints.instance = self.object
-                mountpoints.save()
-
-                partitions.instance = self.object
-                parts = partitions.save()
-                
-                try:
-                    for part in parts:
-                        part.vCPU_per_node = machine_info[part.machine_type]["vCPU"] // (1 if part.enable_hyperthreads else 2)
-
-                        cpu_count_str = part.machine_type.split('-')[-1]
-                        lssd_cpu_count_str = part.machine_type.split('-')[-2]
-                        if cpu_count_str.isdigit():
-                            cpu_count = int(cpu_count_str)
-                            logger.info(f"CPU count: {cpu_count}, VM type: {part.machine_type}.")
-                        elif lssd_cpu_count_str.isdigit():
-                            cpu_count = int(lssd_cpu_count_str)
-                            logger.info(f"CPU count: {cpu_count}, VM type: {part.machine_type}.")
-                        else:
-                            raise ValidationError(f"Cannot extract vCPU count from machine type {part.machine_type}")
-
-                        # Tier1 networking validation
-                        if part.enable_tier1_networking == True:
-                            logger.info("User selected Tier1 networking, checking if nodes in partition are compatible.")
-                            tier_1_supported_prefixes = ["n2-", "n2d-", "c2-", "c2d-", "c3-", "c3d-", "m3-", "z3-"]
-                            is_tier_1_compatible = any(part.machine_type.startswith(prefix) for prefix in tier_1_supported_prefixes)
-
-                            if not(cpu_count >= 30 and is_tier_1_compatible):
-                                raise ValidationError(f"VM type {part.machine_type} is not compatible with Tier 1 networking.")
-
-                        # Validate GPU choice
-                        if part.GPU_type:
-                            try:
-                                accel_info = machine_info[part.machine_type]["accelerators"][part.GPU_type]
-                                if (
-                                    part.GPU_per_node < accel_info["min_count"]
-                                    or part.GPU_per_node > accel_info["max_count"]
-                                ):
-                                    raise ValidationError(
-                                        "Invalid number of GPUs of type " f"{part.GPU_type}"
-                                    )
-                            except KeyError as err:
-                                raise ValidationError(f"Invalid GPU type {part.GPU_type}") from err
-                        # Add validation for machine_type and disk_type combinations here
-                        invalid_combinations = [
-                            ("c3-", "pd-standard"),
-                            ("h3-", "pd-standard"),
-                            ("h3-", "pd-ssd"),
-                        ]
-                        for machine_prefix, disk_type in invalid_combinations:
-                            if part.machine_type.startswith(machine_prefix) and part.boot_disk_type == disk_type:
-                                logger.info("invalid disk")
-                                raise ValidationError(
-                                    f"Invalid combination: machine_type {part.machine_type} cannot be used with disk_type {disk_type}."
-                                )
-                except KeyError as err:
-                    raise ValidationError("Error in Partition - invalid machine type: " f"{part.machine_type}") from err
-
-                # Continue with saving the 'parts' if no validation errors were raised
-                parts = partitions.save()
-
-        except ValidationError as ve:
-            form.add_error(None, ve)
-            return self.form_invalid(form)
-
-        msg = (
-            "Provisioning a new cluster. This may take up to 15 minutes."
-        )
-        
-        if self.object.status == "r":
-            msg = "Reconfiguring running cluster, this may take few minutes."
-
-        messages.success(self.request, msg)
-
-        # Be kind... Check filesystems to verify all in the same zone as us.
-        for mp in self.object.mount_points.exclude(
-            export__filesystem__impl_type=FilesystemImpl.BUILT_IN
-        ):
-            if mp.export.filesystem.cloud_zone != self.object.cloud_zone:
-                messages.warning(
-                    self.request,
-                    "Possibly expensive: Filesystem "
-                    f"{mp.export.filesystem.name} is in a different zone "
-                    f"({mp.export.filesystem.cloud_zone}) than the cluster!",
-                )
-
-        return super().form_valid(form)
+        mp_formset = context['mp_formset']
+        partition_formset = context['partition_formset']
+        if form.is_valid() and mp_formset.is_valid() and partition_formset.is_valid():
+            self.object = form.save()
+            mp_formset.instance = self.object
+            mp_formset.save()
+            partition_formset.instance = self.object
+            partition_formset.save()
+            return redirect('cluster_detail', pk=self.object.pk)
+        else:
+            return self.render_to_response(self.get_context_data(form=form))
 
 
 class ClusterDeleteView(LoginRequiredMixin, DeleteView):

@@ -87,6 +87,8 @@ urlpatterns = [
         name="grafana-proxy"
     ),
     path("graphs", GrafanaView.as_view(), name="grafana"),
+    path('fetch_machine_types/', FetchMachineTypesView.as_view(), name='fetch_machine_types'),
+    path('fetch_regions_zones/', FetchRegionsAndZonesView.as_view(), name='fetch_regions_zones'),
 ]
 
 urlpatterns += [

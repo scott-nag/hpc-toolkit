@@ -236,9 +236,6 @@ class ClusterMountPointForm(forms.ModelForm):
 class ClusterPartitionForm(forms.ModelForm):
     """Form for Cluster Partitions"""
 
-    machine_type = forms.ChoiceField(widget=forms.Select())
-    GPU_type = forms.ChoiceField(widget=forms.Select()) # pylint: disable=invalid-name
-
     class Meta:
         model = ClusterPartition
         fields = (
@@ -258,60 +255,54 @@ class ClusterPartitionForm(forms.ModelForm):
             "additional_disk_type",
             "additional_disk_count",
             "additional_disk_size",
-            "additional_disk_auto_delete"
+            "additional_disk_auto_delete",
+            "local_ssd",
+            "number_of_local_ssd_disks"
         )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        
+        self.fields["machine_type"] = forms.ModelChoiceField(
+            queryset=MachineType.objects.all(),
+            required=True,
+            label="Machine Type",
+            widget=forms.Select(attrs={"class": "form-control machine_type_select"})
+        )
+        self.fields["GPU_type"].widget.attrs.update({'readonly': 'readonly', 'class': 'gpu-field'})
+        self.fields["GPU_per_node"].widget.attrs.update({'readonly': 'readonly', 'class': 'gpu-field'})
+        self.fields["enable_placement"].widget.attrs.update({'class': 'placement-field'})
+        self.fields["enable_tier1_networking"].widget.attrs.update({'class': 'tier1-field'})
+        self.fields["local_ssd"].widget.attrs.update({'readonly': 'readonly'})
+        self.fields["number_of_local_ssd_disks"].widget.attrs.update({'readonly': 'readonly'})
+
+        # Initial visibility of fields based on initial machine type
+        initial_machine_type = kwargs.get('initial', {}).get('machine_type')
+        if initial_machine_type:
+            flavour = initial_machine_type.flavour
+            if flavour.guestAcceleratorCount == 0:
+                self.fields["GPU_type"].widget.attrs.update({'style': 'display:none;'})
+                self.fields["GPU_per_node"].widget.attrs.update({'style': 'display:none;'})
+            if not flavour.placement_support:
+                self.fields["enable_placement"].widget.attrs.update({'style': 'display:none;'})
+            if not flavour.tier_1_compatible:
+                self.fields["enable_tier1_networking"].widget.attrs.update({'style': 'display:none;'})
 
         for field in self.fields:
-            self.fields[field].widget.attrs.update({"class": "form-control"})
             if self.fields[field].help_text:
                 self.fields[field].widget.attrs.update(
                     {"title": self.fields[field].help_text}
                 )
         
-        self.fields["boot_disk_type"].widget = forms.Select(attrs={"class": "form-control disk_type_select"})
-        self.fields["additional_disk_type"].widget = forms.Select(attrs={"class": "form-control disk_type_select"})
-
-        self.fields["machine_type"].widget.attrs[
-            "class"
-        ] += " machine_type_select"
-
-        def prep_dynamic_select(field, value):
-            self.fields[field].widget.choices = [
-                ( value, value )
-            ]
-            self.fields[field].clean = lambda value: value
-        
-        prep_dynamic_select(
-            "boot_disk_type",
-            self.instance.boot_disk_type
-        )
-
-        prep_dynamic_select(
-            "additional_disk_type",
-            self.instance.additional_disk_type
-        )
-
-        prep_dynamic_select(
-            "machine_type",
-            self.instance.machine_type
-        )
-
-        prep_dynamic_select(
-            "GPU_type",
-            self.instance.GPU_type
-        )
-
     def clean(self):
         cleaned_data = super().clean()
-        if cleaned_data["enable_placement"] and cleaned_data[
-            "machine_type"
-        ].split("-")[0] not in ["a2", "a3", "c2", "c3", "c2d", "c3d", "g2", "h3", "n2", "n2d"]:
-            raise ValidationError(
-                "SlurmGCP does not support Placement Groups for selected instance type"  # pylint: disable=line-too-long
-            )
+        machine_type = cleaned_data.get("machine_type")
+        if machine_type:
+            flavour = machine_type.flavour
+            cleaned_data["GPU_type"] = flavour.guestAcceleratorType
+            cleaned_data["GPU_per_node"] = flavour.guestAcceleratorCount
+            cleaned_data["local_ssd"] = flavour.local_ssd
+            cleaned_data["number_of_local_ssd_disks"] = flavour.number_of_local_ssd_disks
         return cleaned_data
 
 

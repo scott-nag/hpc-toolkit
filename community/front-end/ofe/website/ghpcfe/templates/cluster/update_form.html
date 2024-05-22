@@ -1,713 +1,346 @@
-<!--
- Copyright 2022 Google LLC
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-      http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
--->
-
 {% extends "base_generic.html" %}
 
 {% block extrameta %}
 {% load static %}
 <script src="{% static 'js/jquery.cookie.js' %}"></script>
-
-{% load static %}
 {% endblock %}
 
 {% block content %}
-<h2>{{ title }}</h2>
 
-{% if form.errors %}
-{% for field in form %}
-{% for error in field.errors %}
-<div class="alert alert-danger">
-  <strong>{{field.name}} {{ error|escape }}</strong>
-</div>
-{% endfor %}
-{% endfor %}
-{% for error in form.non_field_errors %}
-<div class="alert alert-danger">
-  <strong>{{ error|escape }}</strong>
-</div>
-{% endfor %}
-{% endif %}
-
-<form action="" method="post" id="clusterForm">
-  {% csrf_token %}
-  <div class="form-group displayed">
-    {{ form.cloud_credential.errors }}
-    {{ form.cloud_credential.label_tag }}
-    {{ form.cloud_credential }}
-    <small class="form-text text-muted">{{ form.cloud_credential.help_text }}</small>
-  </div>
-  <div class="form-group displayed">
-    {{ form.name.errors }}
-    {{ form.name.label_tag }}
-    {{ form.name }}
-    <small class="form-text text-muted">{{ form.name.help_text }}</small>
-  </div>
-  <div class="form-group displayed">
-    {{ form.subnet.errors }}
-    {{ form.subnet.label_tag }}
-    {{ form.subnet }}
-    <small class="form-text text-muted">{{ form.subnet.help_text }}</small>
-  </div>
-  <div class="form-group displayed">
-    {{ form.cloud_region.errors }}
-    {{ form.cloud_region.label_tag }}
-    {{ form.cloud_region }}
-    <small class="form-text text-muted">{{ form.cloud_region.help_text }}</small>
-  </div>
-  <div class="form-group displayed">
-    {{ form.cloud_zone.errors }}
-    {{ form.cloud_zone.label_tag }}
-    {{ form.cloud_zone }}
-    <small class="form-text text-muted">{{ form.cloud_zone.help_text }}</small>
-  </div>
-  <div class="form-group">
-    {{ form.authorised_users.errors }}
-    {{ form.authorised_users.label_tag }}
-    {{ form.authorised_users }}
-    <small class="form-text text-muted">{{ form.authorised_users.help_text }}</small>
-  </div>
-  <div class="form-group">
-    {{ form.spackdir.errors }}
-    {{ form.spackdir.label_tag }}
-    {{ form.spackdir }}
-    <small class="form-text text-muted">{{ form.spackdir.help_text }}</small>
-  </div>
-
-  <hr>
-  <p style="text-decoration: underline; font-size: large;">Static Nodes</p>
-  <div class="table-responsive">
-    <table class="table align-middle">
-      <thead>
-        <tr>
-          <th></th>
-          <th># Nodes</th>
-          <th>Instance Type</th>
-          <th>Boot Disk Size (GB)</th>
-          <th>Boot Disk Type</th>
-          <th>Image</th>
-        </tr>
-      </thead>
-      <tr>
-        <th>Controller</th>
-        <td>
-          <div class="form-group">
-            <input type="number" name="num_controller_nodes" value="1" class="form-control" disabled>
-          </div>
-        </td>
-        <td>
-          <div class="form-group">
-            {{ form.controller_instance_type.errors.as_ul }}
-            {{ form.controller_instance_type }}
-          </div>
-        </td>
-        <td>
-          <div class="form-group">
-            {{ form.controller_disk_size.errors.as_ul }}
-            {{ form.controller_disk_size }}
-          </div>
-        </td>
-        <td>
-          <div class="form-group">
-            {{ form.controller_disk_type.errors.as_ul }}
-            {{ form.controller_disk_type }}
-          </div>
-        </td>
-        <td>
-          <div class="form-group">
-            {{ form.controller_node_image.errors.as_ul }}
-            {{ form.controller_node_image }}
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <th>Login Nodes</th>
-        <td>
-          <div class="form-group">
-            {{ form.num_login_nodes.errors.as_ul }}
-            {{ form.num_login_nodes }}
-          </div>
-        </td>
-        <td>
-          <div class="form-group">
-            {{ form.login_node_instance_type.errors.as_ul }}
-            {{ form.login_node_instance_type }}
-          </div>
-        </td>
-        <td>
-          <div class="form-group">
-            {{ form.login_node_disk_size.errors.as_ul }}
-            {{ form.login_node_disk_size }}
-          </div>
-        </td>
-        <td>
-          <div class="form-group">
-            {{ form.login_node_disk_type.errors.as_ul }}
-            {{ form.login_node_disk_type }}
-          </div>
-        </td>
-        <td>
-          <div class="form-group">
-            {{ form.login_node_image.errors.as_ul }}
-            {{ form.login_node_image }}
-          </div>
-        </td>
-      </tr>
-    </table>
-  </div>
-
-  <hr>
-  <p style="text-decoration: underline; font-size: large;">Filesystem Mounts</p>
-  <div class="table-responsive">
-    <table class="table align-middle">
-      {{ mountpoints_formset.management_form }}
-      {% for form in mountpoints_formset.forms %}
-      {% if forloop.first %}
-      <thead>
-        <tr>
-          {% for field in form.visible_fields %}<th>{{ field.label|capfirst }}</th>{% endfor %}
-        </tr>
-      </thead>
-      {% endif %}
-      <tr class="mp_formset_row">
-        {% for field in form.visible_fields %}
-        <td>
-          {% if forloop.first %}
-          {% for hidden in form.hidden_fields %}
-          {{ hidden }}
-          {% endfor %}
-          {% endif %}
-          {{ field.errors.as_ul }}
-          {{ field }}
-        </td>
+    <h1>Update Cluster</h1>
+    <form method="post" id="cluster-update-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <h2>Mount Points</h2>
+        {{ mp_formset.management_form }}
+        {% for form in mp_formset %}
+            {{ form.as_p }}
         {% endfor %}
-      </tr>
-      {% endfor %}
-    </table>
-  </div>
-  <hr>
-  <p style="text-decoration: underline; font-size: large;">Partitions</p>
-  <div class="table-responsive">
-    <table class="table align-middle" id="partitions_table" style="white-space: nowrap;">
-      {% for form in cluster_partitions_formset.forms %}
-      {% if form.instance %}
-      {% if forloop.first %}
-      <thead>
-        <tr>
-          {% for field in form.visible_fields %}<th>{{ field.label|capfirst }}</th>{% endfor %}
-        </tr>
-      </thead>
-      {% endif %}
-      {% if form.errors %}
-      {% for error in form.non_field_errors %}
-      <div class="alert alert-danger">
-        <strong>{{ error|escape }}</strong>
-      </div>
-      {% endfor %}
-      {% endif %}
-      <tr class="part_formset_row">
-        {% for field in form.visible_fields %}
-        <td style="min-width: 100px;"
-            data-partition-id="{% if object.status == 'n' %}new-cluster{% else %}{{ form.instance.pk }}{% endif %}">
-          {% if forloop.first %}
-          {% for hidden in form.hidden_fields %}
-          {{ hidden }}
-          {% endfor %}
-          {% endif %}
-          {{ field.errors.as_ul }}
-          {{ field }}
-        </td>
-        {% endfor %}
-      </tr>
-      {% endif %}
-      {% endfor %}
-    </table>
-    {{ cluster_partitions_formset.management_form }}
-  </div>
-  <hr>  
-  <p style="text-decoration: underline; font-size: large;">Additional features</p>
-  <div class="form-group">
-    {{ form.use_cloudsql.errors }}
-    <div class="grid-container">
-      <label class="slider-switch-container">
-        <div class="slider-switch">
-          {{ form.use_cloudsql }}
-          <span class="slider"></span>
+        <h2>Partitions</h2>
+        <div id="partitions-formset">
+            {{ partition_formset.management_form }}
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        {% for field in partition_formset.forms.0.visible_fields %}
+                            <th class="col-{{ field.name }}">{{ field.label }}</th>
+                        {% endfor %}
+                        <th class="col-delete">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for form in partition_formset.forms %}
+                        <tr class="partition-form">
+                            {% for field in form.visible_fields %}
+                                <td class="col-{{ field.name }}">
+                                    <div class="form-group">
+                                        {{ field.errors }}
+                                        {{ field }}
+                                    </div>
+                                </td>
+                            {% endfor %}
+                            <td class="col-delete">{{ form.DELETE }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
-      </label>
-      <div class="help-text">
-        {{ form.use_cloudsql.help_text }}
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    {{ form.use_bigquery.errors }}
-    <div class="grid-container">
-      <label class="slider-switch-container">
-        <div class="slider-switch">
-          {{ form.use_bigquery }}
-          <span class="slider"></span>
-        </div>
-      </label>
-      <div class="help-text">
-        {{ form.use_bigquery.help_text }}
-      </div>
-    </div>
-  </div>
-  <hr>
+        <button type="submit">Save changes</button>
+    </form>    
 
-  <br />
-  {% if object.status == "n" %}
-  <input type="submit" value="Create" class="btn btn-primary" />
-  <a href="{% url 'cluster-delete' object.id %}" class="btn btn-danger">Delete</a>
-  {% endif %}
-  {% if object.status == "r" %}
-  <div class="alert alert-warning">
-    <p><strong>WARNING:</strong> Updating a running cluster will cause the following:</p>
-    <ul>
-      <li>Deployed compute nodes will be destroyed.</li>
-      <li>Running workloads will be impacted.</li>
-      <li>Jobs will be requeued.</li>
-    </ul>
-    <hr>
-    <p><strong>Important Note:</strong> Filesystem changes will not affect static nodes, including the controller, login
-      nodes, and always-running compute nodes.</p>
-    <p> These nodes will have to be updated manually.</p>
-  </div>
-  <input type="submit" value="Update" class="btn btn-primary" />
-  {% endif %}
-
-</form>
-<hr>
-
-{% endblock %}
-
-{% block tailscript %}
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('clusterForm'); // Make sure this is the correct ID for your form
-      form.addEventListener('submit', function(event) {
-          const formData = new FormData(this);
-          const formDataArray = Array.from(formData.entries()).map(entry => {
-              return { [entry[0]]: entry[1] };
-          });
-          console.log('Form Data:', formDataArray);
-          // Uncomment the next line if you want to prevent the form from actually submitting for debugging
-          // event.preventDefault();
-      });
-  });
-</script>
-
-<script src="{% static 'js/jquery.formset.js' %}"></script>
-<script>
-  function updateMachineAvailability() {
-    // Get machine Info
-    // For each select of class 'machine_type_select'...
-    //     Save it's value
-    //     Clear the options
-    //     Replace options
-    //     Restore it's value
-    var cloudZoneInput = document.getElementById('id_cloud_zone');
-    var cloudRegionInput = document.getElementById('id_cloud_region');
-
-    if (!cloudZoneInput.readOnly) {
-      // If the field is not read-only, use select options
-      zone = cloudZoneInput.options[cloudZoneInput.selectedIndex].text;
-      region = cloudRegionInput.options[cloudRegionInput.selectedIndex].text;
-    } else {
-      // If the field is read-only, use the input values
-      zone = cloudZoneInput.value;
-      region = cloudRegionInput.value;
-    }
-
-    machine_info = $.ajax({
-      url: "{% url 'api-instancetype-list' %}" + "?cluster={{ object.id }}&region=" + region + "&zone=" + zone,
-      type: "GET",
-      dataType: "json",
-      headers: { 'X-CSRFToken': $.cookie("csrftoken") }
-    }).done(function (data) {
-      $(".machine_type_select:visible").each(function (pos, selObj) {
-        var curVal = selObj.value;
-        $(selObj).empty();
-        $.each(data.machine_types, function (i, machineName) {
-          var option = document.createElement("option");
-          option.text = machineName;
-          option.setAttribute("value", machineName);
-          selObj.appendChild(option)
-        });
-        var id_prefix = selObj.id.slice(0, selObj.id.lastIndexOf("-"));
-        var gpuCount = $(selObj).parent().parent().find("#" + id_prefix + "-GPU_per_node")[0];
-        var gpuType = $(selObj).parent().parent().find("#" + id_prefix + "-GPU_type")[0];
-        selObj.onchange = function () {
-          var newMachType = selObj.value;
-          machine_data = $.ajax({
-            url: "{% url 'api-instancetype-list' %}" + newMachType + "/?cluster={{ object.id }}&region=" + region + "&zone=" + zone,
-            type: "GET",
-            dataType: "json",
-            headers: { 'X-CSRFToken': $.cookie("csrftoken") }
-          }).done(function (data) {
-            oldGPUType = gpuType.value;
-            $(gpuType).empty();
-            accelerators = new Map(Object.entries(data.accelerators));
-            var accelRequired = (accelerators.size == 1) && ([...accelerators][0][1].min_count > 0);
-
-            if (!accelRequired) {
-              var option = document.createElement("option");
-              option.text = "None";
-              option.setAttribute("value", "");
-              gpuType.appendChild(option);
+    <script>
+        $(document).ready(function() {
+            console.log('Document is ready');
+        
+            function updateMachineAvailability() {
+                console.log('updateMachineAvailability called');
+                var cloudZoneInput = $('#id_cloud_zone').val();
+                var cloudRegionInput = $('#id_cloud_region').val();
+                var tier1Input = $('#id_tier1').is(':checked').toString();
+                var gpuTypeInput = $('#id_gpu_type').val();
+        
+                if (cloudZoneInput && cloudRegionInput) {
+                    $.ajax({
+                        url: "/fetch_machine_types/",
+                        type: "POST",
+                        data: {
+                            'region': cloudRegionInput,
+                            'zone': cloudZoneInput,
+                            'tier_1': tier1Input,
+                            'gpu_type': gpuTypeInput,
+                            'csrfmiddlewaretoken': $('[name=csrfmiddlewaretoken]').val()
+                        },
+                        dataType: "json",
+                        success: function(data) {
+                            console.log('Machine types fetched:', data.machine_types);
+                            var machineTypeSelect = $(".machine_type_select:visible");
+                            machineTypeSelect.empty();
+                            machineTypeSelect.append(new Option('Select a category', ''));
+                            $.each(data.machine_types, function(category, machines) {
+                                var optgroup = $('<optgroup>').attr('label', category);
+                                $.each(machines, function(i, machine) {
+                                    var option = $('<option>')
+                                        .text(machine.name)
+                                        .attr('value', machine.id)
+                                        .data('gpu_count', machine.gpu_count)
+                                        .data('gpu_type', machine.gpu_type)
+                                        .data('tier_1_compatible', machine.tier_1_compatible)
+                                        .data('local_ssd', machine.local_ssd)
+                                        .data('number_of_local_ssd_disks', machine.number_of_local_ssd_disks)
+                                        .data('placement_support', machine.placement_support);  // Include placement_support in data
+                                    optgroup.append(option);
+                                });
+                                machineTypeSelect.append(optgroup);
+                            });
+                        },
+                        error: function(xhr, status, error) {
+                            console.log('Error fetching machine types:', status, error);
+                            $(".machine_type_select:visible").each(function(pos, selObj) {
+                                $(selObj).empty();
+                                selObj.value = '';
+                            });
+                        }
+                    });
+                } else {
+                    console.log('Zone or region not set, skipping machine type update');
+                }
             }
-
-            accelerators.forEach(function (range, type, accels) {
-              var option = document.createElement("option");
-              option.text = type;
-              option.setAttribute("value", type);
-              gpuType.appendChild(option);
+        
+            function populateRegionsAndZones() {
+                console.log('populateRegionsAndZones called');
+                var selectedSubnet = $('#id_subnet').val();
+                var csrfToken = $('[name=csrfmiddlewaretoken]').val();
+        
+                console.log('selectedSubnet:', selectedSubnet);
+                console.log('csrfToken:', csrfToken);
+        
+                $.ajax({
+                    url: "/fetch_regions_zones/",
+                    type: "POST",
+                    data: {
+                        'subnet_id': selectedSubnet,
+                        'csrfmiddlewaretoken': csrfToken
+                    },
+                    dataType: "json",
+                    success: function(data) {
+                        console.log('Regions and zones fetched:', data);
+                        var regionSelect = $('#id_cloud_region');
+                        var zoneSelect = $('#id_cloud_zone');
+        
+                        // Clear the existing options
+                        regionSelect.empty();
+                        zoneSelect.empty();
+        
+                        // Populate the region select
+                        if (data.regions.length > 0) {
+                            $.each(data.regions, function(i, region) {
+                                regionSelect.append(new Option(region, region));
+                            });
+                            regionSelect.val(data.regions[0]);
+                        } else {
+                            regionSelect.append(new Option('', ''));
+                        }
+        
+                        // Populate the zone select
+                        if (data.zones && data.zones[data.regions[0]] && data.zones[data.regions[0]].length > 0) {
+                            $.each(data.zones[data.regions[0]], function(i, zone) {
+                                zoneSelect.append(new Option(zone, zone));
+                            });
+                            zoneSelect.val(data.zones[data.regions[0]][0]);
+                        } else {
+                            zoneSelect.append(new Option('', ''));
+                        }
+        
+                        updateMachineAvailability();
+                    },
+                    error: function(xhr, status, error) {
+                        console.log('Error fetching regions and zones:', status, error);
+                        var regionSelect = $('#id_cloud_region');
+                        var zoneSelect = $('#id_cloud_zone');
+        
+                        // Clear the existing options
+                        regionSelect.empty();
+                        zoneSelect.empty();
+        
+                        // Optionally, reset the values
+                        regionSelect.val('');
+                        zoneSelect.val('');
+                    }
+                });
+            }
+        
+            function handleMachineTypeChange() {
+                var selectedOption = $(this).find('option:selected');
+                var gpuCount = selectedOption.data('gpu_count');
+                var gpuType = selectedOption.data('gpu_type');
+                var tier1Compatible = selectedOption.data('tier_1_compatible');
+                var localSsd = selectedOption.data('local_ssd');
+                var numberOfLocalSsdDisks = selectedOption.data('number_of_local_ssd_disks');
+                var placementSupport = selectedOption.data('placement_support');  // Get placement_support
+        
+                console.log('Selected machine type:', selectedOption.text());
+                console.log('Data attributes:', {
+                    gpu_count: gpuCount,
+                    gpu_type: gpuType,
+                    tier_1_compatible: tier1Compatible,
+                    local_ssd: localSsd,
+                    number_of_local_ssd_disks: numberOfLocalSsdDisks,
+                    placement_support: placementSupport  // Log placement_support
+                });
+        
+                // Get the prefix of the current form
+                var prefix = $(this).attr('id').replace('id_', '').replace('machine_type', '');
+        
+                // Populate GPU fields
+                $('#id_' + prefix + 'GPU_per_node').val(gpuCount).prop('readonly', true);
+                $('#id_' + prefix + 'GPU_type').val(gpuType).prop('readonly', true);
+        
+                // Populate additional fields
+                $('#id_' + prefix + 'tier_1_compatible').prop('checked', tier1Compatible);
+                $('#id_' + prefix + 'local_ssd').val(localSsd);
+                $('#id_' + prefix + 'number_of_local_ssd_disks').val(numberOfLocalSsdDisks);
+        
+                // Hide GPU fields if no GPU
+                if (gpuCount == 0) {
+                    $('#id_' + prefix + 'GPU_per_node').parent().hide();
+                    $('#id_' + prefix + 'GPU_type').parent().hide();
+                } else {
+                    $('#id_' + prefix + 'GPU_per_node').parent().show();
+                    $('#id_' + prefix + 'GPU_type').parent().show();
+                }
+        
+                // Hide/Show placement support and tier1 networking fields
+                if (!tier1Compatible) {
+                    $('#id_' + prefix + 'enable_tier1_networking').parent().hide();
+                } else {
+                    $('#id_' + prefix + 'enable_tier1_networking').parent().show();
+                }
+        
+                if (!placementSupport) {
+                    $('#id_' + prefix + 'enable_placement').parent().hide();
+                } else {
+                    $('#id_' + prefix + 'enable_placement').parent().show();
+                }
+            }
+        
+            // Event binding
+            $('#id_subnet').change(function() {
+                populateRegionsAndZones();
+                // Clear machine type options
+                $(".machine_type_select").empty().append(new Option('Select a category', ''));
             });
-
-            gpuType.onchange = function () {
-              if (accelerators.has(gpuType.value)) {
-                gpuCount.readOnly = false;
-                gpuCount.min = accelerators.get(gpuType.value)['min_count'];
-                gpuCount.max = accelerators.get(gpuType.value)['max_count'];
-                if (gpuCount.value < gpuCount.min) {
-                  gpuCount.value = gpuCount.min;
-                }
-                if (gpuCount.value > gpuCount.max) {
-                  gpuCount.value = gpuCount.max;
-                }
-              } else {
-                gpuCount.min = gpuCount.max = gpuCount.value = 0;
-              }
-              if (gpuCount.min == gpuCount.max) {
-                gpuCount.readOnly = true;
-              }
-              $(gpuType).nextAll().remove();
-              if (newMachType.startsWith("n1-") && gpuType.value) {
-                $(gpuType).after('<p>WARNING: N1 instances with GPUs have strict limitations that are not checked in the Frontend.  Please see <a href="https://cloud.google.com/compute/docs/gpus">the docs</a></p>');
-              }
-            };
-            if (accelRequired) {
-              gpuType.value = [...accelerators][0][0];
-              gpuCount.value = [...accelerators][0][1].min_count;
-              gpuType.onchange();
-            } else if (accelerators.has(oldGPUType)) {
-              gpuType.value = oldGPUType;
-              gpuType.onchange();
-            } else {
-              gpuType.value = "";
-              gpuCount.value = 0;
-              gpuType.onchange();
-            }
-            gpuType.readOnly = (accelerators.size == 0);
-          });
-        };
-        selObj.value = curVal;
-        selObj.onchange();
-
-      });
-    });
-  }
-
-  function updateDiskAvailability() {
-    var cloudZoneInput = document.getElementById('id_cloud_zone');
-    var cloudRegionInput = document.getElementById('id_cloud_region');
-
-    if (!cloudZoneInput.readOnly) {
-      // If the field is not read-only, use select options
-      zone = cloudZoneInput.options[cloudZoneInput.selectedIndex].text;
-      region = cloudRegionInput.options[cloudRegionInput.selectedIndex].text;
-    } else {
-      // If the field is read-only, use the input values
-      zone = cloudZoneInput.value;
-      region = cloudRegionInput.value;
-    }
-
-    disk_info = $.ajax({
-      url: "{% url 'api-disktype-list' %}" + "?cluster={{ object.id }}&region=" + region + "&zone=" + zone,
-      type: "GET",
-      dataType: "json",
-      headers: { 'X-CSRFToken': $.cookie("csrftoken") }
-    }).done(function (data) {
-      $(".disk_type_select").each(function (pos, selObj) {
-        var curVal = selObj.value;
-        $(selObj).empty();
-
-        // This bit lets us restrict the disk types listed in the drop down menu for primary partitions
-        var additionalDisk = selObj.id.slice(0, selObj.id.lastIndexOf("_disk_type"));
-        if (additionalDisk.endsWith("additional")) {
-          $.each(data.disks, function (i, disk_info) {
-            var option = document.createElement("option");
-            option.text = disk_info.description;
-            option.setAttribute("value", disk_info.name);
-            selObj.appendChild(option);
-          });
-        } else {
-          $.each(data.disks, function (i, disk_info) {
-            if (disk_info.name === 'local-ssd' || disk_info.name.startsWith("pd-")) { // Only Persistent Disks
-              var option = document.createElement("option");
-              option.text = disk_info.description;
-              option.setAttribute("value", disk_info.name);
-              selObj.appendChild(option);
-            }
-          });
-        };
-        var id_prefix = selObj.id.slice(0, selObj.id.lastIndexOf("_disk_type"));
-        var disk_size_sel = $(selObj).parentsUntil("tbody").find("#" + id_prefix + "_disk_size")[0];
-        selObj.onchange = function () {
-          disk = data.disks.find(d => d.name == selObj.value);
-          disk_size_sel.min = disk.minSizeGB;
-          disk_size_sel.max = disk.maxSizeGB;
-          if (Number(disk_size_sel.value) < disk_size_sel.min) {
-            disk_size_sel.value = disk_size_sel.min;
-          } else if (Number(disk_size_sel.value) > disk_size_sel.max) {
-            disk_size_sel.value = disk_size_sel.max;
-          }
-        };
-        selObj.value = curVal;
-        selObj.onchange();
-      });
-    });
-  }
-  // Function to populate regions and zones based on the selected credential
-  function populateRegionsAndZones() {
-    // Get the selected credential value
-    var selectedCredential = document.getElementById('id_cloud_credential').value;
-    var subnetSelect = document.getElementById('id_subnet');
-    var subnetSelectText = subnetSelect.options[subnetSelect.selectedIndex].text;
-    // Extract the region from the selected subnet
-    var regionSubnet = subnetSelectText.split(' - ')[2]; // Assumes the region is always the third part after splitting
-
-    // Make the request to the backend
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/backend/get-regions/' + selectedCredential, true);
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        // Parse the response as JSON
-        var response = JSON.parse(xhr.responseText);
-
-        // Get the "Cloud region" and "Cloud zone" select elements
-        var regionSelect = document.getElementById('id_cloud_region');
-        var zoneSelect = document.getElementById('id_cloud_zone');
-
-        // Clear the existing options
-        regionSelect.innerHTML = '';
-
-        // Create a new option for the region
-        var regionOption = document.createElement('option');
-        regionOption.value = regionSubnet;
-        regionOption.text = regionSubnet;
-        regionSelect.appendChild(regionOption);
-
-        // Automatically select the corresponding region from the list
-        for (var i = 0; i < regionSelect.options.length; i++) {
-          if (regionSelect.options[i].value === regionSubnet) {
-            regionSelect.options[i].selected = true;
-            break;
-          }
-        }
-
-        // Attach an event listener to the "change" event of the "Cloud region" select element
-        regionSelect.addEventListener('change', function () {
-          var selectedRegion = regionSelect.value;
-
-          // Clear the existing options in the "Cloud zone" select element
-          zoneSelect.innerHTML = '';
-
-          // Get the zones for the selected region
-          var zones = response[selectedRegion];
-          for (var i = 0; i < zones.length; i++) {
-            var zone = zones[i];
-            var zoneOption = document.createElement('option');
-            zoneOption.value = zone;
-            zoneOption.text = zone;
-            zoneSelect.appendChild(zoneOption);
-          }
-
-          //Update node types and disk based on zone
-          updateMachineAvailability();
-          updateDiskAvailability();
-
+        
+            $('#id_cloud_zone').change(updateMachineAvailability);
+            $(document).on('change', '.machine_type_select', handleMachineTypeChange);
+        
+            // Initial population of regions and zones
+            populateRegionsAndZones();
         });
+    </script>    
 
-        // Trigger the "change" event to populate the initial "Cloud zone" options
-        regionSelect.dispatchEvent(new Event('change'));
-      }
-    };
-    xhr.send();
-  }
-
-  var subnetSelect = document.getElementById('id_subnet');
-  subnetSelect.addEventListener('change', populateRegionsAndZones);
-
-  function deletePartition(partitionId, row) {
-    $.ajax({
-      url: '/clusters/partition-delete/' + partitionId,
-      type: 'POST',
-      data: {
-        'csrfmiddlewaretoken': '{{ csrf_token }}',
-        'partition_id': partitionId
-      },
-      success: function(result) {
-        if (result.success) {
-          //alert('Partition deleted successfully.');
-          //$(parentRow).remove(); // Remove the entire row
-        } else {
-          alert('Error: ' + result.error);
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed; /* Add this line */
         }
-      },
-      error: function(xhr, status, error) {
-        alert('Error: ' + error.message);
-      }
-    });
-  }
+    
+        th,
+        td {
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            padding: 20px;
+            overflow: hidden; /* Add this to handle content overflow */
+        }
+    
+        .part_formset_row td {
+            vertical-align: top;
+        }
+    
+        /* Style the select fields to fit within the table cells */
+        select {
+            width: 100%;
+            box-sizing: border-box;
+        }
+    
+        /* Hide the default checkbox input */
+        .slider-switch input {
+            display: none;
+        }
+    
+        /* Style the slider container */
+        .slider-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+    
+        /* Style the slider itself */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+    
+        /* Style the slider's "on" state */
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+    
+        /* When the checkbox is checked, change the background color of the slider */
+        .slider-switch input:checked + .slider {
+            background-color: #2196F3;
+        }
+    
+        /* When the checkbox is checked, move the slider to the right */
+        .slider-switch input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+    
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: left;
+            gap: 10px;
+            width: 100%;
+        }
+    
+        /* Set column widths */
+        .table th.col-name, .table td.col-name { width: 10%; }
+        .table th.col-machine_type, .table td.col-machine_type { width: 15%; }
+        .table th.col-image, .table td.col-image { width: 10%; }
+        .table th.col-dynamic_node_count, .table td.col-dynamic_node_count { width: 10%; }
+        .table th.col-static_node_count, .table td.col-static_node_count { width: 10%; }
+        .table th.col-enable_placement, .table td.col-enable_placement { width: 5%; }
+        .table th.col-enable_hyperthreads, .table td.col-enable_hyperthreads { width: 5%; }
+        .table th.col-enable_tier1_networking, .table td.col-enable_tier1_networking { width: 5%; }
+        .table th.col-enable_node_reuse, .table td.col-enable_node_reuse { width: 5%; }
+        .table th.col-GPU_type, .table td.col-GPU_type { width: 10%; }
+        .table th.col-GPU_per_node, .table td.col-GPU_per_node { width: 10%; }
+        .table th.col-boot_disk_type, .table td.col-boot_disk_type { width: 10%; }
+        .table th.col-boot_disk_size, .table td.col-boot_disk_size { width: 10%; }
+        .table th.col-additional_disk_type, .table td.col-additional_disk_type { width: 10%; }
+        .table th.col-additional_disk_count, .table td.col-additional_disk_count { width: 10%; }
+        .table th.col-additional_disk_size, .table td.col-additional_disk_size { width: 10%; }
+        .table th.col-additional_disk_auto_delete, .table td.col-additional_disk_auto_delete { width: 5%; }
+        .table th.col-local_ssd, .table td.col-local_ssd { width: 10%; }
+        .table th.col-number_of_local_ssd_disks, .table td.col-number_of_local_ssd_disks { width: 10%; }
+        .table th.col-delete, .table td.col-delete { width: 5%; }
+    </style>
 
-  
-  $('.mp_formset_row').formset({
-    addText: 'add mount point',
-    /*addCssClass: 'add-row btn btn-info',*/
-    deleteText: 'remove',
-    /*deleteCssClass: 'delete-row btn btn-danger',*/
-    prefix: 'mount_points',
-    formCssClass: 'dynamic-mp',
-  });
-  $('.part_formset_row').formset({
-    addText: 'add partition',
-    deleteText: 'remove',
-    deleteCssClass: 'btn btn-danger delete-partition',
-    prefix: 'partitions',
-    formCssClass: 'dynamic-part',
-    added: function(row) {
-      updateMachineAvailability();
-      updateDiskAvailability();
-    }, // Called each time a new form is added
-    removed: function(row) {
-      var partitionId = $(row).children('td').eq(0).data('partition-id');
-      console.log("partitionId: ", partitionId);
-      if (partitionId !== 'new-cluster') {
-        deletePartition(partitionId, $(row));
-      }
-    }
-  });
-</script>
-
-{% if object.status == "r" %}
-<script>
-  // Wait for the document to be fully loaded before running the script
-  document.addEventListener('DOMContentLoaded', function () {
-    // Get all elements with the class "displayed"
-    var elements = document.getElementsByClassName('displayed');
-
-    // Loop through the elements and set their display property to "none"
-    for (var i = 0; i < elements.length; i++) {
-      elements[i].style.display = 'none';
-    }
-
-    updateDiskAvailability()
-    updateMachineAvailability()
-
-  });
-</script>
-{% endif %}
-
-<style>
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-
-  th,
-  td,
-  th {
-    background-color: #f2f2f2;
-    border: 1px solid #ddd;
-    padding: 20px;
-  }
-
-  .part_formset_row td {
-    vertical-align: top;
-  }
-
-  /* Style the select fields to fit within the table cells */
-  select {
-    width: 100%;
-    box-sizing: border-box;
-    /* Include padding and borders in the width */
-  }
-
-  /* Hide the default checkbox input */
-  .slider-switch input {
-    display: none;
-  }
-
-  /* Style the slider container */
-  .slider-switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-
-  /* Style the slider itself */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-    border-radius: 34px;
-  }
-
-  /* Style the slider's "on" state */
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-    border-radius: 50%;
-  }
-
-  /* When the checkbox is checked, change the background color of the slider */
-  .slider-switch input:checked+.slider {
-    background-color: #2196F3;
-  }
-
-  /* When the checkbox is checked, move the slider to the right */
-  .slider-switch input:checked+.slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-
-  .grid-container {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    /* Adjust column widths as needed */
-    align-items: left;
-    gap: 10px;
-    /* Adjust the gap as needed */
-    width: 100%;
-  }
-</style>
 {% endblock %}
